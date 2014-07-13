@@ -304,6 +304,7 @@
     <Compile Include="model\LigneCommande.cs" />
     <Compile Include="model\Menu.cs" />
     <Compile Include="model\Plat.cs" />
+    <Compile Include="model\Populeur.cs" />
     <Compile Include="model\Restaurant.cs" />
     <Compile Include="model\Restaurateur.cs" />
     <Compile Include="model\EnumTypeCompte.cs" />
@@ -317,66 +318,77 @@
     <Compile Include="mongoDB\MongoAccess.cs" />
     <Compile Include="presentation\AccueilClient.aspx.cs">
       <DependentUpon>AccueilClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\AccueilClient.aspx.designer.cs">
       <DependentUpon>AccueilClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\AccueilEntrepreneur.aspx.cs">
       <DependentUpon>AccueilEntrepreneur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\AccueilEntrepreneur.aspx.designer.cs">
       <DependentUpon>AccueilEntrepreneur.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\AccueilRestaurateur.aspx.cs">
       <DependentUpon>AccueilRestaurateur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\AccueilRestaurateur.aspx.designer.cs">
       <DependentUpon>AccueilRestaurateur.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\Client.aspx.cs">
       <DependentUpon>Client.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\Client.aspx.designer.cs">
       <DependentUpon>Client.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\Commande.aspx.cs">
       <DependentUpon>Commande.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\Commande.aspx.designer.cs">
       <DependentUpon>Commande.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\CompleterCommande.aspx.cs">
       <DependentUpon>CompleterCommande.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\CompleterCommande.aspx.designer.cs">
       <DependentUpon>CompleterCommande.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\MenuEtPlats.aspx.cs">
       <DependentUpon>MenuEtPlats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\MenuEtPlats.aspx.designer.cs">
       <DependentUpon>MenuEtPlats.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\Restaurant.aspx.cs">
       <DependentUpon>Restaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\Restaurant.aspx.designer.cs">
       <DependentUpon>Restaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\Restaurateur.aspx.cs">
       <DependentUpon>Restaurateur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\Restaurateur.aspx.designer.cs">
       <DependentUpon>Restaurateur.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="presentation\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -384,6 +396,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

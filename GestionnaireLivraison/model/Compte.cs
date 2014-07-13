@@ -33,6 +33,12 @@ namespace GestionnaireLivraison.model
         }
 
 
+
+        internal void Load()
+        {
+            Compte nouveauCompte = new Compte();
+            Populeur.populer(this, accesCompte.Select(this));
+        }
     }
 }
 

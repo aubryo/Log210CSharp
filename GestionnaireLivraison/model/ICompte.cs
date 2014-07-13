@@ -8,10 +8,8 @@ using MongoDB.Bson;
 
 namespace GestionnaireLivraison.model
 {
-    interface ICompte
+    interface ICompte : IMongoSavableObject 
     {
-
-        public ObjectId Id { get; set; }
 
         public string Nom { get; set; }
 

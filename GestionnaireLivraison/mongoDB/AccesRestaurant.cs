@@ -9,11 +9,15 @@ namespace GestionnaireLivraison.mongoDB
 {
     public class AccesRestaurant : Acces<Restaurant>
     {
-
         private const string TableName = "restaurants";
 
         public AccesRestaurant(String dataBase):base(dataBase, TableName)
         {
+        }
+
+        protected override IMongoQuery SetSelectQuery(Restaurant item)
+        {
+            return null;
         }
     }
 }

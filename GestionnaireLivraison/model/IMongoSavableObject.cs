@@ -7,8 +7,8 @@ using MongoDB.Bson;
 
 namespace GestionnaireLivraison.model
 {
-    interface IMongoSavableObject
+    public interface IMongoSavableObject
     {
-        public ObjectId Id;
+        ObjectId Id { get; set; }
     }
 }

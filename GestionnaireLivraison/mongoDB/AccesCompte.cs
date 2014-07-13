@@ -56,5 +56,10 @@ namespace GestionnaireLivraison.mongoDB
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
         }*/
+
+        protected override IMongoQuery SetSelectQuery(Compte item)
+        {
+            return !String.IsNullOrEmpty(item.Courriel) ? Query<Compte>.EQ(i => i.Courriel, item.Courriel) : Query<Compte>.EQ(i => i.Id, item.Id);
+        }
     }
 }

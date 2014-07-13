@@ -8,24 +8,24 @@ using MongoDB.Bson;
 
 namespace GestionnaireLivraison.model
 {
-    interface ICompte : IMongoSavableObject 
+    public interface ICompte : IMongoSavableObject 
     {
 
-        public string Nom { get; set; }
+        string Nom { get; set; }
 
-        public string Prenom { get; set; }
+        string Prenom { get; set; }
 
-        public DateTime DateNaissance { get; set; }
+        DateTime DateNaissance { get; set; }
 
-        public string NoTelephone { get; set; }
+        string NoTelephone { get; set; }
 
-        public ObjectId AdresseId { get; set; }
+        ObjectId AdresseId { get; set; }
 
-        public string Courriel { get; set; }  //Nom du compte
+        string Courriel { get; set; }  //Nom du compte
 
-        public string MotDePasse { get; set; }
+        string MotDePasse { get; set; }
 
-        public EnumTypeCompte TypeAccesCompte { get; set; }
+        EnumTypeCompte TypeCompte { get; set; }
 
 
     }

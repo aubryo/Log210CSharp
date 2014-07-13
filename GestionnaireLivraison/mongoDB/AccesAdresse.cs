@@ -66,5 +66,10 @@ namespace GestionnaireLivraison.mongoDB
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
         }*/
+
+        protected override IMongoQuery SetSelectQuery(Adresse item)
+        {
+            return null;
+        }
     }
 }

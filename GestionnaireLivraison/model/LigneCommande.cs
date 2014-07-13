@@ -23,6 +23,12 @@ namespace GestionnaireLivraison.model
 
         }
 
+        internal void Load()
+        {
+            LigneCommande nouveauCompte = new LigneCommande();
+            Populeur.populer(this, accesLigneCommande.Select(this));
+        }
+
        
     }
 }

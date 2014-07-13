@@ -22,10 +22,18 @@ namespace GestionnaireLivraison.model
         public ObjectId RestaurateurID { get; set; }
 
         private AccesRestaurant accesRestaurant;
+        private AccesMenu accesMenu;
 
         public Restaurant()
         {
             this.accesRestaurant = new AccesRestaurant(DataBases.Databases());
+            this.accesMenu = new AccesMenu(DataBases.Databases());
+        }
+
+        internal void Load()
+        {
+            Restaurant nouveauRestaurant = new Restaurant();
+            Populeur.populer(this, accesRestaurant.Select(this));
         }
     }
 

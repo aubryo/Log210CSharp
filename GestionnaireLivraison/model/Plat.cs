@@ -22,6 +22,12 @@ namespace GestionnaireLivraison.model
             this.accesPlat = new AccesPlat(DataBases.Databases()); 
 
         }
+
+        internal void Load()
+        {
+            Plat nouveauCompte = new Plat();
+            Populeur.populer(this, accesPlat.Select(this));
+        }
 	
     }
 }

@@ -17,6 +17,7 @@ namespace GestionnaireLivraison.model
 
         public string CodePostal { get; set; }
 
+        public ObjectId CompteId { get; set; }
         
     }
 }

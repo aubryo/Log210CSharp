@@ -5,7 +5,7 @@ using System.Web;
 
 namespace GestionnaireLivraison.model
 { 
-    public enum  EnumAccesCompte
+    public enum  EnumTypeCompte
     {
         Entrepreneur,
         Client,

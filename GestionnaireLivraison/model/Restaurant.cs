@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GestionnaireLivraison.mongoDB;
 using MongoDB.Bson;
 
 namespace GestionnaireLivraison.model
@@ -10,28 +11,21 @@ namespace GestionnaireLivraison.model
     {
 
         public ObjectId Id { get; set; }
-
-        public String Nom { get; set; }
-
-        public String NoTelephone { get; set; }
-
-        public String NoRue { get; set; }
-
-        public String CodePostal { get; set; }
-
-        public String NomRue { get; set; }
-
-        public String Website { get; set; }
-
-        public String Url { get; set; }
-
-        public String Description { get; set; }
-
+        public string Nom { get; set; }
+        public string NoTelephone { get; set; }
+        public string NoRue { get; set; }
+        public string CodePostal { get; set; }
+        public string NomRue { get; set; }
+        public string Website { get; set; }
+        public string Url { get; set; }
+        public string Description { get; set; }
         public ObjectId RestaurateurID { get; set; }
+
+        private AccesRestaurant accesRestaurant;
 
         public Restaurant()
         {
-
+            this.accesRestaurant = new AccesRestaurant(DataBases.Databases());
         }
     }
 

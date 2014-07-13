@@ -64,5 +64,6 @@ namespace GestionnaireLivraison.model
 	{
 		return new Restaurant();
 	}
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GestionnaireLivraison.mongoDB;
 using MongoDB.Bson;
 
 
@@ -10,12 +11,13 @@ namespace GestionnaireLivraison.model
     public class Entrepreneur : ICompte
     {
      
-       private Compte compte; 
+       private Compte compte;
+       private AccesCompte accesCompte;
 
 	public Entrepreneur(Compte compte) 
     {
         this.compte = compte;
-	
+        this.accesCompte = new AccesCompte(DataBases.Databases());
     }
 
 
@@ -118,15 +120,15 @@ namespace GestionnaireLivraison.model
         }
     }
 
-    public EnumAccesCompte AccesCompte
+    public EnumTypeCompte TypeCompte
     {
         get
         {
-            return AccesCompte;
+            return TypeCompte;
         }
         set
         {
-            compte.AccesCompte = value;
+            compte.TypeCompte = value;
         }
     }
 

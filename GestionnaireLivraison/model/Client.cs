@@ -8,6 +8,7 @@ namespace GestionnaireLivraison.model
 {
     public class Client : ICompte
     {
+        private Compte compte;
         public List<Commande> Commandes
         {
             get
@@ -18,7 +19,7 @@ namespace GestionnaireLivraison.model
 
         public Client(Compte compte)
         {
-
+            this.compte = compte;
         }
 
 
@@ -29,11 +30,11 @@ namespace GestionnaireLivraison.model
         {
             get
             {
-               return 
+                return compte.Id;
             }
             set
             {
-                throw new NotImplementedException();
+                compte.Id = value;
             }
         }
 
@@ -41,11 +42,11 @@ namespace GestionnaireLivraison.model
         {
             get
             {
-                throw new NotImplementedException();
+                return compte.Nom;
             }
             set
             {
-                throw new NotImplementedException();
+                compte.Nom = value;
             }
         }
 
@@ -53,11 +54,11 @@ namespace GestionnaireLivraison.model
         {
             get
             {
-                throw new NotImplementedException();
+                return compte.Prenom;
             }
             set
             {
-                throw new NotImplementedException();
+                compte.Prenom = value;
             }
         }
 
@@ -65,11 +66,11 @@ namespace GestionnaireLivraison.model
         {
             get
             {
-                throw new NotImplementedException();
+                return compte.DateNaissance;
             }
             set
             {
-                throw new NotImplementedException();
+                compte.DateNaissance = value;
             }
         }
 
@@ -77,11 +78,11 @@ namespace GestionnaireLivraison.model
         {
             get
             {
-                throw new NotImplementedException();
+                return  compte.NoTelephone;
             }
             set
             {
-                throw new NotImplementedException();
+                compte.NoTelephone = value;
             }
         }
 
@@ -89,11 +90,11 @@ namespace GestionnaireLivraison.model
         {
             get
             {
-                throw new NotImplementedException();
+                return compte.AdresseId;
             }
             set
             {
-                throw new NotImplementedException();
+                compte.AdresseId = value;
             }
         }
 
@@ -101,11 +102,11 @@ namespace GestionnaireLivraison.model
         {
             get
             {
-                throw new NotImplementedException();
+                return compte.Courriel;
             }
             set
             {
-                throw new NotImplementedException();
+                compte.Courriel = value;
             }
         }
 
@@ -113,23 +114,23 @@ namespace GestionnaireLivraison.model
         {
             get
             {
-                throw new NotImplementedException();
+                return compte.MotDePasse;
             }
             set
             {
-                throw new NotImplementedException();
+                compte.MotDePasse = value;
             }
         }
 
-        public EnumAccesCompte AccesCompte
+        public EnumTypeCompte TypeCompte
         {
             get
             {
-                throw new NotImplementedException();
+                return compte.TypeCompte;
             }
             set
             {
-                throw new NotImplementedException();
+                compte.TypeCompte = value;
             }
         }
 

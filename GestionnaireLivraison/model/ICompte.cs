@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GestionnaireLivraison.mongoDB;
 using MongoDB.Bson;
 
 namespace GestionnaireLivraison.model
@@ -26,7 +27,8 @@ namespace GestionnaireLivraison.model
 
         public string MotDePasse { get; set; }
 
-        public EnumAccesCompte AccesCompte { get; set; }
+        public EnumTypeCompte TypeAccesCompte { get; set; }
+
 
     }
 }

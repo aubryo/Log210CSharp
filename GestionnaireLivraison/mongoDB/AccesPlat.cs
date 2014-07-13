@@ -17,44 +17,24 @@ namespace GestionnaireLivraison.mongoDB
             db = MongoAccess.getDB(dataBase);
         }
 
-        /*
-        public Plat Select(Plat plat)
+        public List<Plat> Select(Menu menu)
         {
-            if (plat == null) return null;
+            if (menu == null) return new List<Plat>();
 
             var coll = db.GetCollection<Plat>(TableName);
-            var selectQuery = Query<Plat>.EQ(i => i.Id, plat.Id);
+            var selectQuery = Query<Plat>.EQ(i => i.MenuId, menu.Id);
+            var plats = coll.Find(selectQuery).ToList<Plat>();
+            return plats;
+        }
+
+        public Plat Select(LigneCommande ligneCommande)
+        {
+            if (ligneCommande == null) return null;
+
+            var coll = db.GetCollection<Plat>(TableName);
+            var selectQuery = Query<Plat>.EQ(i => i.Id, ligneCommande.PlatId);
             return coll.FindOne(selectQuery);
         }
-
-        public bool Insert(Plat plat)
-        {
-            if (plat == null) return false;
-            if (Select(plat) != null) return false;
-
-            var coll = db.GetCollection<Plat>(TableName);
-            var writeResult = coll.Insert(plat);
-            return writeResult.Ok;
-        }
-
-        public bool Update(Plat plat)
-        {
-            if (plat == null) return false;
-
-            var coll = db.GetCollection<Plat>(TableName);
-            var writeResult = coll.Save(plat);
-            return writeResult.Ok;
-        }
-
-        public bool Delete(Plat plat)
-        {
-            if (plat == null) return false;
-
-            var coll = db.GetCollection<Plat>(TableName);
-            var deleteQuery = Query<Plat>.EQ(i => i.Id, plat.Id);
-            var writeResult = coll.Remove(deleteQuery);
-            return writeResult.Ok;
-        }*/
 
         protected override IMongoQuery SetSelectQuery(Plat item)
         {

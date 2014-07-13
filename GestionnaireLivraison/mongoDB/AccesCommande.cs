@@ -16,44 +16,26 @@ namespace GestionnaireLivraison.mongoDB
         {
         }
 
-        /*
-        public Commande Select(Commande commande)
+        public List<Commande> Select(Restaurant restaurant)
         {
-            if (commande == null) return null;
+            if (restaurant == null) return new List<Commande>();
 
             var coll = db.GetCollection<Commande>(TableName);
-            var selectQuery = Query<Compte>.EQ(i => i.Id, commande.Id);
-            return coll.FindOne(selectQuery);
+            var selectQuery = Query<Commande>.EQ(i => i.RestaurantId, restaurant.Id);
+            var commandes = coll.Find(selectQuery).ToList<Commande>();
+            return commandes;
         }
 
-        public bool Insert(Commande commande)
+        public List<Commande> Select(Client client)
         {
-            if (commande == null) return false;
-            if (Select(commande) != null) return false;
+            if (client == null) return new List<Commande>();
 
             var coll = db.GetCollection<Commande>(TableName);
-            var writeResult = coll.Insert(commande);
-            return writeResult.Ok;
+            var selectQuery = Query<Commande>.EQ(i => i.ClientId, client.Id);
+            var commandes = coll.Find(selectQuery).ToList<Commande>();
+            return commandes;
         }
-
-        public bool Update(Commande adresse)
-        {
-            if (adresse == null) return false;
-
-            var coll = db.GetCollection<Commande>(TableName);
-            var writeResult = coll.Save(adresse);
-            return writeResult.Ok;
-        }
-
-        public bool Delete(Commande adresse)
-        {
-            if (adresse == null) return false;
-
-            var coll = db.GetCollection<Commande>(TableName);
-            var deleteQuery = Query<Commande>.EQ(i => i.Id, adresse.Id);
-            var writeResult = coll.Remove(deleteQuery);
-            return writeResult.Ok;
-        }*/
+           
 
         protected override IMongoQuery SetSelectQuery(Commande item)
         {

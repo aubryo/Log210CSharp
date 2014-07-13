@@ -10,8 +10,8 @@ namespace GestionnaireLivraison.model
     public class Menu : IMongoSavableObject 
     {
         public ObjectId Id { get; set; }
-        public String nom { get; set; }
-        public String idRestaurant { get; set; }
+        public string nom { get; set; }
+        public ObjectId RestaurantId { get; set; }
 
         private AccesPlat accesPlat;
         private AccesMenu accesMenu;

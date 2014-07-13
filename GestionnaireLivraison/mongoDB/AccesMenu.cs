@@ -17,44 +17,15 @@ namespace GestionnaireLivraison.mongoDB
         {
         }
 
-        /*
-        public Menu Select(Menu menu)
+        public List<Menu> Select(Restaurant restaurant)
         {
-            if (menu == null) return null;
+            if (restaurant == null) return new List<Menu>();
 
             var coll = db.GetCollection<Menu>(TableName);
-            var selectQuery = Query<Menu>.EQ(i => i.Id, menu.Id);
-            return coll.FindOne(selectQuery);
+            var selectQuery = Query<Menu>.EQ(i => i.RestaurantId, restaurant.Id);
+            var menus = coll.Find(selectQuery).ToList<Menu>();
+            return menus;
         }
-
-        public bool Insert(Menu menu)
-        {
-            if (menu == null) return false;
-            if (Select(menu) != null) return false;
-
-            var coll = db.GetCollection<Menu>(TableName);
-            var writeResult = coll.Insert(menu);
-            return writeResult.Ok;
-        }
-
-        public bool Update(Menu menu)
-        {
-            if (menu == null) return false;
-
-            var coll = db.GetCollection<Menu>(TableName);
-            var writeResult = coll.Save(menu);
-            return writeResult.Ok;
-        }
-
-        public bool Delete(Menu menu)
-        {
-            if (menu == null) return false;
-
-            var coll = db.GetCollection<Menu>(TableName);
-            var deleteQuery = Query<Menu>.EQ(i => i.Id, menu.Id);
-            var writeResult = coll.Remove(deleteQuery);
-            return writeResult.Ok;
-        }*/
 
         protected override IMongoQuery SetSelectQuery(Menu item)
         {

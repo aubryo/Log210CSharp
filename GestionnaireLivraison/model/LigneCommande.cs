@@ -11,8 +11,8 @@ namespace GestionnaireLivraison.model
     public class LigneCommande :IMongoSavableObject 
     {
         public ObjectId Id { get; set;  }
-        public ObjectId commandeId { get; set; }
-        public ObjectId platId { get; set; }
+        public ObjectId CommandeId { get; set; }
+        public ObjectId PlatId { get; set; }
         public int quantite { get; set; }
 
         private AccesLigneCommande accesLigneCommande;

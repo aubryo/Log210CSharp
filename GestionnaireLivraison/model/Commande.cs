@@ -16,11 +16,13 @@ namespace GestionnaireLivraison.model
         public string Statut { get; set; }   
         public DateTime DateLivraison { get; set; }  
         public ObjectId AdresseId { get; set; } 
-        public ObjectId  ClientId { get; set; }
+        public ObjectId ClientId { get; set; }
+        public ObjectId RestaurantId { get; set; }
 
         private AccesCommande accesCommande;
         private AccesLigneCommande accesLigneCommande;
         private AccesAdresse accesAdresse;
+        private AccesRestaurant accesRestaurant;
       
 
         public Commande()
@@ -28,6 +30,7 @@ namespace GestionnaireLivraison.model
             this.accesCommande = new AccesCommande(DataBases.Databases());
             this.accesLigneCommande = new AccesLigneCommande(DataBases.Databases());
             this.accesAdresse = new AccesAdresse(DataBases.Databases());
+            this.accesRestaurant = new AccesRestaurant(DataBases.Databases());
         }
 
         public List<Adresse> GetListClientAdresse()

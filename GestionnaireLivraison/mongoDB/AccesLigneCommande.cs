@@ -16,44 +16,15 @@ namespace GestionnaireLivraison.mongoDB
         {
         }
 
-        /*
-        public LigneCommande Select(LigneCommande ligneCommande)
+        public List<LigneCommande> Select(Commande commande)
         {
-            if (ligneCommande == null) return null;
+            if (commande == null) return new List<LigneCommande>();
 
             var coll = db.GetCollection<LigneCommande>(TableName);
-            var selectQuery = Query<LigneCommande>.EQ(i => i.Id, ligneCommande.Id);
-            return coll.FindOne(selectQuery);
+            var selectQuery = Query<LigneCommande>.EQ(i => i.CommandeId, commande.Id);
+            var ligneCommandes = coll.Find(selectQuery).ToList<LigneCommande>();
+            return ligneCommandes;
         }
-
-        public bool Insert(LigneCommande plat)
-        {
-            if (plat == null) return false;
-            if (Select(plat) != null) return false;
-
-            var coll = db.GetCollection<LigneCommande>(TableName);
-            var writeResult = coll.Insert(plat);
-            return writeResult.Ok;
-        }
-
-        public bool Update(LigneCommande plat)
-        {
-            if (plat == null) return false;
-
-            var coll = db.GetCollection<LigneCommande>(TableName);
-            var writeResult = coll.Save(plat);
-            return writeResult.Ok;
-        }
-
-        public bool Delete(LigneCommande plat)
-        {
-            if (plat == null) return false;
-
-            var coll = db.GetCollection<LigneCommande>(TableName);
-            var deleteQuery = Query<LigneCommande>.EQ(i => i.Id, plat.Id);
-            var writeResult = coll.Remove(deleteQuery);
-            return writeResult.Ok;
-        }*/
 
         protected override IMongoQuery SetSelectQuery(LigneCommande item)
         {

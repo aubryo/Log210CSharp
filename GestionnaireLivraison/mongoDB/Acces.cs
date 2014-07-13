@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GestionnaireLivraison.model;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
-    public class AccesMenu
+    public class Acces<T:IMongoSavableObject>
     {
         private MongoDatabase db;
 
-        private const string TableName = "menus";
+        private string tableName;
 
-        public AccesMenu(String dataBase)
+        public Acces(string dataBase, string tableName)
         {
             db = MongoAccess.getDB(dataBase);
+            this.tableName = tableName;
         }
 
-        public Menu Select(Menu menu)
+        public T Select(T item)
         {
-            if (menu == null) return null;
+            if (item == null) return null;
 
-            var coll = db.GetCollection<Menu>(TableName);
-            var selectQuery = Query<Menu>.EQ(i => i.Id, menu.Id);
+            var coll = db.GetCollection<T>(tableName);
+            var selectQuery = Query<T>.EQ(i => i.Id, item.Id);
             return coll.FindOne(selectQuery);
         }
 

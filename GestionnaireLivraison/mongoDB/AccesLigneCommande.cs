@@ -2,39 +2,59 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GestionnaireLivraison.model;
+using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
     public class AccesLigneCommande
     {
-        /*private MongoDatabase db;
+        private MongoDatabase db;
 
-        private const string TableName = "comptes";
-        private const string CourrielPropertyName = "Courriel";
+        private const string TableName = "ligneCommandes";
 
-        public AccesCompte(String dataBase)
+        public AccesLigneCommande(String dataBase)
         {
             db = MongoAccess.getDB(dataBase);
         }
 
-        public Compte Select(Compte compte)
+        public LigneCommande Select(LigneCommande ligneCommande)
         {
-            return null;
+            if (ligneCommande == null) return null;
+
+            var coll = db.GetCollection<LigneCommande>(TableName);
+            var selectQuery = Query<LigneCommande>.EQ(i => i.Id, ligneCommande.Id);
+            return coll.FindOne(selectQuery);
         }
 
-        public bool Insert(Compte compte)
+        public bool Insert(LigneCommande plat)
         {
-            return false;
+            if (plat == null) return false;
+            if (Select(plat) != null) return false;
+
+            var coll = db.GetCollection<LigneCommande>(TableName);
+            var writeResult = coll.Insert(plat);
+            return writeResult.Ok;
         }
 
-        public bool Update(Compte compte)
+        public bool Update(LigneCommande plat)
         {
-            return false;
+            if (plat == null) return false;
+
+            var coll = db.GetCollection<LigneCommande>(TableName);
+            var writeResult = coll.Save(plat);
+            return writeResult.Ok;
         }
 
-        public bool Delete(Compte compte)
+        public bool Delete(LigneCommande plat)
         {
-            return false;
-        }*/
+            if (plat == null) return false;
+
+            var coll = db.GetCollection<LigneCommande>(TableName);
+            var deleteQuery = Query<LigneCommande>.EQ(i => i.Id, plat.Id);
+            var writeResult = coll.Remove(deleteQuery);
+            return writeResult.Ok;
+        }
     }
 }

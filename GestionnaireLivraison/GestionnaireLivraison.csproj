@@ -301,12 +301,14 @@
     <Compile Include="model\Entrepreneur.cs" />
     <Compile Include="model\GestionnaireLivraison.cs" />
     <Compile Include="model\ICompte.cs" />
+    <Compile Include="model\IMongoSavableObject.cs" />
     <Compile Include="model\LigneCommande.cs" />
     <Compile Include="model\Menu.cs" />
     <Compile Include="model\Plat.cs" />
     <Compile Include="model\Restaurant.cs" />
     <Compile Include="model\Restaurateur.cs" />
     <Compile Include="model\EnumTypeCompte.cs" />
+    <Compile Include="mongoDB\Acces.cs" />
     <Compile Include="mongoDB\AccesAdresse.cs" />
     <Compile Include="mongoDB\AccesCommande.cs" />
     <Compile Include="mongoDB\AccesCompte.cs" />

@@ -22,10 +22,10 @@ namespace GestionnaireLivraison.mongoDB
 
         public Compte Select(Compte compte)
         {
-            if (compte == null || String.IsNullOrEmpty(compte.Courriel)) return null;
+            if (compte == null) return null;
 
             var coll = db.GetCollection<Compte>(TableName);
-            var selectQuery = Query<Compte>.EQ(c => c.Courriel, compte.Courriel);            
+            var selectQuery = !String.IsNullOrEmpty(compte.Courriel) ? Query<Compte>.EQ(i => i.Courriel, compte.Courriel) : Query<Compte>.EQ(i => i.Id, compte.Id);            
             return coll.FindOne(selectQuery);
         }
 
@@ -53,7 +53,7 @@ namespace GestionnaireLivraison.mongoDB
             if (compte == null || String.IsNullOrEmpty(compte.Courriel)) return false;
 
             var coll = db.GetCollection<Compte>(TableName);
-            var deleteQuery = Query<Compte>.EQ(c => c.Id, compte.Id);
+            var deleteQuery = Query<Compte>.EQ(i => i.Id, compte.Id);
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
         }

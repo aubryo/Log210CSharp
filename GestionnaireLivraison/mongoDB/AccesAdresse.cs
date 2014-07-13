@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using GestionnaireLivraison.model;
-using GestionnaireLivraison.model;
 using GestionnaireLivraison.mongoDB;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
@@ -26,7 +25,7 @@ namespace GestionnaireLivraison.mongoDB
             if (adresse == null) return null;
 
             var coll = db.GetCollection<Adresse>(TableName);
-            var selectQuery = Query<Adresse>.EQ(a => a.Id, adresse.Id);
+            var selectQuery = Query<Adresse>.EQ(i => i.Id, adresse.Id);
             return coll.FindOne(selectQuery);
         }
 
@@ -35,7 +34,7 @@ namespace GestionnaireLivraison.mongoDB
             if (compte == null) return null;
 
             var coll = db.GetCollection<Adresse>(TableName);
-            var selectQuery = Query<Adresse>.EQ(a => a.CompteId, compte.Id);
+            var selectQuery = Query<Adresse>.EQ(i => i.CompteId, compte.Id);
             var adresses = coll.Find(selectQuery).ToList<Adresse>();
             return adresses;
         }
@@ -64,7 +63,7 @@ namespace GestionnaireLivraison.mongoDB
             if (adresse == null) return false;
 
             var coll = db.GetCollection<Adresse>(TableName);
-            var deleteQuery = Query<Adresse>.EQ(c => c.Id, adresse.Id);
+            var deleteQuery = Query<Adresse>.EQ(i => i.Id, adresse.Id);
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
         }

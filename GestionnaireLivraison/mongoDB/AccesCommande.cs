@@ -2,39 +2,59 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GestionnaireLivraison.model;
+using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
     public class AccesCommande
     {
-       /* private MongoDatabase db;
+        private MongoDatabase db;
 
-        private const string TableName = "comptes";
-        private const string CourrielPropertyName = "Courriel";
+        private const string TableName = "commandes";
 
-        public AccesCompte(String dataBase)
+        public AccesCommande(String dataBase)
         {
             db = MongoAccess.getDB(dataBase);
         }
 
-        public Compte Select(Compte compte)
+        public Commande Select(Commande commande)
         {
-            return null;
+            if (commande == null) return null;
+
+            var coll = db.GetCollection<Commande>(TableName);
+            var selectQuery = Query<Compte>.EQ(i => i.Id, commande.Id);
+            return coll.FindOne(selectQuery);
         }
 
-        public bool Insert(Compte compte)
+        public bool Insert(Commande commande)
         {
-            return false;
+            if (commande == null) return false;
+            if (Select(commande) != null) return false;
+
+            var coll = db.GetCollection<Commande>(TableName);
+            var writeResult = coll.Insert(commande);
+            return writeResult.Ok;
         }
 
-        public bool Update(Compte compte)
+        public bool Update(Commande adresse)
         {
-            return false;
+            if (adresse == null) return false;
+
+            var coll = db.GetCollection<Commande>(TableName);
+            var writeResult = coll.Save(adresse);
+            return writeResult.Ok;
         }
 
-        public bool Delete(Compte compte)
+        public bool Delete(Commande adresse)
         {
-            return false;
-        }*/
+            if (adresse == null) return false;
+
+            var coll = db.GetCollection<Commande>(TableName);
+            var deleteQuery = Query<Commande>.EQ(i => i.Id, adresse.Id);
+            var writeResult = coll.Remove(deleteQuery);
+            return writeResult.Ok;
+        }
     }
 }

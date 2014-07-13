@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GestionnaireLivraison.model;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
@@ -10,32 +12,49 @@ namespace GestionnaireLivraison.mongoDB
     {
         private MongoDatabase db;
 
-        private const string TableName = "comptes";
-        private const string CourrielPropertyName = "Courriel";
+        private const string TableName = "plats";
 
-        /*public AccesCompte(String dataBase)
+        public AccesPlat(String dataBase)
         {
             db = MongoAccess.getDB(dataBase);
         }
 
-        public Compte Select(Compte compte)
+        public Plat Select(Plat plat)
         {
-            return null;
+            if (plat == null) return null;
+
+            var coll = db.GetCollection<Plat>(TableName);
+            var selectQuery = Query<Plat>.EQ(i => i.Id, plat.Id);
+            return coll.FindOne(selectQuery);
         }
 
-        public bool Insert(Compte compte)
+        public bool Insert(Plat plat)
         {
-            return false;
+            if (plat == null) return false;
+            if (Select(plat) != null) return false;
+
+            var coll = db.GetCollection<Plat>(TableName);
+            var writeResult = coll.Insert(plat);
+            return writeResult.Ok;
         }
 
-        public bool Update(Compte compte)
+        public bool Update(Plat plat)
         {
-            return false;
+            if (plat == null) return false;
+
+            var coll = db.GetCollection<Plat>(TableName);
+            var writeResult = coll.Save(plat);
+            return writeResult.Ok;
         }
 
-        public bool Delete(Compte compte)
+        public bool Delete(Plat plat)
         {
-            return false;
-        }*/
+            if (plat == null) return false;
+
+            var coll = db.GetCollection<Plat>(TableName);
+            var deleteQuery = Query<Plat>.EQ(i => i.Id, plat.Id);
+            var writeResult = coll.Remove(deleteQuery);
+            return writeResult.Ok;
+        }
     }
 }

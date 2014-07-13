@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="GestionnaireLivraison_LOG210.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="GestionnaireLivraison.Site1" %>
 
 <!DOCTYPE html>
 

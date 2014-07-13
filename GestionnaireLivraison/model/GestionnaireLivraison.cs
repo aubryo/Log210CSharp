@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Globalization;
 
-namespace GestionnaireLivraison_LOG210.model
+namespace GestionnaireLivraison.model
 {
     public class GestionnaireLivraison
     {

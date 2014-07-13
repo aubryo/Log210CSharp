@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GestionnaireLivraison_LOG210.presentation {
+namespace GestionnaireLivraison.presentation {
     
     
     public partial class Restaurant {

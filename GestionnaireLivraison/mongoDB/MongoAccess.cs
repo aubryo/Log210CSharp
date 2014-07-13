@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using MongoDB.Driver;
 
-namespace GestionnaireLivraison_LOG210.mongoDB
+namespace GestionnaireLivraison.mongoDB
 {
     public class MongoAccess
     {

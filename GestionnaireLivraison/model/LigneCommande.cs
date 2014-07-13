@@ -3,29 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Text;
+using MongoDB.Bson;
 
-namespace GestionnaireLivraison_LOG210.model
+namespace GestionnaireLivraison.model
 {
     public class LigneCommande
     {
 
-        public String id { get; set;  }
+        public ObjectId Id { get; set;  }
 
-        public Commande commande { get; set; }
+        public ObjectId commandeId { get; set; }
 
-        public Plat plat { get; set; }
+        public ObjectId platId { get; set; }
 
         public int quantite { get; set; }
 
         public LigneCommande()
-        { }
+        { 
 
-        public LigneCommande(Commande commande, Plat plat)
-        {
-            this.commande = commande;
-            this.plat = plat;
-            this.id = Guid.NewGuid().ToString();
-            
         }
+
+       
     }
 }

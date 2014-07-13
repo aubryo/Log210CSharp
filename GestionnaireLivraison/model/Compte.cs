@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GestionnaireLivraison.model;
 using MongoDB.Bson;
-using GestionnaireLivraison_LOG210.model;
 
-namespace GestionnaireLivraison_LOG210.model
+namespace GestionnaireLivraison.model
 {
-    public abstract class Compte : ICompte
+    public class Compte : ICompte
     {
         public ObjectId Id { get; set; }
 

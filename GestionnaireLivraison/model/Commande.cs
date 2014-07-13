@@ -5,7 +5,7 @@ using System.Web;
 using MongoDB.Bson;
 
 
-namespace GestionnaireLivraison_LOG210.model
+namespace GestionnaireLivraison.model
 {
     public class Commande
     {

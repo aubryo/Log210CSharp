@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GestionnaireLivraison_LOG210.model;
+using GestionnaireLivraison.model;
 using MongoDB.Driver;
 
-namespace GestionnaireLivraison_LOG210.mongoDB
+namespace GestionnaireLivraison.mongoDB
 {
     public class AccesCompte
     {

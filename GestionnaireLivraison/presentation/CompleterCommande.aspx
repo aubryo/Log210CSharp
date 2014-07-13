@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/presentation/Site1.Master" AutoEventWireup="true" CodeBehind="CompleterCommande.aspx.cs" Inherits="GestionnaireLivraison_LOG210.presentation.CompleterCommande" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/presentation/Site1.Master" AutoEventWireup="true" CodeBehind="CompleterCommande.aspx.cs" Inherits="GestionnaireLivraison.presentation.CompleterCommande" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">

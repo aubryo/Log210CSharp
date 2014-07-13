@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GestionnaireLivraison_LOG210 {
+namespace GestionnaireLivraison {
     
     
     public partial class Site1 {

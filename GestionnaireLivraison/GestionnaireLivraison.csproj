@@ -295,7 +295,7 @@
     <Compile Include="model\Adresse.cs" />
     <Compile Include="model\Client.cs" />
     <Compile Include="model\Commande.cs" />
-    <Compile Include="model\CommandeStatut.cs" />
+    <Compile Include="model\EnumCommandeStatut.cs" />
     <Compile Include="model\Compte.cs" />
     <Compile Include="model\Entrepreneur.cs" />
     <Compile Include="model\GestionnaireLivraison.cs" />
@@ -305,7 +305,7 @@
     <Compile Include="model\Plat.cs" />
     <Compile Include="model\Restaurant.cs" />
     <Compile Include="model\Restaurateur.cs" />
-    <Compile Include="model\TypeAccesCompte.cs" />
+    <Compile Include="model\EnumAccesCompte.cs" />
     <Compile Include="mongoDB\AccesAdresse.cs" />
     <Compile Include="mongoDB\AccesCommande.cs" />
     <Compile Include="mongoDB\AccesCompte.cs" />

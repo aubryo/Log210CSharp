@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson;
-using GestionnaireLivraison_LOG210.model;
 
 namespace GestionnaireLivraison.model
 {

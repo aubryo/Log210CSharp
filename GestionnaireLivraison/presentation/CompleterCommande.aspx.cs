@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace GestionnaireLivraison_LOG210.presentation
+namespace GestionnaireLivraison.presentation
 {
     public partial class CompleterCommande : System.Web.UI.Page
     {

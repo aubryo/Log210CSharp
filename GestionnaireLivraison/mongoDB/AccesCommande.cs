@@ -8,17 +8,15 @@ using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
-    public class AccesCommande
+    public class AccesCommande : Acces<Commande>
     {
-        private MongoDatabase db;
-
         private const string TableName = "commandes";
 
-        public AccesCommande(String dataBase)
+        public AccesCommande(String dataBase):base(dataBase, TableName)
         {
-            db = MongoAccess.getDB(dataBase);
         }
 
+        /*
         public Commande Select(Commande commande)
         {
             if (commande == null) return null;
@@ -55,6 +53,6 @@ namespace GestionnaireLivraison.mongoDB
             var deleteQuery = Query<Commande>.EQ(i => i.Id, adresse.Id);
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
-        }
+        }*/
     }
 }

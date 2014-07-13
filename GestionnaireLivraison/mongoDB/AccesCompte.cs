@@ -8,18 +8,17 @@ using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
-    public class AccesCompte
+    public class AccesCompte : Acces<Compte>
     {
-        private MongoDatabase db;
-
         private const string TableName = "comptes";
         private const string CourrielPropertyName = "Courriel";
 
-        public AccesCompte(String dataBase)
+        public AccesCompte(String dataBase): base(dataBase, TableName)
         {
             db = MongoAccess.getDB(dataBase);
         }
 
+        /*
         public Compte Select(Compte compte)
         {
             if (compte == null) return null;
@@ -56,6 +55,6 @@ namespace GestionnaireLivraison.mongoDB
             var deleteQuery = Query<Compte>.EQ(i => i.Id, compte.Id);
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
-        }
+        }*/
     }
 }

@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GestionnaireLivraison.model;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
-    public class Acces<T:IMongoSavableObject>
+    public abstract class Acces<T> where T : IMongoSavableObject
     {
-        private MongoDatabase db;
+        protected MongoDatabase db{get;set;}
 
         private string tableName;
 
@@ -21,38 +22,40 @@ namespace GestionnaireLivraison.mongoDB
 
         public T Select(T item)
         {
-            if (item == null) return null;
+            if (item == null) return default(T);
 
             var coll = db.GetCollection<T>(tableName);
-            var selectQuery = Query<T>.EQ(i => i.Id, item.Id);
+            var selectQuery = SetSelectQuery(item) ?? Query<T>.EQ(i => i.Id, item.Id);
             return coll.FindOne(selectQuery);
         }
 
-        public bool Insert(Menu menu)
-        {
-            if (menu == null) return false;
-            if (Select(menu) != null) return false;
+        protected abstract IMongoQuery SetSelectQuery(T item);
 
-            var coll = db.GetCollection<Menu>(TableName);
-            var writeResult = coll.Insert(menu);
+        public bool Insert(T item)
+        {
+            if (item == null) return false;
+            if (Select(item) != null) return false;
+
+            var coll = db.GetCollection<T>(tableName);
+            var writeResult = coll.Insert(item);
             return writeResult.Ok;
         }
 
-        public bool Update(Menu menu)
+        public bool Update(T item)
         {
-            if (menu == null) return false;
+            if (item == null) return false;
 
-            var coll = db.GetCollection<Menu>(TableName);
-            var writeResult = coll.Save(menu);
+            var coll = db.GetCollection<T>(tableName);
+            var writeResult = coll.Save(item);
             return writeResult.Ok;
         }
 
-        public bool Delete(Menu menu)
+        public bool Delete(T item)
         {
-            if (menu == null) return false;
+            if (item == null) return false;
 
-            var coll = db.GetCollection<Menu>(TableName);
-            var deleteQuery = Query<Menu>.EQ(i => i.Id, menu.Id);
+            var coll = db.GetCollection<T>(tableName);
+            var deleteQuery = Query<T>.EQ(i => i.Id, item.Id);
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
         }

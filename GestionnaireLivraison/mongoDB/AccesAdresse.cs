@@ -9,24 +9,13 @@ using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
-    public class AccesAdresse
+    public class AccesAdresse : Acces<Adresse>
     {
-        private MongoDatabase db;
-
         private const string TableName = "adresses";
 
-        public AccesAdresse(String dataBase)
+        public AccesAdresse(String dataBase):base(dataBase, TableName)
         {
             db = MongoAccess.getDB(dataBase);
-        }
-
-        public Adresse Select(Adresse adresse)
-        {
-            if (adresse == null) return null;
-
-            var coll = db.GetCollection<Adresse>(TableName);
-            var selectQuery = Query<Adresse>.EQ(i => i.Id, adresse.Id);
-            return coll.FindOne(selectQuery);
         }
 
         public List<Adresse> Select(ICompte compte)
@@ -37,6 +26,16 @@ namespace GestionnaireLivraison.mongoDB
             var selectQuery = Query<Adresse>.EQ(i => i.CompteId, compte.Id);
             var adresses = coll.Find(selectQuery).ToList<Adresse>();
             return adresses;
+        }
+
+        /*
+        public Adresse Select(Adresse adresse)
+        {
+            if (adresse == null) return null;
+
+            var coll = db.GetCollection<Adresse>(TableName);
+            var selectQuery = Query<Adresse>.EQ(i => i.Id, adresse.Id);
+            return coll.FindOne(selectQuery);
         }
 
         public bool Insert(Adresse adresse)
@@ -66,6 +65,6 @@ namespace GestionnaireLivraison.mongoDB
             var deleteQuery = Query<Adresse>.EQ(i => i.Id, adresse.Id);
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
-        }
+        }*/
     }
 }

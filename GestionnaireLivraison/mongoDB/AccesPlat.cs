@@ -8,17 +8,16 @@ using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
-    public class AccesPlat
+    public class AccesPlat : Acces<Plat>
     {
-        private MongoDatabase db;
-
         private const string TableName = "plats";
 
-        public AccesPlat(String dataBase)
+        public AccesPlat(String dataBase):base(dataBase, TableName)
         {
             db = MongoAccess.getDB(dataBase);
         }
 
+        /*
         public Plat Select(Plat plat)
         {
             if (plat == null) return null;
@@ -55,6 +54,6 @@ namespace GestionnaireLivraison.mongoDB
             var deleteQuery = Query<Plat>.EQ(i => i.Id, plat.Id);
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
-        }
+        }*/
     }
 }

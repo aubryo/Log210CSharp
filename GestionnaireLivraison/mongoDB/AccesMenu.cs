@@ -8,17 +8,16 @@ using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
-    public class AccesMenu
+    public class AccesMenu : Acces<Menu>
     {
-        private MongoDatabase db;
 
         private const string TableName = "menus";
 
-        public AccesMenu(String dataBase)
+        public AccesMenu(String dataBase):base(dataBase, TableName)
         {
-            db = MongoAccess.getDB(dataBase);
         }
 
+        /*
         public Menu Select(Menu menu)
         {
             if (menu == null) return null;
@@ -55,6 +54,6 @@ namespace GestionnaireLivraison.mongoDB
             var deleteQuery = Query<Menu>.EQ(i => i.Id, menu.Id);
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
-        }
+        }*/
     }
 }

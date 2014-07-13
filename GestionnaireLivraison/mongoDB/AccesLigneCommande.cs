@@ -8,17 +8,15 @@ using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
-    public class AccesLigneCommande
+    public class AccesLigneCommande: Acces<LigneCommande>
     {
-        private MongoDatabase db;
-
         private const string TableName = "ligneCommandes";
 
-        public AccesLigneCommande(String dataBase)
+        public AccesLigneCommande(String dataBase):base(dataBase, TableName)
         {
-            db = MongoAccess.getDB(dataBase);
         }
 
+        /*
         public LigneCommande Select(LigneCommande ligneCommande)
         {
             if (ligneCommande == null) return null;
@@ -55,6 +53,6 @@ namespace GestionnaireLivraison.mongoDB
             var deleteQuery = Query<LigneCommande>.EQ(i => i.Id, plat.Id);
             var writeResult = coll.Remove(deleteQuery);
             return writeResult.Ok;
-        }
+        }*/
     }
 }

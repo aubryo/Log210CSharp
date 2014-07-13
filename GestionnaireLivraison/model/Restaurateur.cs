@@ -8,9 +8,9 @@ namespace GestionnaireLivraison_LOG210.model
     public class Restaurateur : Compte
     {
 
-  //  public IAccesRestaurant accesRestaurant  { get; set; }
+ 
 	
-	/*public Restaurateur(IAccesRestaurant acces) : base(TypeAccesCompte.Restaurateur)
+	public Restaurateur(IAccesRestaurant acces) : base(EnumAccesCompte.Restaurateur)
     {
 		
 		if(acces == null) throw new ArgumentNullException("L'acces ne doit pas être nul");
@@ -22,7 +22,7 @@ namespace GestionnaireLivraison_LOG210.model
 		return accesRestaurant.selectRestaurants(this);
 	}
 	
-	public Restaurateur(): base(TypeAccesCompte.Restaurateur)    {
+	public Restaurateur(): base(EnumAccesCompte.Restaurateur)    {
 	
 	}
         */

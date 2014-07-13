@@ -299,6 +299,7 @@
     <Compile Include="model\Compte.cs" />
     <Compile Include="model\Entrepreneur.cs" />
     <Compile Include="model\GestionnaireLivraison.cs" />
+    <Compile Include="model\ICompte.cs" />
     <Compile Include="model\LigneCommande.cs" />
     <Compile Include="model\Menu.cs" />
     <Compile Include="model\Plat.cs" />

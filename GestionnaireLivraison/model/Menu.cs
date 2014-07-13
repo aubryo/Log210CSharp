@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MongoDB.Bson;
 
 namespace GestionnaireLivraison_LOG210.model
 {
@@ -9,15 +10,15 @@ namespace GestionnaireLivraison_LOG210.model
     {
        // public IAccesPlat accesPlat { get; set; }
 
-        public String id { get; set; }
+        public ObjectId Id { get; set; }
+   
         public String nom { get; set; }
         public String idRestaurant { get; set; }
 
-        public Menu() //throw new UnknownHostException
+        public Menu() 
         {
 
-         //   accesPlat = GestionnaireLivraison.accesPlat;
-            this.id = Guid.NewGuid().ToString();
+       
 
         }
     }

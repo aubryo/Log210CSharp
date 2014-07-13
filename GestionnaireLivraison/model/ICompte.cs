@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using GestionnaireLivraison.model;
+using System.Text;
+using System.Threading.Tasks;
 using MongoDB.Bson;
 using GestionnaireLivraison_LOG210.model;
 
-namespace GestionnaireLivraison_LOG210.model
+namespace GestionnaireLivraison.model
 {
-    public abstract class Compte : ICompte
+    interface ICompte
     {
+
         public ObjectId Id { get; set; }
 
         public string Nom { get; set; }
@@ -28,10 +29,5 @@ namespace GestionnaireLivraison_LOG210.model
 
         public EnumAccesCompte AccesCompte { get; set; }
 
-        public Compte()
-        {
-        }
-
     }
 }
-

@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MongoDB.Bson;
 
 namespace GestionnaireLivraison_LOG210.model
 {
     public class Plat
     {
-        public String id { get; set; }
+        public ObjectId Id { get; set; }
 
-        public String nom { get; set; }
+        public String Nom { get; set; }
 
-        public String description { get; set; }
+        public String Description { get; set; }
 
-        public double prix { get; set; }
+        public double Prix { get; set; }
 
-        public String idMenu { get; set; }
+        public ObjectId MenuId { get; set; }
 
         public Plat()
         {
-            id = Guid.NewGuid().ToString();
+            
         }
 	
     }

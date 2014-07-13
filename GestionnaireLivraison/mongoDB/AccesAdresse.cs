@@ -6,6 +6,7 @@ using GestionnaireLivraison.model;
 using GestionnaireLivraison.model;
 using GestionnaireLivraison.mongoDB;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 namespace GestionnaireLivraison.mongoDB
 {
@@ -14,7 +15,6 @@ namespace GestionnaireLivraison.mongoDB
         private MongoDatabase db;
 
         private const string TableName = "adresses";
-        private const string CompteIdPropertyName = "CompteId";
 
         public AccesAdresse(String dataBase)
         {
@@ -23,27 +23,50 @@ namespace GestionnaireLivraison.mongoDB
 
         public Adresse Select(Adresse adresse)
         {
-            return null;
+            if (adresse == null) return null;
+
+            var coll = db.GetCollection<Adresse>(TableName);
+            var selectQuery = Query<Adresse>.EQ(a => a.Id, adresse.Id);
+            return coll.FindOne(selectQuery);
         }
 
-        public Adresse Select(Compte compte)
+        public List<Adresse> Select(ICompte compte)
         {
-            return null;
+            if (compte == null) return null;
+
+            var coll = db.GetCollection<Adresse>(TableName);
+            var selectQuery = Query<Adresse>.EQ(a => a.CompteId, compte.Id);
+            var adresses = coll.Find(selectQuery).ToList<Adresse>();
+            return adresses;
         }
 
         public bool Insert(Adresse adresse)
         {
-            return false;
+            if (adresse == null) return false;
+            if (Select(adresse) != null) return false;
+
+            var coll = db.GetCollection<Adresse>(TableName);
+            var writeResult = coll.Insert(adresse);
+            return writeResult.Ok;
         }
 
         public bool Update(Adresse adresse)
         {
-            return false;
+            if (adresse == null) return false;
+
+            var coll = db.GetCollection<Adresse>(TableName);
+            var writeResult = coll.Save(adresse);
+            return writeResult.Ok;
         }
 
         public bool Delete(Adresse adresse)
         {
-            return false;
+            if (adresse == null) return false;
+
+            var coll = db.GetCollection<Adresse>(TableName);
+            var deleteQuery = Query<Adresse>.EQ(c => c.Id, adresse.Id);
+            var writeResult = coll.Remove(deleteQuery);
+            return writeResult.Ok;
         }
     }
 }

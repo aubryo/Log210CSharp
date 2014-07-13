@@ -7,7 +7,7 @@ using MongoDB.Bson;
 
 namespace GestionnaireLivraison.model
 {
-    public class Adresse
+    public class Adresse : IMongoSavableObject 
     {
 
         public ObjectId Id { get; set; }

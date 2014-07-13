@@ -8,7 +8,7 @@ using MongoDB.Bson;
 
 namespace GestionnaireLivraison.model
 {
-    public class Commande
+    public class Commande : IMongoSavableObject 
     {
         public ObjectId Id { get; set; }
         public string NoCommande { get; set; }

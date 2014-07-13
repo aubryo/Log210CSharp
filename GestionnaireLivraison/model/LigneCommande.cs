@@ -8,7 +8,7 @@ using GestionnaireLivraison.mongoDB;
 
 namespace GestionnaireLivraison.model
 {
-    public class LigneCommande
+    public class LigneCommande :IMongoSavableObject 
     {
         public ObjectId Id { get; set;  }
         public ObjectId commandeId { get; set; }

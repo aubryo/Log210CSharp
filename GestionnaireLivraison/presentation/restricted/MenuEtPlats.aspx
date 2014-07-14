@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/presentation/Site1.Master" AutoEventWireup="true" CodeBehind="MenuEtPlats.aspx.cs" Inherits="GestionnaireLivraison.presentation.MenuEtPlats" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
+    <script type="text/javascript">
+        /* Cas d'utilisation F5 3a.
+         * Si txtDescription.Text == "" avertire que le menu est sauvegarder sans description
+         */
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <asp:Label ID="lblTitre" runat="server" Text="Créer ou modifier un menu"></asp:Label>

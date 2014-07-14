@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/presentation/Site1.Master" AutoEventWireup="true" CodeBehind="Restaurateur.aspx.cs" Inherits="GestionnaireLivraison.presentation.Restaurateur" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
+    <script type="text/javascript">
+        /* Cas d'utilisation F8 2a.
+         * Si cblRestaurants.Checked == null avertire que le Restaurateur est sauvegarder sans restaurant(s)
+         */
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <asp:Label ID="lblTitre" runat="server" Text="Créer un compte restaurateur"></asp:Label>

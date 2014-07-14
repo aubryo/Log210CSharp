@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/presentation/Site1.Master" AutoEventWireup="true" CodeBehind="Restaurant.aspx.cs" Inherits="GestionnaireLivraison.presentation.Restaurant" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
     <script type="text/javascript">
+        /* Cas d'utilisation F1 3a.
+         * Si lbRestaurateur.selected == -1 avertire que le restaurant est sauvegarder sans restaurateur
+         */
 
     </script>
 </asp:Content>

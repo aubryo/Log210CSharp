@@ -10,9 +10,7 @@ namespace GestionnaireLivraison.model
     public static class GestionnaireLivraison
     {
 
-        private AccesCompte accesCompte;
- 
-
+     
 
 
 

@@ -28,5 +28,15 @@ namespace GestionnaireLivraison.presentation
         {
 
         }
+
+        protected void btnAjoutRestaurant_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAjoutRestorateur_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

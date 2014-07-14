@@ -45,7 +45,7 @@ namespace GestionnaireLivraison.model
             accesRestaurant.Update(this);
         }
 
-        public List<Menu> getMenu()
+        public List<Menu> GetMenus()
         {
             return accesMenu.Select(this);
         }
@@ -53,7 +53,14 @@ namespace GestionnaireLivraison.model
 
         public void Delete()
         {
-            
+            List<Menu> menus = GetMenus();
+            if (menus != null || menus.Count != 0)
+            {
+                foreach (Menu menu in menus)
+                {
+                    menu.Delete();
+                }
+            }
             accesRestaurant.Delete(this);
             
         }

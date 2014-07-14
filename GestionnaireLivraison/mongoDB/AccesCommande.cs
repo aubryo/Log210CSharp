@@ -29,10 +29,11 @@ namespace GestionnaireLivraison.mongoDB
             return commandes;
         }
 
-        public string NextNoCommande()
+        public int NextNoCommande()
         {
+            
             //todo return max NoCommande +1;
-            return "";
+            return 0;
         }
 
         public List<Commande> Select(Client client)

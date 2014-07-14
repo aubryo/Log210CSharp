@@ -20,7 +20,7 @@ namespace GestionnaireLivraison.controleur
 
         public static void modifierCompte(Client client)
         {
-            //todo client.Update();
+            client.Update();
         }
     }
 }

@@ -37,12 +37,12 @@ namespace GestionnaireLivraison.model
 
         public void Update()
         {
-
+            accesPlat.Update(this);
         }
 
         public void Delete()
         {
-
+            accesPlat.Delete(this);
         }
     }
 }

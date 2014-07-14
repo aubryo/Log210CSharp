@@ -11,7 +11,7 @@ namespace GestionnaireLivraison.model
     public class Commande : IMongoSavableObject 
     {
         public ObjectId Id { get; set; }
-        public string NoCommande { get; set; }
+        public int NoCommande { get; set; }
         public DateTime DateCreation { get; set; }
         public string Statut { get; set; }   
         public DateTime DateLivraison { get; set; }  
@@ -33,13 +33,18 @@ namespace GestionnaireLivraison.model
             this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
         }
 
-        public List<Adresse> GetListClientAdresse()
+        public List<Adresse> GetListClientAdresses()
         {
-            var compte = new Compte() {Id = ClientId };
-            
-            var adresses = accesAdresse.Select(compte);
+            var client = new Client(new Compte() {Id = ClientId });
+           
+            var adresses = accesAdresse.Select(client);
 
             return adresses;
+        }
+
+        public List<LigneCommande> GetListLigneCommande()
+        {
+            return accesLigneCommande.Select(this);
         }
 
         public void Select()
@@ -53,14 +58,28 @@ namespace GestionnaireLivraison.model
             accesCommande.Insert(this);
         }
 
-
+        
         public void Update()
         {
-
+            if (this.NoCommande == null)
+            {
+                this.NoCommande = accesCommande.NextNoCommande();
+            }
+            accesCommande.Update(this);
         }
 
         public void Delete()
         {
+            List<LigneCommande> lignesCommandes = GetListLigneCommande();
+            if (lignesCommandes != null || lignesCommandes.Count != 0)
+            {
+                foreach (LigneCommande ligneCommande in lignesCommandes)
+                {
+                    ligneCommande.Delete();
+                }
+            }
+            accesCommande.Delete(this);
+
 
         }
 

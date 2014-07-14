@@ -35,6 +35,12 @@ namespace GestionnaireLivraison.model
         {
             accesMenu.Insert(this);
         }
+
+        public List<Plat> GetPlats()
+        {
+            return accesPlat.Select(this);
+        }
+
        
 
         public void Update()
@@ -44,7 +50,16 @@ namespace GestionnaireLivraison.model
 
         public void Delete()
         {
-
+            List<Plat> plats = GetPlats();
+            if (plats != null || plats.Count != 0)
+            {
+                foreach (Plat plat in plats)
+                {
+                    plat.Delete();
+                }
+            }
+            accesMenu.Delete(this);
+            
         }
     }
 }

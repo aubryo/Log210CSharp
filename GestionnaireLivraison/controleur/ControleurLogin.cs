@@ -11,7 +11,7 @@ namespace GestionnaireLivraison.controleur
         public static ICompte ValidateUser(string courriel, string motDePasse)
         {
             var compte = new Compte() { Courriel = courriel };
-            compte.Load();
+            compte.Select();
             if (compte.MotDePasse.Equals(motDePasse))
                 return compte;
             else

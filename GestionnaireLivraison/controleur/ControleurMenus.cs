@@ -15,11 +15,11 @@ namespace GestionnaireLivraison.controleur
 
         public static void enregistrerMenu(Menu menu, List<Plat> plats)
         {
-            //TODO menu.Insert();
-            foreach (Plat p in plats)
+            menu.Insert();
+            foreach (Plat plat in plats)
             {
-                p.MenuId = menu.Id;
-                //TODO p.Update();
+                plat.MenuId = menu.Id;
+                plat.Update();
             }
         }
     }

@@ -18,5 +18,15 @@ namespace GestionnaireLivraison.presentation
         {
             vuesEntrepreneur.ActiveViewIndex = Int32.Parse(e.Item.Value);
         }
+
+        protected void lsRestaurant_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void lsRestaurateur_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+
+        }
     }
 }

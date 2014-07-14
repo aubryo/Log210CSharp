@@ -5,30 +5,66 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <div>
         <div>
-            <asp:label id="lblTitre" runat="server" text="Gestionnaire de livraison"></asp:label>
+            <asp:Label ID="lblTitre" runat="server" Text="Gestionnaire de livraison"></asp:Label>
             <br />
-            <asp:menu id="menuTabs" runat="server" orientation="Horizontal" onmenuitemclick="menuTabs_MenuItemClick">
+            <asp:Menu ID="menuTabs" runat="server" Orientation="Horizontal" OnMenuItemClick="menuTabs_MenuItemClick">
                 <Items>
                     <asp:MenuItem Text="Gérer les restaurants" Value="0"></asp:MenuItem>
                     <asp:MenuItem Text="Gérer les restaurateurs" Value="1"></asp:MenuItem>
                 </Items>
-            </asp:menu>
+            </asp:Menu>
         </div>
         <div>
-            <asp:multiview id="vuesEntrepreneur" runat="server" activeviewindex="0">
-                <asp:View id="tabRestaurant" runat="server">
-                    <asp:Label id="lblListRestaurants" runat="server" Text="List des restaurants"></asp:Label><br />
-                    <asp:GridView ID="gvRestaurant" runat="server">
-                    </asp:GridView><br />
-                    <asp:Button id="btnAjoutRestorant" runat="server" Text="Ajouter un restaurant"></asp:Button>
+            <asp:MultiView ID="vuesEntrepreneur" runat="server" ActiveViewIndex="0">
+                <asp:View ID="tabRestaurant" runat="server">
+                    <asp:Label ID="lblListRestaurants" runat="server" Text="List des restaurants"></asp:Label><br />
+                    <asp:ListView ID="lsRestaurant" runat="server" DataKeyNames="Id" OnItemCommand="lsRestaurant_ItemCommand">
+                        <LayoutTemplate>
+                            <ul id="itemPlaceholderContainer" runat="server" style="">
+                                <li runat="server" id="itemPlaceholder" />
+                            </ul>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <li>
+                                <asp:Label ID="lblRestaurantNom" runat="server" Text='<%# Eval("Nom") %>' />
+                            </li>
+                        </ItemTemplate>
+                        <SelectedItemTemplate>
+                            <li>
+                                <asp:Label ID="lblRestaurantNom" runat="server" Text='<%# Eval("Nom") %>' />
+                                <asp:Button ID="btnDelete" runat="server" Text="Supprimer" CommandArgument='<%# Eval("Id") %>'/>
+                                <asp:HyperLink ID="hlUpdate" runat="server" Text="Modifier" PostBackUrl='<%#"~/presentation/restricted/Restaurant.aspx?Id="+Eval("Id")%>'></asp:HyperLink>
+                            </li>
+                        </SelectedItemTemplate>
+                    </asp:ListView>
+                    <br />
+                    <asp:Button ID="btnAjoutRestorant" runat="server" Text="Ajouter un restaurant"></asp:Button>
                 </asp:View>
-                <asp:View id="tabRestaurateur" runat="server">
-                    <asp:Label id="lblListRestaurateurs" runat="server" Text="List des restaurants"></asp:Label><br />
-                    <asp:GridView ID="gvRestaurateur" runat="server">
-                    </asp:GridView><br />
-                    <asp:Button id="btnAjoutRestorateur" runat="server" Text="Ajouter un restaurant"></asp:Button>
+                <asp:View ID="tabRestaurateur" runat="server">
+                    <asp:Label ID="lblListRestaurateurs" runat="server" Text="List des restaurants"></asp:Label><br />
+                    <asp:ListView ID="lsRestaurateur" runat="server"DataKeyNames="Id" OnItemCommand="lsRestaurateur_ItemCommand">
+                        <LayoutTemplate>
+                            <ul id="itemPlaceholderContainer" runat="server" style="">
+                                <li runat="server" id="itemPlaceholder" />
+                            </ul>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <li>
+                                <asp:Label ID="lblRestaurateurNom" runat="server" Text='<%# Eval("Nom") %>' />
+                            </li>
+                        </ItemTemplate>
+                        <SelectedItemTemplate>
+                            <li>
+                                <asp:Label ID="lblRestaurateurNom" runat="server" Text='<%# Eval("Nom") %>' />
+                                <asp:Button ID="btnDelete" runat="server" Text="Supprimer" CommandArgument='<%# Eval("Id") %>'/>
+                                <asp:HyperLink ID="hlUpdate" runat="server" Text="Modifier" PostBackUrl='<%#"~/presentation/restricted/Restaurateur.aspx?Id="+Eval("Id")%>'></asp:HyperLink>
+                            </li>
+                        </SelectedItemTemplate>
+                    </asp:ListView>
+                    <br />
+                    <asp:Button ID="btnAjoutRestorateur" runat="server" Text="Ajouter un restaurant"></asp:Button>
                 </asp:View>
-        </asp:multiview>
+            </asp:MultiView>
         </div>
     </div>
 </asp:Content>

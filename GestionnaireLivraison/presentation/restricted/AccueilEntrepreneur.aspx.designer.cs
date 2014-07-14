@@ -58,13 +58,13 @@ namespace GestionnaireLivraison.presentation {
         protected global::System.Web.UI.WebControls.Label lblListRestaurants;
         
         /// <summary>
-        /// gvRestaurant control.
+        /// lsRestaurant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRestaurant;
+        protected global::System.Web.UI.WebControls.ListView lsRestaurant;
         
         /// <summary>
         /// btnAjoutRestorant control.
@@ -94,13 +94,58 @@ namespace GestionnaireLivraison.presentation {
         protected global::System.Web.UI.WebControls.Label lblListRestaurateurs;
         
         /// <summary>
-        /// gvRestaurateur control.
+        /// itemPlaceholderContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRestaurateur;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemPlaceholderContainer;
+        
+        /// <summary>
+        /// itemPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemPlaceholder;
+        
+        /// <summary>
+        /// lblRestaurateurNom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRestaurateurNom;
+        
+        /// <summary>
+        /// lblRestaurateurNom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRestaurateurNom;
+        
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
+        
+        /// <summary>
+        /// hlUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlUpdate;
         
         /// <summary>
         /// btnAjoutRestorateur control.

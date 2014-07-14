@@ -26,9 +26,16 @@ namespace GestionnaireLivraison.mongoDB
             return restaurants;
         }
 
+
+
         protected override IMongoQuery SetSelectQuery(Restaurant item)
         {
             return null;
+        }
+
+        public List<Restaurant> Select()
+        {
+            return null; //TODO
         }
     }
 }

@@ -61,7 +61,7 @@ namespace GestionnaireLivraison.model
         
         public void Update()
         {
-            if (this.NoCommande == null)
+            if (this.NoCommande == 0)
             {
                 this.NoCommande = accesCommande.NextNoCommande();
             }

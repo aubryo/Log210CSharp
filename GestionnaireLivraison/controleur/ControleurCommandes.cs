@@ -13,9 +13,10 @@ namespace GestionnaireLivraison.controleur
             return new Commande() { ClientId = client.Id };
         }
 
-        public static List<Restaurant> getRestaurants()
+        public static List<Restaurant> GetRestaurants()
         {
-            return null; //TODO GestionnaireLivraison.getRestaurants();
+            return GestionnaireLivraison.model.GestionnaireLivraison.GetRestaurants();
+                
         }
 
         public static void ajouterLigneCommande(Commande commande, Plat plat, int qty)

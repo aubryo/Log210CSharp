@@ -49,6 +49,15 @@ namespace GestionnaireLivraison {
         protected global::System.Web.UI.WebControls.Label lblAuthentifier;
         
         /// <summary>
+        /// btnDeconnection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDeconnection;
+        
+        /// <summary>
         /// cphMain control.
         /// </summary>
         /// <remarks>

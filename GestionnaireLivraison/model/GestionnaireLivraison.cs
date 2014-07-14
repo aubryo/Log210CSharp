@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Globalization;
+using GestionnaireLivraison.mongoDB;
 
 namespace GestionnaireLivraison.model
 {
-    public class GestionnaireLivraison
+    public static class GestionnaireLivraison
     {
-		
-	
-	private GestionnaireLivraison()
-	{
-        
-	}
+
+        private AccesCompte accesCompte;
+ 
+
 
 
 
@@ -60,9 +59,10 @@ namespace GestionnaireLivraison.model
 		}
 	}*/
 	
-	public static Restaurant getRestaurant()// throws UnknownHostException
-	{
-		return new Restaurant();
+	public static List<Restaurant> GetRestaurants()
+    {
+		AccesRestaurant accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
+        return accesRestaurant.Select();
 	}
 
     }

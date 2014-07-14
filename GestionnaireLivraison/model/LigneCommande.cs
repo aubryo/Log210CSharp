@@ -36,11 +36,12 @@ namespace GestionnaireLivraison.model
 
         public void Update()
         {
-
+            accesLigneCommande.Update(this);
         }
 
         public void Delete()
         {
+            accesLigneCommande.Delete(this);
 
         }
        

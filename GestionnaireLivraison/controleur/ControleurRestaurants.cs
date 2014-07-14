@@ -15,17 +15,17 @@ namespace GestionnaireLivraison.controleur
 
         public static void saisirInformationRestaurant(Restaurant restaurant)
         {
-            //TODO restaurant.Update();
+            restaurant.Update();
         }
 
         public static void supprimerRestaurant(Restaurant restaurant)
         {
-            //TODO restaurant.Delete();
+            restaurant.Delete();
         }
 
         public static Restaurant modifierRestaurant(Restaurant restaurant)
         {
-            restaurant.Load();
+            restaurant.Select();
             return restaurant;
         }
     }

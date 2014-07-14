@@ -35,9 +35,10 @@ namespace GestionnaireLivraison.model
 
     public void Delete()
     {
-        if (getRestaurants() != null)
+       List<Restaurant> restaurants = getRestaurants();
+        if (restaurants != null || restaurants.Count != 0)
         {
-            foreach (Restaurant restaurant in getRestaurants())
+            foreach (Restaurant restaurant in restaurants)
             {
                 restaurant.RestaurateurID = ObjectId.Empty;
                 restaurant.Update();

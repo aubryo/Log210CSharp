@@ -8,14 +8,19 @@ namespace GestionnaireLivraison.controleur
 {
     public static class ControleurComptesClient
     {
-        public static Client creerCompte()
+        public static Client ajouterCompte()
         {
-            return null;
+            return new Client(new Compte());
         }
 
         public static void saisirInformationCompte(Client client)
         {
             client.Insert();
+        }
+
+        public static void modifierCompte(Client client)
+        {
+            //todo client.Update();
         }
     }
 }

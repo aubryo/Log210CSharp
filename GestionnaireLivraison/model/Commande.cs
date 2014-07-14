@@ -35,8 +35,8 @@ namespace GestionnaireLivraison.model
 
         public List<Adresse> GetListClientAdresse()
         {
-            var compte = new Compte() {Id = ClientId };
-            var adresses = accesAdresse.Select(compte);
+            var client = new Client(new Compte() {Id = ClientId });
+            var adresses = accesAdresse.Select(client);
             return adresses;
         }
 

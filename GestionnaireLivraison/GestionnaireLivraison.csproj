@@ -291,6 +291,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="controleur\ControleurCommandes.cs" />
     <Compile Include="controleur\ControleurComptesClient.cs" />
+    <Compile Include="controleur\ControleurMenus.cs" />
     <Compile Include="controleur\ControleurRestaurants.cs" />
     <Compile Include="controleur\ControleurRestaurateurs.cs" />
     <Compile Include="Global.asax.cs">

@@ -31,14 +31,23 @@ namespace GestionnaireLivraison.model
         {
             return this.accesCompte;
         }
-
-
-
-        internal void Load()
+        
+        public void Load()
         {
             Compte nouveauCompte = new Compte();
             Populeur.populer(this, accesCompte.Select(this));
         }
+
+        public void Insert()
+        {
+            accesCompte.Insert(this);
+        }
+
+        public void Update()
+        {
+
+        }
+
     }
 }
 

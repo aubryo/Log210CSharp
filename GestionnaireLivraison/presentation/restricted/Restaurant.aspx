@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/presentation/Site1.Master" AutoEventWireup="true" CodeBehind="Restaurant.aspx.cs" Inherits="GestionnaireLivraison.presentation.Restaurant" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
+    <script type="text/javascript">
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <asp:Label ID="lblTitre" runat="server" Text="Créer un restaurant"></asp:Label>

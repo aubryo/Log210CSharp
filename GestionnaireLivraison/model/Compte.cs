@@ -23,7 +23,7 @@ namespace GestionnaireLivraison.model
 
         public Compte()
         {
-            this.accesCompte = new AccesCompte(DataBases.Databases());
+            this.accesCompte = new AccesCompte(DataBases.NomDataBase());
 
         }
 
@@ -32,10 +32,9 @@ namespace GestionnaireLivraison.model
             return this.accesCompte;
         }
         
-        public void Load()
+        public void Select()
         {
-            Compte nouveauCompte = new Compte();
-            Populeur.populer(this, accesCompte.Select(this));
+           Populeur.populer(this, accesCompte.Select(this));
         }
 
         public void Insert()
@@ -45,9 +44,16 @@ namespace GestionnaireLivraison.model
 
         public void Update()
         {
-
+            accesCompte.Update(this);
         }
 
+        public void Delete()
+        {
+            
+            accesCompte.Delete(this);
+        }
+
+        
     }
 }
 

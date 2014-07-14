@@ -27,17 +27,40 @@ namespace GestionnaireLivraison.model
 
         public Commande()
         {
-            this.accesCommande = new AccesCommande(DataBases.Databases());
-            this.accesLigneCommande = new AccesLigneCommande(DataBases.Databases());
-            this.accesAdresse = new AccesAdresse(DataBases.Databases());
-            this.accesRestaurant = new AccesRestaurant(DataBases.Databases());
+            this.accesCommande = new AccesCommande(DataBases.NomDataBase());
+            this.accesLigneCommande = new AccesLigneCommande(DataBases.NomDataBase());
+            this.accesAdresse = new AccesAdresse(DataBases.NomDataBase());
+            this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
         }
 
         public List<Adresse> GetListClientAdresse()
         {
             var compte = new Compte() {Id = ClientId };
-            var adresses = accesAdresse.Select(compte);
+            var client = new Client(compte);
+            var adresses = accesAdresse.Select(client);
             return adresses;
+        }
+
+        public void Select()
+        {
+            
+            Populeur.populer(this, accesCommande.Select(this));
+        }
+
+        public void Insert()
+        {
+            accesCommande.Insert(this);
+        }
+
+
+        public void Update()
+        {
+
+        }
+
+        public void Delete()
+        {
+
         }
 
     }

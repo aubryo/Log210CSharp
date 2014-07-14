@@ -19,15 +19,30 @@ namespace GestionnaireLivraison.model
 
         public Plat()
         {
-            this.accesPlat = new AccesPlat(DataBases.Databases()); 
+            this.accesPlat = new AccesPlat(DataBases.NomDataBase()); 
 
         }
 
-        internal void Load()
+        public void Select()
         {
-            Plat nouveauCompte = new Plat();
+          
             Populeur.populer(this, accesPlat.Select(this));
         }
-	
+
+        public void Insert()
+        {
+            accesPlat.Insert(this);
+        }
+       
+
+        public void Update()
+        {
+
+        }
+
+        public void Delete()
+        {
+
+        }
     }
 }

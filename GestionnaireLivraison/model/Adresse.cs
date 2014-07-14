@@ -24,15 +24,26 @@ namespace GestionnaireLivraison.model
 
         public Adresse()
         {
-            this.accesAdresse = new AccesAdresse(DataBases.Databases());
+            this.accesAdresse = new AccesAdresse(DataBases.NomDataBase());
         
         }
 
-        internal void Load()
+        public void Select()
         {
-            Adresse nouveauAdresse = new Adresse();
+           
             Populeur.populer(this, accesAdresse.Select(this));
         }
+
+        public void Insert()
+        {
+            accesAdresse.Insert(this);
+        }
+
+        public void Update()
+        {
+            accesAdresse.Update(this);
+        }
+
 
     }
 }

@@ -18,15 +18,33 @@ namespace GestionnaireLivraison.model
 
         public Menu() 
         {
-            this.accesPlat = new AccesPlat(DataBases.Databases());
-            this.accesMenu = new AccesMenu(DataBases.Databases());
+            this.accesPlat = new AccesPlat(DataBases.NomDataBase());
+            this.accesMenu = new AccesMenu(DataBases.NomDataBase());
 
         }
 
-        internal void Load()
+        public void Select()
         {
-            Menu nouveauMenu = new Menu();
+            
             Populeur.populer(this, accesMenu.Select(this));
+        }
+
+        
+
+        public void Insert()
+        {
+            accesMenu.Insert(this);
+        }
+       
+
+        public void Update()
+        {
+            accesMenu.Update(this);
+        }
+
+        public void Delete()
+        {
+
         }
     }
 }

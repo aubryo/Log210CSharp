@@ -19,16 +19,30 @@ namespace GestionnaireLivraison.model
 
         public LigneCommande()
         {
-            this.accesLigneCommande = new AccesLigneCommande(DataBases.Databases());
+            this.accesLigneCommande = new AccesLigneCommande(DataBases.NomDataBase());
 
         }
 
-        internal void Load()
+        public void Select()
         {
-            LigneCommande nouveauCompte = new LigneCommande();
-            Populeur.populer(this, accesLigneCommande.Select(this));
+          Populeur.populer(this, accesLigneCommande.Select(this));
         }
 
+        public void Insert()
+        {
+            accesLigneCommande.Insert(this);
+        }
+
+
+        public void Update()
+        {
+
+        }
+
+        public void Delete()
+        {
+
+        }
        
     }
 }

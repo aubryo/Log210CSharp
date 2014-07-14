@@ -23,18 +23,41 @@ namespace GestionnaireLivraison.model
 
         private AccesRestaurant accesRestaurant;
         private AccesMenu accesMenu;
-
+ 
         public Restaurant()
         {
-            this.accesRestaurant = new AccesRestaurant(DataBases.Databases());
-            this.accesMenu = new AccesMenu(DataBases.Databases());
+            this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
+            this.accesMenu = new AccesMenu(DataBases.NomDataBase());
         }
 
-        internal void Load()
+        public void Select()
         {
-            Restaurant nouveauRestaurant = new Restaurant();
-            Populeur.populer(this, accesRestaurant.Select(this));
+           Populeur.populer(this, accesRestaurant.Select(this));
         }
+
+        public void Insert()
+        {
+            accesRestaurant.Insert(this);
+        }
+
+        public void Update()
+        {
+            accesRestaurant.Update(this);
+        }
+
+        public List<Menu> getMenu()
+        {
+            return accesMenu.Select(this);
+        }
+
+
+        public void Delete()
+        {
+            
+            accesRestaurant.Delete(this);
+            
+        }
+
     }
 
 }

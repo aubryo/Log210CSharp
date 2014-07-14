@@ -8,7 +8,7 @@ namespace GestionnaireLivraison.model
     public static class DataBases
     {
 
-       public static string Databases(){
+       public static string NomDataBase(){
 		return "log210csharp";
        }
 	}

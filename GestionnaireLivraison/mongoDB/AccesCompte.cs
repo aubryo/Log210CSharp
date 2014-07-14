@@ -18,6 +18,15 @@ namespace GestionnaireLivraison.mongoDB
             db = MongoAccess.getDB(dataBase);
         }
 
+        public Compte Select(Restaurant restaurant)
+        {
+            if (restaurant == null) return null;
+
+            var coll = db.GetCollection<Compte>(TableName);
+            var selectQuery = Query<Compte>.EQ(i => i.Id, restaurant.RestaurateurID);
+            return coll.FindOne(selectQuery);
+        }
+
         protected override IMongoQuery SetSelectQuery(Compte item)
         {
             return !String.IsNullOrEmpty(item.Courriel) ? Query<Compte>.EQ(i => i.Courriel, item.Courriel) : Query<Compte>.EQ(i => i.Id, item.Id);

@@ -15,15 +15,36 @@ namespace GestionnaireLivraison.model
 	public Restaurateur(Compte compte)
     {
         this.compte = compte;
-        this.accesRestaurant = new AccesRestaurant(DataBases.Databases()); 
+        this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase()); 
 	}
 
 	public List<Restaurant> getRestaurants()
     {
-        return null;
+        return accesRestaurant.Select(this);
 	}
 
+    public void Select()
+    {
+        Populeur.populer(this, accesRestaurant.Select(this));
+    }
 
+    public void Update()
+    {
+        compte.Update();
+    }
+
+    public void Delete()
+    {
+        if (getRestaurants() != null)
+        {
+            foreach (Restaurant restaurant in getRestaurants())
+            {
+                restaurant.RestaurateurID = ObjectId.Empty;
+                restaurant.Update();
+            }
+        }
+        compte.Delete();
+    }
 
     #region ICompte Members
 

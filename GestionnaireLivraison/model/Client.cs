@@ -25,7 +25,17 @@ namespace GestionnaireLivraison.model
         public void Insert()
         {
             compte.Insert();
+        } 
+        
+        public void Update()
+        {
+            compte.Update();
         }
+
+
+      
+
+  
 
         #region ICompte Members
 

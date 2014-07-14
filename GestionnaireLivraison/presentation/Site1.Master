@@ -13,6 +13,7 @@
         <div style="background-color:aliceblue">
             <asp:Label ID="lblTitre" runat="server" Text="Gestionnaire de livraison"></asp:Label>
             <asp:Label ID="lblAuthentifier" runat="server" Text=""></asp:Label>
+            <asp:LinkButton ID="btnDeconnection" runat="server" Text="Se déconnecter" OnClick="btnDeconnection_Click"></asp:LinkButton>
         </div>
     <div>
         <asp:ContentPlaceHolder ID="cphMain" runat="server">

@@ -206,17 +206,18 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="packages.config" />
     <Content Include="presentation\Site1.Master" />
+    <Content Include="presentation\restricted\Web.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="presentation\AccueilClient.aspx" />
-    <Content Include="presentation\AccueilEntrepreneur.aspx" />
-    <Content Include="presentation\AccueilRestaurateur.aspx" />
+    <Content Include="presentation\restricted\AccueilClient.aspx" />
+    <Content Include="presentation\restricted\AccueilEntrepreneur.aspx" />
+    <Content Include="presentation\restricted\AccueilRestaurateur.aspx" />
     <Content Include="presentation\Client.aspx" />
-    <Content Include="presentation\Commande.aspx" />
-    <Content Include="presentation\CompleterCommande.aspx" />
+    <Content Include="presentation\restricted\Commande.aspx" />
+    <Content Include="presentation\restricted\CompleterCommande.aspx" />
     <Content Include="presentation\Login.aspx" />
-    <Content Include="presentation\MenuEtPlats.aspx" />
-    <Content Include="presentation\Restaurant.aspx" />
-    <Content Include="presentation\Restaurateur.aspx" />
+    <Content Include="presentation\restricted\MenuEtPlats.aspx" />
+    <Content Include="presentation\restricted\Restaurant.aspx" />
+    <Content Include="presentation\restricted\Restaurateur.aspx" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
@@ -291,6 +292,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="controleur\ControleurCommandes.cs" />
     <Compile Include="controleur\ControleurComptesClient.cs" />
+    <Compile Include="controleur\ControleurLogin.cs" />
     <Compile Include="controleur\ControleurMenus.cs" />
     <Compile Include="controleur\ControleurRestaurants.cs" />
     <Compile Include="controleur\ControleurRestaurateurs.cs" />
@@ -323,25 +325,25 @@
     <Compile Include="mongoDB\AccesPlat.cs" />
     <Compile Include="mongoDB\AccesRestaurant.cs" />
     <Compile Include="mongoDB\MongoAccess.cs" />
-    <Compile Include="presentation\AccueilClient.aspx.cs">
+    <Compile Include="presentation\restricted\AccueilClient.aspx.cs">
       <DependentUpon>AccueilClient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentation\AccueilClient.aspx.designer.cs">
+    <Compile Include="presentation\restricted\AccueilClient.aspx.designer.cs">
       <DependentUpon>AccueilClient.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentation\AccueilEntrepreneur.aspx.cs">
+    <Compile Include="presentation\restricted\AccueilEntrepreneur.aspx.cs">
       <DependentUpon>AccueilEntrepreneur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentation\AccueilEntrepreneur.aspx.designer.cs">
+    <Compile Include="presentation\restricted\AccueilEntrepreneur.aspx.designer.cs">
       <DependentUpon>AccueilEntrepreneur.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentation\AccueilRestaurateur.aspx.cs">
+    <Compile Include="presentation\restricted\AccueilRestaurateur.aspx.cs">
       <DependentUpon>AccueilRestaurateur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentation\AccueilRestaurateur.aspx.designer.cs">
+    <Compile Include="presentation\restricted\AccueilRestaurateur.aspx.designer.cs">
       <DependentUpon>AccueilRestaurateur.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\Client.aspx.cs">
@@ -351,18 +353,18 @@
     <Compile Include="presentation\Client.aspx.designer.cs">
       <DependentUpon>Client.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentation\Commande.aspx.cs">
+    <Compile Include="presentation\restricted\Commande.aspx.cs">
       <DependentUpon>Commande.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentation\Commande.aspx.designer.cs">
+    <Compile Include="presentation\restricted\Commande.aspx.designer.cs">
       <DependentUpon>Commande.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentation\CompleterCommande.aspx.cs">
+    <Compile Include="presentation\restricted\CompleterCommande.aspx.cs">
       <DependentUpon>CompleterCommande.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentation\CompleterCommande.aspx.designer.cs">
+    <Compile Include="presentation\restricted\CompleterCommande.aspx.designer.cs">
       <DependentUpon>CompleterCommande.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\Login.aspx.cs">
@@ -372,25 +374,25 @@
     <Compile Include="presentation\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentation\MenuEtPlats.aspx.cs">
+    <Compile Include="presentation\restricted\MenuEtPlats.aspx.cs">
       <DependentUpon>MenuEtPlats.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentation\MenuEtPlats.aspx.designer.cs">
+    <Compile Include="presentation\restricted\MenuEtPlats.aspx.designer.cs">
       <DependentUpon>MenuEtPlats.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentation\Restaurant.aspx.cs">
+    <Compile Include="presentation\restricted\Restaurant.aspx.cs">
       <DependentUpon>Restaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentation\Restaurant.aspx.designer.cs">
+    <Compile Include="presentation\restricted\Restaurant.aspx.designer.cs">
       <DependentUpon>Restaurant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentation\Restaurateur.aspx.cs">
+    <Compile Include="presentation\restricted\Restaurateur.aspx.cs">
       <DependentUpon>Restaurateur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentation\Restaurateur.aspx.designer.cs">
+    <Compile Include="presentation\restricted\Restaurateur.aspx.designer.cs">
       <DependentUpon>Restaurateur.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentation\Site1.Master.cs">

@@ -9,6 +9,6 @@
     <asp:Label ID="lblMotDePasse" runat="server" Text="Mot de passe : "></asp:Label>
     <asp:TextBox ID="txtMotDePasse" runat="server"></asp:TextBox>
     <br />
-    <asp:Button ID="btnLogin" runat="server" Text="Login" />
+    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
     <asp:Button ID="btnCreerCompte" runat="server" Text="Créer nouveau compte" />
 </asp:Content>

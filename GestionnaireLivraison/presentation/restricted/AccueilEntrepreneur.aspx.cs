@@ -13,10 +13,6 @@ namespace GestionnaireLivraison.presentation
         {
             if (!IsPostBack)
             {
-                lvRestaurant.DataSource = model.GestionnaireLivraison.GetRestaurants();
-                lvRestaurant.DataBind();
-                lvRestaurateur.DataSource = model.GestionnaireLivraison.GetRestaurateurs();
-                lvRestaurateur.DataBind();
             }
         }
 
@@ -25,16 +21,11 @@ namespace GestionnaireLivraison.presentation
             vuesEntrepreneur.ActiveViewIndex = Int32.Parse(e.Item.Value);
         }
 
-        protected void lvRestaurant_ItemCommand(object sender, ListViewCommandEventArgs e)
+        protected void lvRestaurant_SelectedIndexChanging(object sender, ListViewSelectEventArgs e)
         {
-            model.Restaurant restaurant = new model.Restaurant() { Id = e.CommandArgument.ToString().ToObjectId() };
-            restaurant.Delete();
-        }
+            lvRestaurant.DataSource = model.GestionnaireLivraison.GetRestaurants();
+            lvRestaurant.DataBind();
 
-        protected void lvRestaurateur_ItemCommand(object sender, ListViewCommandEventArgs e)
-        {
-            model.Restaurateur restaurateur = new model.Restaurateur(new model.Compte() { Id = e.CommandArgument.ToString().ToObjectId() });
-            restaurateur.Delete();
         }
     }
 }

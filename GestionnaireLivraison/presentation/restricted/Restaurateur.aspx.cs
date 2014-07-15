@@ -18,10 +18,6 @@ namespace GestionnaireLivraison.presentation
             string id = Request.QueryString["Id"];
             if (!IsPostBack)
             {
-                cblRestaurants.DataSource = model.GestionnaireLivraison.GetRestaurantsSansID();
-                cblRestaurants.DataValueField = "Id";
-                cblRestaurants.DataTextField = "Nom";
-                cblRestaurants.DataBind();
                 if (id != null)
                 {
                     model.Restaurateur restaurateur = new model.Restaurateur(new model.Compte() { Id = id.ToObjectId() });
@@ -81,7 +77,7 @@ namespace GestionnaireLivraison.presentation
             txtCourriel.Text = restaurateur.Courriel;
             txtMotDePasse.Text = restaurateur.MotDePasse;
 
-            foreach (var resto in restaurateur.getRestaurants())
+            foreach (var resto in restaurateur.GetRestaurants())
             {
                 cblRestaurants.Items.FindByValue(resto.Id.ToString()).Selected = true;
             }

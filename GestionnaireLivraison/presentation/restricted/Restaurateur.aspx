@@ -26,7 +26,7 @@
     <asp:TextBox ID="txtCodePostal" runat="server"></asp:TextBox>
     <br />
     <asp:Label ID="lblDDN" runat="server" Text="Date de naissance : "></asp:Label>
-    <asp:TextBox ID="txtDDN" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtDDN" runat="server"></asp:TextBox> &nbsp;YYYY-MM-DD
     <br />
     <asp:Label ID="lblNumeroTel" runat="server" Text="Numéro de téléphone : "></asp:Label>
     <asp:TextBox ID="txtNumeroTel" runat="server"></asp:TextBox>
@@ -38,7 +38,8 @@
     <asp:TextBox ID="txtMotDePasse" runat="server"></asp:TextBox>
     <br />
     <asp:Label ID="lblRestaurants" runat="server" Text="Restaurant(s) : "></asp:Label>
-    <asp:CheckBoxList ID="cblRestaurants" runat="server"></asp:CheckBoxList>
+    <asp:ObjectDataSource ID="odsRestaurant" runat="server" SelectMethod="GetRestaurantsSansRestaurateur" TypeName="GestionnaireLivraison.controleur.ControleurRestaurants"></asp:ObjectDataSource>
+    <asp:CheckBoxList ID="cblRestaurants" runat="server" DataValueField="Id" DataTextField="Nom" DataSourceID="odsRestaurant"></asp:CheckBoxList>
     <br />
     <asp:Button ID="btnCreerCompte" runat="server" Text="Créer compte" OnClick="btnCreerCompte_Click" />
 </asp:Content>

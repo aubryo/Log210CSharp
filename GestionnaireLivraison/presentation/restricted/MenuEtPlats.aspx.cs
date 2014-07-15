@@ -57,7 +57,6 @@ namespace GestionnaireLivraison.presentation
              else 
             {
             var resto = SaveMenu();
-
             Response.Redirect("~/presentation/restricted/AccueilRestaurateur.aspx?Id=" + resto.RestaurateurID.ToString(), true);
             }
         }

@@ -11,7 +11,7 @@ namespace GestionnaireLivraison.presentation
     {
         public static ObjectId ToObjectId(this string id)
         {
-            return new ObjectId(id);
+            return String.IsNullOrEmpty(id)? ObjectId.Empty: new ObjectId(id);
         }
     }
 }

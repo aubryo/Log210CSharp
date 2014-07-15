@@ -22,12 +22,7 @@
                             <asp:QueryStringParameter Name="id" QueryStringField="Id" Type="String" />
                         </SelectParameters>
                     </asp:ObjectDataSource>
-                    <asp:ObjectDataSource ID="odsMenu" runat="server" SelectMethod="GetMenus" TypeName="GestionnaireLivraison.controleur.ControleurMenus">
-                        <SelectParameters>
-                            <asp:ControlParameter ControlID="lvRestaurant" Name="id" PropertyName="SelectedValue" Type="String" />
-                        </SelectParameters>
-                    </asp:ObjectDataSource>
-                    <asp:ListView ID="lvRestaurant" runat="server" DataSourceID="odsRestaurant">
+                    <asp:ListView ID="lvRestaurant" runat="server" DataSourceID="odsRestaurant" DataKeyNames="Id">
                         <LayoutTemplate>
                             <ul id="itemPlaceholderContainer" runat="server" style="">
                                 <li runat="server" id="itemPlaceholder" />
@@ -43,7 +38,7 @@
                         </ItemSeparatorTemplate>
                         <ItemTemplate>
                             <li style="">
-                                <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
+                                <asp:LinkButton ID="btnNom" runat="server" Text='<%# Eval("Nom") %>' CommandName="Select"></asp:LinkButton>
                                 <br />
                             </li>
                         </ItemTemplate>
@@ -72,90 +67,35 @@
                                 Description:
                                 <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
                                 <br />
+                                <br />
+                                List des menus:
+                                <br />
+                                <asp:ObjectDataSource ID="odsMenu" runat="server" SelectMethod="GetMenus" TypeName="GestionnaireLivraison.controleur.ControleurMenus">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="lvRestaurant" Name="id" PropertyName="SelectedValue" Type="String" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>
+                                <asp:ListView ID="lvMenu" runat="server" DataSourceID="odsMenu" DataKeyNames="Id">
+                                    <LayoutTemplate>
+                                        <div id="itemPlaceholderContainer" runat="server" style="">
+                                            <span runat="server" id="itemPlaceholder" />
+                                        </div>
+                                        <div style="">
+                                        </div>
+                                    </LayoutTemplate>
+                                    <EmptyDataTemplate>
+                                        <span>No data was returned.</span>
+                                            <br />
+                                    </EmptyDataTemplate>
+                                    <ItemTemplate>
+                                        <span style="">
+                                            <asp:HyperLink ID="hlModifierMenu" runat="server" Text='<%# Eval("Nom") %>' NavigateUrl='<%#"~/presentation/restricted/MenuEtPlats.aspx?MId="+Eval("Id")%>'></asp:HyperLink>
+                                            <br />
+                                        </span>
+                                    </ItemTemplate>
+                                </asp:ListView>
+                                <asp:HyperLink ID="hlAjouterMenu" runat="server" Text="Ajouter un menu" NavigateUrl='<%#"~/presentation/restricted/MenuEtPlats.aspx?RId="+Eval("Id")%>'></asp:HyperLink>
                             </li>
-                        </SelectedItemTemplate>
-                    </asp:ListView>
-                    <asp:ListView ID="lvMenu" runat="server" DataSourceID="odsMenu">
-                        <LayoutTemplate>
-                            <div id="itemPlaceholderContainer" runat="server" style="">
-                                <span runat="server" id="itemPlaceholder" />
-                            </div>
-                            <div style="">
-                            </div>
-                        </LayoutTemplate>
-                        <AlternatingItemTemplate>
-                            <span style="">Id:
-                            <asp:Label ID="IdLabel" runat="server" Text='<%# Eval("Id") %>' />
-                            <br />
-                            Nom:
-                            <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
-                            <br />
-                            RestaurantId:
-                            <asp:Label ID="RestaurantIdLabel" runat="server" Text='<%# Eval("RestaurantId") %>' />
-                            <br />
-                            <br />
-                            </span>
-                        </AlternatingItemTemplate>
-                        <EditItemTemplate>
-                            <span style="">Id:
-                            <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
-                            <br />
-                            Nom:
-                            <asp:TextBox ID="NomTextBox" runat="server" Text='<%# Bind("Nom") %>' />
-                            <br />
-                            RestaurantId:
-                            <asp:TextBox ID="RestaurantIdTextBox" runat="server" Text='<%# Bind("RestaurantId") %>' />
-                            <br />
-                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                            <br />
-                            <br />
-                            </span>
-                        </EditItemTemplate>
-                        <EmptyDataTemplate>
-                            <span>No data was returned.</span>
-                        </EmptyDataTemplate>
-                        <InsertItemTemplate>
-                            <span style="">Id:
-                            <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
-                            <br />
-                            Nom:
-                            <asp:TextBox ID="NomTextBox" runat="server" Text='<%# Bind("Nom") %>' />
-                            <br />
-                            RestaurantId:
-                            <asp:TextBox ID="RestaurantIdTextBox" runat="server" Text='<%# Bind("RestaurantId") %>' />
-                            <br />
-                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                            <br />
-                            <br />
-                            </span>
-                        </InsertItemTemplate>
-                        <ItemTemplate>
-                            <span style="">Id:
-                            <asp:Label ID="IdLabel" runat="server" Text='<%# Eval("Id") %>' />
-                            <br />
-                            Nom:
-                            <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
-                            <br />
-                            RestaurantId:
-                            <asp:Label ID="RestaurantIdLabel" runat="server" Text='<%# Eval("RestaurantId") %>' />
-                            <br />
-                            <br />
-                            </span>
-                        </ItemTemplate>
-                        <SelectedItemTemplate>
-                            <span style="">Id:
-                            <asp:Label ID="IdLabel" runat="server" Text='<%# Eval("Id") %>' />
-                            <br />
-                            Nom:
-                            <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
-                            <br />
-                            RestaurantId:
-                            <asp:Label ID="RestaurantIdLabel" runat="server" Text='<%# Eval("RestaurantId") %>' />
-                            <br />
-                            <br />
-                            </span>
                         </SelectedItemTemplate>
                     </asp:ListView>
                     <br />

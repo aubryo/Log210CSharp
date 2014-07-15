@@ -67,15 +67,6 @@ namespace GestionnaireLivraison.presentation {
         protected global::System.Web.UI.WebControls.ObjectDataSource odsRestaurant;
         
         /// <summary>
-        /// odsMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsMenu;
-        
-        /// <summary>
         /// lvRestaurant control.
         /// </summary>
         /// <remarks>
@@ -83,14 +74,5 @@ namespace GestionnaireLivraison.presentation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvRestaurant;
-        
-        /// <summary>
-        /// lvMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvMenu;
     }
 }

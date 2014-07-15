@@ -35,9 +35,20 @@ namespace GestionnaireLivraison.controleur
             return model.GestionnaireLivraison.GetRestaurants();
         }
 
-        public static List<model.Restaurant> GetRestaurantsSansRestaurateur()
+        public static List<model.Restaurant> GetRestaurantsAffichable(string id)
         {
-            return model.GestionnaireLivraison.GetRestaurantsSansID();
+            model.Restaurateur restaurateur = new model.Restaurateur() { Id = new ObjectId(id) };
+            restaurateur.Select();
+            var restos = restaurateur.GetRestaurants();
+            restos.AddRange(model.GestionnaireLivraison.GetRestaurantsSansID());
+            return restos;
+        }
+
+        public static List<model.Restaurant> GetRestaurants(string id)
+        {
+            model.Restaurateur restaurateur = new model.Restaurateur() { Id = new ObjectId(id) };
+            restaurateur.Select();
+            return restaurateur.GetRestaurants();
         }
 
         public static void DeleteRestaurant(string id)

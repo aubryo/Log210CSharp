@@ -32,10 +32,21 @@ namespace GestionnaireLivraison.model
         {
             return this.accesCompte;
         }
-        
+
         public void Select()
         {
-           Populeur.populer(this, accesCompte.Select(this));
+            var newdata = accesCompte.Select(this);
+            this.Id = newdata.Id;
+            this.Nom = newdata.Nom;
+            this.Prenom = newdata.Prenom;
+            this.DateNaissance = newdata.DateNaissance;
+            this.NoTelephone = newdata.NoTelephone;
+            this.AdresseId = newdata.AdresseId;
+            this.Courriel = newdata.Courriel;
+            this.MotDePasse = newdata.MotDePasse;
+            this.TypeCompte = newdata.TypeCompte;
+
+            //Populeur.populer(this, accesCompte.Select(this));
         }
 
         public void Insert()
@@ -54,7 +65,7 @@ namespace GestionnaireLivraison.model
             {
                 Adresse adresse = this.accesAdresse.Select(this);
                 adresse.Delete();
-                
+
             }
             accesCompte.Delete(this);
         }

@@ -38,8 +38,13 @@
     <asp:TextBox ID="txtMotDePasse" runat="server"></asp:TextBox>
     <br />
     <asp:Label ID="lblRestaurants" runat="server" Text="Restaurant(s) : "></asp:Label>
-    <asp:ObjectDataSource ID="odsRestaurant" runat="server" SelectMethod="GetRestaurantsSansRestaurateur" TypeName="GestionnaireLivraison.controleur.ControleurRestaurants"></asp:ObjectDataSource>
-    <asp:CheckBoxList ID="cblRestaurants" runat="server" DataValueField="Id" DataTextField="Nom" DataSourceID="odsRestaurant"></asp:CheckBoxList>
+    <asp:ObjectDataSource ID="odsRestaurant" runat="server" SelectMethod="GetRestaurantsAffichable" TypeName="GestionnaireLivraison.controleur.ControleurRestaurants">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="id" QueryStringField="Id" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:CheckBoxList ID="cblRestaurants" runat="server" DataValueField="Id" DataTextField="Nom" DataSourceID="odsRestaurant" OnDataBound="cblRestaurants_DataBound"></asp:CheckBoxList>
     <br />
     <asp:Button ID="btnCreerCompte" runat="server" Text="Créer compte" OnClick="btnCreerCompte_Click" />
+    <asp:HiddenField ID="hfSelectedResto" runat="server" />
 </asp:Content>

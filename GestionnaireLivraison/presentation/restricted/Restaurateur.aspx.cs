@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionnaireLivraison.controleur;
+using MongoDB.Bson;
 
 namespace GestionnaireLivraison.presentation
 {
@@ -76,10 +77,11 @@ namespace GestionnaireLivraison.presentation
             txtNumeroTel.Text = restaurateur.NoTelephone;
             txtCourriel.Text = restaurateur.Courriel;
             txtMotDePasse.Text = restaurateur.MotDePasse;
-
+            
+            hfSelectedResto.Value = "";
             foreach (var resto in restaurateur.GetRestaurants())
             {
-                cblRestaurants.Items.FindByValue(resto.Id.ToString()).Selected = true;
+                hfSelectedResto.Value += resto.Id.ToString() + ",";
             }
         }
 
@@ -111,6 +113,12 @@ namespace GestionnaireLivraison.presentation
             restaurateur.AdresseId = adresse.Id;
             restaurateur.Update();
 
+            foreach (var resto in restaurateur.GetRestaurants())
+            {
+                resto.RestaurateurID = ObjectId.Empty;
+                resto.Update();
+            }
+
             foreach (ListItem item in cblRestaurants.Items)
             {
                 if (item.Selected)
@@ -123,6 +131,16 @@ namespace GestionnaireLivraison.presentation
             }
 
             Response.Redirect("~/presentation/restricted/AccueilEntrepreneur.aspx", true);
+        }
+
+        protected void cblRestaurants_DataBound(object sender, EventArgs e)
+        {
+            string[] restoIds = hfSelectedResto.Value.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var id in restoIds)
+            {
+                var item = cblRestaurants.Items.FindByValue(id);
+                if (item != null) item.Selected = true;
+            }
         }
     }
 }

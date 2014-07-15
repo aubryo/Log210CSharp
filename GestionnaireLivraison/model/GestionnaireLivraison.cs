@@ -33,14 +33,27 @@ namespace GestionnaireLivraison.model
             /* TODO check compte by type for entrepreneur
              * if count == 0 add a default entrepreneur             * 
              */
+            AccesCompte accesCompte = new AccesCompte(DataBases.NomDataBase());
+            if (!accesCompte.EntrepreneurExiste())
+            {
+                Compte nouveauEntrepreneur = new Compte();
+                nouveauEntrepreneur.MotDePasse = "admin";
+                nouveauEntrepreneur.Nom = "Marley";
+                nouveauEntrepreneur.NoTelephone = "999-9999";
+                nouveauEntrepreneur.Prenom = "Bob";
+                nouveauEntrepreneur.TypeCompte = EnumTypeCompte.Entrepreneur;
+                nouveauEntrepreneur.Courriel = "entrepreneur@gmail.com";
+                nouveauEntrepreneur.DateNaissance = new DateTime(2014,03,02) ;
+                accesCompte.Insert(nouveauEntrepreneur);
+            }
         }
 
         public static bool IsCourrielUnique(string courriel)
         {
-            /* TODO faire une methode qui retourne vrai si le courriel n'est pas dans la DB
-             * 
-             * */
-            return false;
+  
+            AccesCompte accesCompte = new AccesCompte(DataBases.NomDataBase());
+            return accesCompte.CourrielUnique(courriel);
+   
         }
 
     }

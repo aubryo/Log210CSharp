@@ -33,22 +33,48 @@ namespace GestionnaireLivraison.presentation
         {
             int cnt = lvPlat.Items.Count();
             var plat = new ListViewDataItem(cnt, cnt);
+            if (txtDescription.Text == ""&&txtNomPlat.Text!=""&&txtPrix.Text!="")
+            {
+                lblState.Text = "Aucune description!";
+                lblState.ForeColor = System.Drawing.Color.Red;
+            
+            
             plat.DataItem = new model.Plat(){Id = MongoDB.Bson.ObjectId.Empty ,Nom = txtNomPlat.Text, Prix = Double.Parse(txtPrix.Text), Description = txtDescription.Text};
             lvPlat.Items.Add(plat);
+            }
+            else if(txtNomPlat.Text==""||txtPrix.Text=="")
+                {
+                    lblState.Text = "Pas de prix ou/et de nom entré!";
+        }
         }
 
         protected void btnSaveAndReturn_Click(object sender, EventArgs e)
         {
+            if (txtNomMenu.Text == "")
+            {
+                lblState.Text = "ATTENTION! Vous avez besoin d'un nom de menu !";
+            }
+             else 
+            {
             var resto = SaveMenu();
 
             Response.Redirect("~/presentation/restricted/AccueilRestaurateur.aspx?Id=" + resto.RestaurateurID.ToString(), true);
+            }
         }
 
         protected void SaveAndNewMenu_Click(object sender, EventArgs e)
         {
+            if(txtNomMenu.Text=="")
+            {
+                lblState.Text = "ATTENTION! Vous avez besoin d'un nom de menu !";
+            }
+            else 
+            {
             var resto = SaveMenu();
             Response.Redirect("~/presentation/restricted/MenuEtPlats.aspx?RId=" + resto.Id, true);
+           }
         }
+        
 
         private model.Restaurant SaveMenu()
         {

@@ -28,5 +28,12 @@ namespace GestionnaireLivraison.model
             return accesCompte.SelectAllRestaurateurs();
         }
 
+        public static void SetEntrepreneurFirstTime()
+        {
+            /* TODO check compte by type for entrepreneur
+             * if count == 0 add a default entrepreneur             * 
+             */
+        }
+
     }
 }

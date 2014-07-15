@@ -12,7 +12,7 @@ namespace GestionnaireLivraison.model
         public static List<Restaurant> GetRestaurants()
         {
             AccesRestaurant accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
-            return accesRestaurant.Select();
+            return accesRestaurant.SelectAllRestaurants();
         }
 
 

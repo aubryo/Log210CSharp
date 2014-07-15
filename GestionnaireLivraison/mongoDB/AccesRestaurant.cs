@@ -40,9 +40,13 @@ namespace GestionnaireLivraison.mongoDB
             return null;
         }
 
-        public List<Restaurant> Select()
+        public List<Restaurant> SelectAllRestaurants()
         {
-            return null; //TODO
+             var coll = db.GetCollection<Restaurant>(TableName);
+            var selectQuery = Query<Restaurant>.NE(i => i.Id, ObjectId.Empty);
+            var restaurants = coll.Find(selectQuery).ToList<Restaurant>();
+            return restaurants;
+         
         }
     }
 }

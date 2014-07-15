@@ -49,7 +49,7 @@ namespace GestionnaireLivraison.model
 
         public void Delete()
         {
-            
+            //TODO delete adresse from adresseId and all adresse.CompteId == to compte.Id
             accesCompte.Delete(this);
         }
 

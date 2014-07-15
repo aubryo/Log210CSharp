@@ -23,13 +23,13 @@ namespace GestionnaireLivraison.controleur
             switch (compte.TypeCompte)
             {
                 case EnumTypeCompte.Client:
-                    return "~/presentation/AccueilClient.aspx?id=" + compte.Id.ToString();
+                    return "~/presentation/restricted/AccueilClient.aspx?id=" + compte.Id.ToString();
                 case EnumTypeCompte.Entrepreneur:
-                    return "~/presentation/AccueilEntrepreneur.aspx?id=" + compte.Id.ToString();
+                    return "~/presentation/restricted/AccueilEntrepreneur.aspx?id=" + compte.Id.ToString();
                 case EnumTypeCompte.Livreur:
-                    return "~/presentation/AccueilLivreur.aspx?id=" + compte.Id.ToString();
+                    return "~/presentation/restricted/AccueilLivreur.aspx?id=" + compte.Id.ToString();
                 case EnumTypeCompte.Restaurateur:
-                    return "~/presentation/AccueilRestaurateur.aspx?id=" + compte.Id.ToString();
+                    return "~/presentation/restricted/AccueilRestaurateur.aspx?id=" + compte.Id.ToString();
                 default:
                     throw new Exception("compte.TypeCompte est indefini");
             }

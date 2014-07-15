@@ -17,6 +17,7 @@ namespace GestionnaireLivraison.model
 	public Entrepreneur(Compte compte) 
     {
         this.compte = compte;
+        compte.TypeCompte = EnumTypeCompte.Entrepreneur;
         this.accesCompte = new AccesCompte(DataBases.NomDataBase());
     }
 

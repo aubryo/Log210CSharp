@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GestionnaireLivraison.model;
 
 namespace GestionnaireLivraison.presentation
 {
@@ -17,23 +18,81 @@ namespace GestionnaireLivraison.presentation
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TODO
-            //Creer un nouveau compte
-            //set isNouveauCompte selon authentifier
-            //non authetifier == creation de compte
-            //authentifier == modification de comte
-            //loader l'info
+            string id = Request.QueryString["Id"];
+            isNouveauCompte = id == null;
+            if (!IsPostBack)
+            {
+                if (!isNouveauCompte)
+                {
+                    Client client = new Client(new Compte() { Id = id.ToObjectId() });
+                    client.Select();
+                    SetClientData(client);
+                    etatModification();
+                }
+                else
+                {
+                    etatCreation(true);
+                }
+            }
+        }
+
+        private void SetClientData(Client client)
+        {
+            Adresse adresse = new Adresse() { Id = client.AdresseId };
+            adresse.Select();
+
+            txtNom.Text = client.Nom;
+            txtPrenom.Text = client.Prenom;
+            txtNumeroRue.Text = adresse.NoRue;
+            txtNomRue.Text = adresse.NomRue;
+            txtCodePostal.Text = adresse.CodePostal;
+            txtDDN.Text = client.DateNaissance.ToShortDateString();
+            txtNumeroTel.Text = client.NoTelephone;
+            txtCourriel.Text = client.Courriel;
+            txtMotDePasse.Text = client.MotDePasse;
+        }
+
+        private Client SaveClient()
+        {
+            Client client = new Client(new Compte());
+            Adresse adresse = new Adresse();
+            if (!isNouveauCompte)
+            {
+                client.Id = Request.QueryString["Id"].ToObjectId();
+                client.Select();
+                adresse.Id = client.AdresseId;
+            }
+            client.Nom = txtNom.Text;
+            client.Prenom = txtPrenom.Text;
+            client.DateNaissance = DateTime.Parse(txtDDN.Text);
+            client.NoTelephone = txtNumeroTel.Text;
+            client.Courriel = txtCourriel.Text;
+            client.MotDePasse = txtMotDePasse.Text;
+            client.Update();
+
+            adresse.CompteId = client.Id;
+            adresse.NoRue = txtNumeroRue.Text;
+            adresse.NomRue = txtNomRue.Text;
+            adresse.CodePostal = txtCodePostal.Text;
+            adresse.Insert();
+
+            client.AdresseId = adresse.Id;
+            client.Update();
+
+            return client;
         }
 
         protected void btnCreerCompte_Click(object sender, EventArgs e)
         {
             if (btnCreerCompte.Text.Equals(textbtnCreation) || btnCreerCompte.Text.Equals(textbtnModification))
             {
+                setInfo();
                 etatCreation(false);
             }
             else
             {
-                //TODO compte insert ou update
+                Client client = SaveClient();
+                Response.Redirect("~/presentation/restricted/AccueilClient.aspx?Id=" + client.Id.ToString(), true);
             }
         }
 
@@ -97,7 +156,15 @@ namespace GestionnaireLivraison.presentation
 
         private void setInfo()
         {
-            //TODO ecrire l'info du compte dans les textbox et les labelConf
+            lblConfNom.Text = txtNom.Text;
+            lblConfPrenom.Text = txtPrenom.Text;
+            lblConfNumeroRue.Text = txtNumeroRue.Text;
+            lblConfNomRue.Text = txtNomRue.Text;
+            lblConfCodePostal.Text = txtCodePostal.Text;
+            lblConfDDN.Text = txtDDN.Text;
+            lblConfNumeroTel.Text = txtNumeroTel.Text;
+            lblConfCourriel.Text = txtCourriel.Text;
+            lblConfMotDePasse.Text = txtMotDePasse.Text;
         }
     }
 }

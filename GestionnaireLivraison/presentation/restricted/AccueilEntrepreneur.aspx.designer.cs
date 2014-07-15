@@ -58,22 +58,22 @@ namespace GestionnaireLivraison.presentation {
         protected global::System.Web.UI.WebControls.Label lblListRestaurants;
         
         /// <summary>
-        /// lsRestaurant control.
+        /// lvRestaurant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lsRestaurant;
+        protected global::System.Web.UI.WebControls.ListView lvRestaurant;
         
         /// <summary>
-        /// btnAjoutRestaurant control.
+        /// hlAjoutRestaurant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjoutRestaurant;
+        protected global::System.Web.UI.WebControls.HyperLink hlAjoutRestaurant;
         
         /// <summary>
         /// tabRestaurateur control.
@@ -94,21 +94,21 @@ namespace GestionnaireLivraison.presentation {
         protected global::System.Web.UI.WebControls.Label lblListRestaurateurs;
         
         /// <summary>
-        /// lsRestaurateur control.
+        /// lvRestaurateur control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lsRestaurateur;
+        protected global::System.Web.UI.WebControls.ListView lvRestaurateur;
         
         /// <summary>
-        /// btnAjoutRestorateur control.
+        /// hlAjoutRestaurateur control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjoutRestorateur;
+        protected global::System.Web.UI.WebControls.HyperLink hlAjoutRestaurateur;
     }
 }

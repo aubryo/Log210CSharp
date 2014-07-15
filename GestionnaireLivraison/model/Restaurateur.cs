@@ -15,6 +15,7 @@ namespace GestionnaireLivraison.model
 	public Restaurateur(Compte compte)
     {
         this.compte = compte;
+        compte.TypeCompte = EnumTypeCompte.Restaurateur;
         this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase()); 
 	}
 

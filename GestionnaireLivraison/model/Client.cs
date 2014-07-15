@@ -20,6 +20,12 @@ namespace GestionnaireLivraison.model
         public Client(Compte compte)
         {
             this.compte = compte;
+            compte.TypeCompte = EnumTypeCompte.Client;
+        }
+
+        public void Select()
+        {
+            compte.Select();
         }
 
         public void Insert()

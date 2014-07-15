@@ -10,5 +10,5 @@
     <asp:TextBox ID="txtMotDePasse" runat="server"></asp:TextBox>
     <br />
     <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
-    <asp:Button ID="btnCreerCompte" runat="server" Text="Créer nouveau compte" />
+    <asp:HyperLink ID="hlCreerCompte" runat="server" Text="Créer nouveau compte" NavigateUrl="~/presentation/Client.aspx"></asp:HyperLink>
 </asp:Content>

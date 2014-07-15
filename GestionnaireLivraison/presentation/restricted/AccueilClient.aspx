@@ -14,6 +14,7 @@
         <asp:button id="btnModifier" runat="server" text="Modifier mon profil" OnClick="btnModifier_Click" />
         <br />
         <asp:button id="btnCacherInfo" runat="server" text="Cacher mes informations" OnClick="btnCacherInfo_Click" />
+
         <div id="ClientInfo">
         <asp:label id="lblNom" runat="server" text="Nom : "></asp:label>
         <asp:label id="lblClientNom" runat="server"></asp:label>
@@ -39,5 +40,6 @@
         <asp:label id="lblCourriel" runat="server" text="Courriel : "></asp:label>
         <asp:label id="lblClientCourriel" runat="server"></asp:label>
         </div>
+
     </div>
 </asp:Content>

@@ -74,7 +74,7 @@ namespace GestionnaireLivraison.presentation
             adresse.NoRue = txtNumeroRue.Text;
             adresse.NomRue = txtNomRue.Text;
             adresse.CodePostal = txtCodePostal.Text;
-            adresse.Insert();
+            adresse.Update();
 
             client.AdresseId = adresse.Id;
             client.Update();
@@ -126,7 +126,6 @@ namespace GestionnaireLivraison.presentation
             {
                 btnCreerCompte.Text = textbtnConfirmation;
             }
-
         }
 
         private void etatModification()

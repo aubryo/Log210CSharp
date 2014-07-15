@@ -12,8 +12,6 @@
         <br />
         <asp:button id="btnCommander" runat="server" text="Passer une commande" OnClick="btnCommander_Click" />
         <asp:button id="btnModifier" runat="server" text="Modifier mon profil" OnClick="btnModifier_Click" />
-        <br />
-        <asp:button id="btnCacherInfo" runat="server" text="Cacher mes informations" OnClick="btnCacherInfo_Click" />
 
         <div id="ClientInfo">
         <asp:label id="lblNom" runat="server" text="Nom : "></asp:label>

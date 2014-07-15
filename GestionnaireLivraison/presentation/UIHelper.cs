@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using MongoDB.Bson;
@@ -13,5 +14,12 @@ namespace GestionnaireLivraison.presentation
             return new ObjectId(id);
         }
 
+        public static DataSet ToBindingSource<T>(this List<T> list)
+        {
+            var properties = typeof(T).GetProperties();
+            
+            
+            return null;
+        }
     }
 }

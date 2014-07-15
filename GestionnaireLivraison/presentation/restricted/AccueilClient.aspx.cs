@@ -24,22 +24,27 @@ namespace GestionnaireLivraison.presentation
 
         private void SetClientData(Client client)
         {
-            throw new NotImplementedException();
+            Adresse adresse = new Adresse() { Id = client.AdresseId };
+            adresse.Select();
+
+            lblClientNom.Text = client.Nom;
+            lblClientPrenom.Text = client.Prenom;
+            lblClientNumeroRue.Text = adresse.NoRue;
+            lblClientNomRue.Text = adresse.NomRue;
+            lblClientCodePostal.Text = adresse.CodePostal;
+            lblClientDDN.Text = client.DateNaissance.ToShortDateString();
+            lblClientNumeroTel.Text = client.NoTelephone;
+            lblClientCourriel.Text = client.Courriel;
         }
 
         protected void btnCommander_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/presentation/restricted/Commande.aspx?Id=" + Request.QueryString["Id"], true);
         }
 
         protected void btnModifier_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnCacherInfo_Click(object sender, EventArgs e)
-        {
-
+            Response.Redirect("~/presentation/Client.aspx?Id=" + Request.QueryString["Id"], true);
         }
     }
 }

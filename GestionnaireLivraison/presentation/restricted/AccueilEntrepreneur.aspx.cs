@@ -13,8 +13,11 @@ namespace GestionnaireLivraison.presentation
         {
             if (!IsPostBack)
             {
+                lvRestaurant.DataSource = model.GestionnaireLivraison.GetRestaurants();
+                lvRestaurant.DataBind();
+                //lvRestaurateur.DataSource = model.GestionnaireLivraison.GetRestaurateurs();
+                //lvRestaurateur.DataBind();
             }
-
         }
 
         protected void menuTabs_MenuItemClick(object sender, MenuEventArgs e)
@@ -24,12 +27,14 @@ namespace GestionnaireLivraison.presentation
 
         protected void lvRestaurant_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-
+            model.Restaurant restaurant = new model.Restaurant() { Id = e.CommandArgument.ToString().ToObjectId() };
+            restaurant.Delete();
         }
 
         protected void lvRestaurateur_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            
+            model.Restaurateur restaurateur = new model.Restaurateur(new model.Compte() { Id = e.CommandArgument.ToString().ToObjectId() });
+            restaurateur.Delete();
         }
     }
 }

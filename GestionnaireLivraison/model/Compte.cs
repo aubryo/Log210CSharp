@@ -50,18 +50,14 @@ namespace GestionnaireLivraison.model
 
         public void Delete()
         {
-            //TODO delete adresse from adresseId and all adresse.CompteId == to compte.Id
             if (this.AdresseId != ObjectId.Empty || this.AdresseId != null)
             {
-                Adresse adresse = new Adresse();
-                adresse = this.accesAdresse.Select(this);
+                Adresse adresse = this.accesAdresse.Select(this);
                 adresse.Delete();
                 
             }
             accesCompte.Delete(this);
         }
-
-        
     }
 }
 

@@ -18,8 +18,8 @@ namespace GestionnaireLivraison.presentation
             string id = Request.QueryString["Id"];
             if (!IsPostBack)
             {
-                cblRestaurants.DataSource = model.GestionnaireLivraison.GetRestaurants(); //TODO wrong method, call the one without restaurateur
-                cblRestaurants.DataSourceID = "Id";
+                cblRestaurants.DataSource = model.GestionnaireLivraison.GetRestaurantsSansID();
+                cblRestaurants.DataValueField = "Id";
                 cblRestaurants.DataTextField = "Nom";
                 cblRestaurants.DataBind();
                 if (id != null)

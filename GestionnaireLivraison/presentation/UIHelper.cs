@@ -13,13 +13,5 @@ namespace GestionnaireLivraison.presentation
         {
             return new ObjectId(id);
         }
-
-        public static DataSet ToBindingSource<T>(this List<T> list)
-        {
-            var properties = typeof(T).GetProperties();
-            
-            
-            return null;
-        }
     }
 }

@@ -44,6 +44,10 @@ namespace GestionnaireLivraison.model
             accesAdresse.Update(this);
         }
 
+        public void Delete()
+        {
+            accesAdresse.Delete(this);
+        }
 
     }
 }

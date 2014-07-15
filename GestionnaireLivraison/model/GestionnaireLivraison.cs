@@ -63,5 +63,18 @@ namespace GestionnaireLivraison.model
         return accesRestaurant.Select();
 	}
 
+
+    public static List<Restaurant> GetRestaurantsSansID()
+    {
+        AccesRestaurant accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
+        return accesRestaurant.SelectSansRestaurateurID();
+    }
+
+    public static List<Restaurateur> GetRestaurateurs()
+    {
+        AccesCompte accesCompte = new AccesCompte(DataBases.NomDataBase());
+        return accesCompte.SelectRestaurateurs();
+    }
+
     }
 }

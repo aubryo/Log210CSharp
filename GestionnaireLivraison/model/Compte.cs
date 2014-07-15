@@ -20,11 +20,12 @@ namespace GestionnaireLivraison.model
         public EnumTypeCompte TypeCompte { get; set; }
 
         private AccesCompte accesCompte;
+        private AccesAdresse accesAdresse;
 
         public Compte()
         {
             this.accesCompte = new AccesCompte(DataBases.NomDataBase());
-
+            this.accesAdresse = new AccesAdresse(DataBases.NomDataBase());
         }
 
         protected AccesCompte GetAccesCompte()
@@ -50,6 +51,13 @@ namespace GestionnaireLivraison.model
         public void Delete()
         {
             //TODO delete adresse from adresseId and all adresse.CompteId == to compte.Id
+            if (this.AdresseId != ObjectId.Empty || this.AdresseId != null)
+            {
+                Adresse adresse = new Adresse();
+                adresse = this.accesAdresse.Select(this);
+                adresse.Delete();
+                
+            }
             accesCompte.Delete(this);
         }
 

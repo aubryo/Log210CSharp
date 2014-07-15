@@ -28,6 +28,15 @@ namespace GestionnaireLivraison.mongoDB
             return adresses;
         }
 
+        public Adresse Select(Compte compte)
+        {
+            if (compte == null) return null;
+
+            var coll = db.GetCollection<Adresse>(TableName);
+            var selectQuery = Query<Adresse>.EQ(i => i.Id, compte.AdresseId);
+            return coll.FindOne(selectQuery);
+        }
+
         protected override IMongoQuery SetSelectQuery(Adresse item)
         {
             return null;

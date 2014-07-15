@@ -27,6 +27,16 @@ namespace GestionnaireLivraison.mongoDB
             return coll.FindOne(selectQuery);
         }
 
+
+        public List<Restaurateur> SelectRestaurateurs()
+        {
+
+            var coll = db.GetCollection<Restaurateur>(TableName);
+            var selectQuery = Query<Restaurateur>.EQ(i => i.TypeCompte, EnumTypeCompte.Restaurateur);
+            var restaurateurs = coll.Find(selectQuery).ToList<Restaurateur>();
+            return restaurateurs;
+        }
+
         protected override IMongoQuery SetSelectQuery(Compte item)
         {
             return !String.IsNullOrEmpty(item.Courriel) ? Query<Compte>.EQ(i => i.Courriel, item.Courriel) : Query<Compte>.EQ(i => i.Id, item.Id);

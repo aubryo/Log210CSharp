@@ -5,6 +5,7 @@ using System.Web;
 using GestionnaireLivraison.model;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
+using MongoDB.Bson;
 
 namespace GestionnaireLivraison.mongoDB
 {
@@ -26,7 +27,13 @@ namespace GestionnaireLivraison.mongoDB
             return restaurants;
         }
 
-
+        public List<Restaurant> SelectSansRestaurateurID()
+        {
+            var coll = db.GetCollection<Restaurant>(TableName);
+            var selectQuery = Query<Restaurant>.EQ(i => i.RestaurateurID, ObjectId.Empty);
+            var restaurants = coll.Find(selectQuery).ToList<Restaurant>();
+            return restaurants;
+        }
 
         protected override IMongoQuery SetSelectQuery(Restaurant item)
         {

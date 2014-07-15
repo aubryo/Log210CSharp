@@ -11,153 +11,160 @@ namespace GestionnaireLivraison.model
     {
         private Compte compte;
         private AccesRestaurant accesRestaurant;
-	
-	public Restaurateur(Compte compte)
-    {
-        this.compte = compte;
-        compte.TypeCompte = EnumTypeCompte.Restaurateur;
-        this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase()); 
-	}
 
-	public List<Restaurant> getRestaurants()
-    {
-        return accesRestaurant.Select(this);
-	}
-
-    public void Select()
-    {
-        Populeur.populer(this, accesRestaurant.Select(this));
-    }
-
-    public void Update()
-    {
-        compte.Update();
-    }
-
-    public void Delete()
-    {
-       List<Restaurant> restaurants = getRestaurants();
-        if (restaurants != null || restaurants.Count != 0)
+        public Restaurateur()
         {
-            foreach (Restaurant restaurant in restaurants)
+            this.compte = new Compte();
+            compte.TypeCompte = EnumTypeCompte.Restaurateur;
+            this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
+        }
+
+        public Restaurateur(Compte compte)
+        {
+            this.compte = compte;
+            compte.TypeCompte = EnumTypeCompte.Restaurateur;
+            this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
+        }
+
+        public List<Restaurant> GetRestaurants()
+        {
+            return accesRestaurant.Select(this);
+        }
+
+        public void Select()
+        {
+            compte.Select();
+        }
+
+        public void Update()
+        {
+            compte.Update();
+        }
+
+        public void Delete()
+        {
+            List<Restaurant> restaurants = GetRestaurants();
+            if (restaurants != null || restaurants.Count != 0)
             {
-                restaurant.RestaurateurID = ObjectId.Empty;
-                restaurant.Update();
+                foreach (Restaurant restaurant in restaurants)
+                {
+                    restaurant.RestaurateurID = ObjectId.Empty;
+                    restaurant.Update();
+                }
+            }
+            compte.Delete();
+        }
+
+        #region ICompte Members
+
+        public ObjectId Id
+        {
+            get
+            {
+                return compte.Id;
+
+            }
+            set
+            {
+                compte.Id = value;
             }
         }
-        compte.Delete();
-    }
 
-    #region ICompte Members
+        public string Nom
+        {
+            get
+            {
+                return compte.Nom;
+            }
+            set
+            {
+                compte.Nom = value;
+            }
+        }
 
-    public ObjectId Id
-    {
-        get
+        public string Prenom
         {
-            return compte.Id;
+            get
+            {
+                return compte.Prenom;
+            }
+            set
+            {
+                compte.Prenom = value;
+            }
+        }
 
-        }
-        set
+        public DateTime DateNaissance
         {
-            compte.Id = value;
+            get
+            {
+                return compte.DateNaissance;
+            }
+            set
+            {
+                compte.DateNaissance = value;
+            }
         }
-    }
 
-    public string Nom
-    {
-        get
+        public string NoTelephone
         {
-            return compte.Nom;
+            get
+            {
+                return compte.NoTelephone;
+            }
+            set
+            {
+                compte.NoTelephone = value;
+            }
         }
-        set
-        {
-            compte.Nom = value;
-        }
-    }
 
-    public string Prenom
-    {
-        get
+        public ObjectId AdresseId
         {
-            return compte.Prenom;
+            get
+            {
+                return compte.AdresseId;
+            }
+            set
+            {
+                compte.AdresseId = value;
+            }
         }
-        set
-        {
-            compte.Prenom = value;
-        }
-    }
 
-    public DateTime DateNaissance
-    {
-        get
+        public string Courriel
         {
-            return compte.DateNaissance;
+            get
+            {
+                return compte.Courriel;
+            }
+            set
+            {
+                compte.Courriel = value;
+            }
         }
-        set
-        {
-            compte.DateNaissance = value;
-        }
-    }
 
-    public string NoTelephone
-    {
-        get
+        public string MotDePasse
         {
-            return compte.NoTelephone;
+            get
+            {
+                return compte.MotDePasse;
+            }
+            set
+            {
+                compte.MotDePasse = value;
+            }
         }
-        set
-        {
-            compte.NoTelephone = value;
-        }
-    }
 
-    public ObjectId AdresseId
-    {
-        get
+        public EnumTypeCompte TypeCompte
         {
-            return compte.AdresseId;
+            get
+            {
+                return TypeCompte;
+            }
+            set
+            {
+                compte.TypeCompte = value;
+            }
         }
-        set
-        {
-            compte.AdresseId = value;
-        }
-    }
-
-    public string Courriel
-    {
-        get
-        {
-            return compte.Courriel;
-        }
-        set
-        {
-            compte.Courriel = value;
-        }
-    }
-
-    public string MotDePasse
-    {
-        get
-        {
-            return compte.MotDePasse;
-        }
-        set
-        {
-            compte.MotDePasse = value;
-        }
-    }
-
-    public EnumTypeCompte TypeCompte
-    {
-        get
-        {
-            return TypeCompte;
-        }
-        set
-        {
-            compte.TypeCompte = value;
-        }
-    }
-    #endregion
+        #endregion
     }
 }

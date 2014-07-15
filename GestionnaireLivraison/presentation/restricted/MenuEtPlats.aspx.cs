@@ -40,7 +40,6 @@ namespace GestionnaireLivraison.presentation
         protected void btnSaveAndReturn_Click(object sender, EventArgs e)
         {
             var resto = SaveMenu();
-
             Response.Redirect("~/presentation/restricted/AccueilRestaurateur.aspx?Id=" + resto.RestaurateurID.ToString(), true);
         }
 

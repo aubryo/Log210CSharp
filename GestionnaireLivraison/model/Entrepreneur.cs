@@ -10,130 +10,136 @@ namespace GestionnaireLivraison.model
 {
     public class Entrepreneur : ICompte
     {
-     
-       private Compte compte;
-       private AccesCompte accesCompte;
+        private Compte compte;
+        private AccesCompte accesCompte;
 
-	public Entrepreneur(Compte compte) 
-    {
-        this.compte = compte;
-        compte.TypeCompte = EnumTypeCompte.Entrepreneur;
-        this.accesCompte = new AccesCompte(DataBases.NomDataBase());
-    }
+        public Entrepreneur()
+        {
+            this.compte = new Compte();
+            compte.TypeCompte = EnumTypeCompte.Entrepreneur;
+            this.accesCompte = new AccesCompte(DataBases.NomDataBase());
+        }
+
+        public Entrepreneur(Compte compte)
+        {
+            this.compte = compte;
+            compte.TypeCompte = EnumTypeCompte.Entrepreneur;
+            this.accesCompte = new AccesCompte(DataBases.NomDataBase());
+        }
 
 
-    #region ICompte Members
+        #region ICompte Members
 
-    public ObjectId Id
-    {
-        get
+        public ObjectId Id
         {
-            return compte.Id;
-         
-        }
-        set
-        {
-           compte.Id = value;
-        }
-    }
+            get
+            {
+                return compte.Id;
 
-    public string Nom
-    {
-        get
-        {
-            return compte.Nom;
+            }
+            set
+            {
+                compte.Id = value;
+            }
         }
-        set
-        {
-            compte.Nom = value;
-        }
-    }
 
-    public string Prenom
-    {
-        get
+        public string Nom
         {
-            return compte.Prenom;
+            get
+            {
+                return compte.Nom;
+            }
+            set
+            {
+                compte.Nom = value;
+            }
         }
-        set
-        {
-            compte.Prenom = value;
-        }
-    }
 
-    public DateTime DateNaissance
-    {
-        get
+        public string Prenom
         {
-            return compte.DateNaissance;
+            get
+            {
+                return compte.Prenom;
+            }
+            set
+            {
+                compte.Prenom = value;
+            }
         }
-        set
-        {
-            compte.DateNaissance = value;
-        }
-    }
 
-    public string NoTelephone
-    {
-        get
+        public DateTime DateNaissance
         {
-            return compte.NoTelephone;
+            get
+            {
+                return compte.DateNaissance;
+            }
+            set
+            {
+                compte.DateNaissance = value;
+            }
         }
-        set
-        {
-            compte.NoTelephone = value;
-        }
-    }
 
-    public ObjectId AdresseId
-    {
-        get
+        public string NoTelephone
         {
-            return compte.AdresseId;
+            get
+            {
+                return compte.NoTelephone;
+            }
+            set
+            {
+                compte.NoTelephone = value;
+            }
         }
-        set
-        {
-            compte.AdresseId = value;
-        }
-    }
 
-    public string Courriel
-    {
-        get
+        public ObjectId AdresseId
         {
-            return compte.Courriel;
+            get
+            {
+                return compte.AdresseId;
+            }
+            set
+            {
+                compte.AdresseId = value;
+            }
         }
-        set
-        {
-            compte.Courriel = value;
-        }
-    }
 
-    public string MotDePasse
-    {
-        get
+        public string Courriel
         {
-            return compte.MotDePasse;
+            get
+            {
+                return compte.Courriel;
+            }
+            set
+            {
+                compte.Courriel = value;
+            }
         }
-        set
-        {
-            compte.MotDePasse = value;
-        }
-    }
 
-    public EnumTypeCompte TypeCompte
-    {
-        get
+        public string MotDePasse
         {
-            return TypeCompte;
+            get
+            {
+                return compte.MotDePasse;
+            }
+            set
+            {
+                compte.MotDePasse = value;
+            }
         }
-        set
-        {
-            compte.TypeCompte = value;
-        }
-    }
 
-    #endregion
-    
+        public EnumTypeCompte TypeCompte
+        {
+            get
+            {
+                return TypeCompte;
+            }
+            set
+            {
+                compte.TypeCompte = value;
+            }
+        }
+
+        #endregion
+
     }
 }

@@ -18,21 +18,58 @@
             <asp:MultiView ID="vuesEntrepreneur" runat="server" ActiveViewIndex="0">
                 <asp:View ID="tabRestaurant" runat="server">
                     <asp:Label ID="lblListRestaurants" runat="server" Text="List des restaurants"></asp:Label><br />
-                    <asp:ListView ID="lvRestaurant" runat="server" DataKeyNames="Id" OnItemCommand="lvRestaurant_ItemCommand">
+                    <asp:ObjectDataSource ID="odsRestaurant" runat="server" DeleteMethod="DeleteRestaurant" SelectMethod="GetRestaurants" TypeName="GestionnaireLivraison.controleur.ControleurRestaurants">
+                        <DeleteParameters>
+                            <asp:Parameter Name="id" Type="String" />
+                        </DeleteParameters>
+                    </asp:ObjectDataSource>
+                    <asp:ListView ID="lvRestaurant" runat="server" DataSourceID="odsRestaurant" DataKeyNames="Id">
                         <LayoutTemplate>
                             <ul id="itemPlaceholderContainer" runat="server" style="">
                                 <li runat="server" id="itemPlaceholder" />
                             </ul>
+                            <div style="">
+                            </div>
                         </LayoutTemplate>
+                        <EmptyDataTemplate>
+                            No data was returned.
+                        </EmptyDataTemplate>
+                        <ItemSeparatorTemplate>
+                            <br />
+                        </ItemSeparatorTemplate>
                         <ItemTemplate>
-                            <li>
-                                <asp:Label ID="lblRestaurantNom" runat="server" Text='<%# Eval("Nom") %>' />
+                            <li style="">
+                                <asp:LinkButton ID="btnNom" runat="server" Text='<%# Eval("Nom") %>' CommandName="Select"></asp:LinkButton>
+                                <br />
                             </li>
                         </ItemTemplate>
                         <SelectedItemTemplate>
-                            <li>
-                                <asp:Label ID="lblRestaurantNom" runat="server" Text='<%# Eval("Nom") %>' />
-                                <asp:Button ID="btnDelete" runat="server" Text="Supprimer" CommandArgument='<%# Eval("Id") %>' />
+                            <li style="">
+                                Nom:
+                                <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
+                                <br />
+                                NoTelephone:
+                                <asp:Label ID="NoTelephoneLabel" runat="server" Text='<%# Eval("NoTelephone") %>' />
+                                <br />
+                                NoRue:
+                                <asp:Label ID="NoRueLabel" runat="server" Text='<%# Eval("NoRue") %>' />
+                                <br />
+                                CodePostal:
+                                <asp:Label ID="CodePostalLabel" runat="server" Text='<%# Eval("CodePostal") %>' />
+                                <br />
+                                NomRue:
+                                <asp:Label ID="NomRueLabel" runat="server" Text='<%# Eval("NomRue") %>' />
+                                <br />
+                                Website:
+                                <asp:Label ID="WebsiteLabel" runat="server" Text='<%# Eval("Website") %>' />
+                                <br />
+                                Url:
+                                <asp:Label ID="UrlLabel" runat="server" Text='<%# Eval("Url") %>' />
+                                <br />
+                                Description:
+                                <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
+                                <br />
+                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Supprimer" />
                                 <asp:HyperLink ID="hlUpdate" runat="server" Text="Modifier" NavigateUrl='<%#"~/presentation/restricted/Restaurant.aspx?Id="+Eval("Id")%>'></asp:HyperLink>
                             </li>
                         </SelectedItemTemplate>
@@ -42,21 +79,51 @@
                 </asp:View>
                 <asp:View ID="tabRestaurateur" runat="server">
                     <asp:Label ID="lblListRestaurateurs" runat="server" Text="List des restaurants"></asp:Label><br />
-                    <asp:ListView ID="lvRestaurateur" runat="server" DataKeyNames="Id" OnItemCommand="lvRestaurateur_ItemCommand">
+                    <asp:ObjectDataSource ID="odsRestaurateur" runat="server" DeleteMethod="DeleteRestaurateur" SelectMethod="GetRestaurateurs" TypeName="GestionnaireLivraison.controleur.ControleurRestaurateurs">
+                        <DeleteParameters>
+                            <asp:Parameter Name="id" Type="String" />
+                        </DeleteParameters>
+                    </asp:ObjectDataSource>
+                    <asp:ListView ID="lvRestaurateur" runat="server" DataSourceID="odsRestaurateur"  DataKeyNames="Id">
                         <LayoutTemplate>
                             <ul id="itemPlaceholderContainer" runat="server" style="">
                                 <li runat="server" id="itemPlaceholder" />
                             </ul>
+                            <div style="">
+                            </div>
                         </LayoutTemplate>
+                        <EmptyDataTemplate>
+                            No data was returned.
+                        </EmptyDataTemplate>
+                        <ItemSeparatorTemplate>
+                            <br />
+                        </ItemSeparatorTemplate>
                         <ItemTemplate>
-                            <li>
-                                <asp:Label ID="lblRestaurateurNom" runat="server" Text='<%# Eval("Nom") %>' />
+                            <li style="">
+                                <asp:LinkButton ID="btnNom" runat="server" Text='<%# Eval("Nom") %>' CommandName="Select"></asp:LinkButton>
+                                <br />
                             </li>
                         </ItemTemplate>
                         <SelectedItemTemplate>
-                            <li>
-                                <asp:Label ID="lblRestaurateurNom2" runat="server" Text='<%# Eval("Nom") %>' />
-                                <asp:Button ID="btnDelete" runat="server" Text="Supprimer" CommandArgument='<%# Eval("Id") %>' />
+                            <li style="">Nom:
+                                <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
+                                <br />
+                                Prenom:
+                                <asp:Label ID="PrenomLabel" runat="server" Text='<%# Eval("Prenom") %>' />
+                                <br />
+                                DateNaissance:
+                                <asp:Label ID="DateNaissanceLabel" runat="server" Text='<%# Eval("DateNaissance") %>' />
+                                <br />
+                                NoTelephone:
+                                <asp:Label ID="NoTelephoneLabel" runat="server" Text='<%# Eval("NoTelephone") %>' />
+                                <br />
+                                AdresseId:
+                                <asp:Label ID="AdresseIdLabel" runat="server" Text='<%# Eval("AdresseId") %>' />
+                                <br />
+                                Courriel:
+                                <asp:Label ID="CourrielLabel" runat="server" Text='<%# Eval("Courriel") %>' />
+                                <br />
+                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Supprimer" />
                                 <asp:HyperLink ID="hlUpdate" runat="server" Text="Modifier" NavigateUrl='<%#"~/presentation/restricted/Restaurateur.aspx?Id="+Eval("Id")%>'></asp:HyperLink>
                             </li>
                         </SelectedItemTemplate>

@@ -37,5 +37,5 @@
     <asp:Label ID="lblUrlBanniere" runat="server" Text="Url Banniere : "></asp:Label>
     <asp:TextBox ID="txtUrlBanniere" runat="server"></asp:TextBox>
     <br />
-    <asp:Button ID="btnCreerRestaurant" runat="server" Text="Créer restaurant"/>
+    <asp:Button ID="btnSauvegarder" runat="server" Text="Sauvegarder" OnClick="btnSauvegarder_Click"/>
 </asp:Content>

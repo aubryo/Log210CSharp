@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using GestionnaireLivraison.model;
+using MongoDB.Bson;
 
 namespace GestionnaireLivraison.controleur
 {
@@ -27,6 +28,22 @@ namespace GestionnaireLivraison.controleur
         {
             restaurant.Select();
             return restaurant;
+        }
+
+        public static List<model.Restaurant> GetRestaurants()
+        {
+            return model.GestionnaireLivraison.GetRestaurants();
+        }
+
+        public static List<model.Restaurant> GetRestaurantsSansRestaurateur()
+        {
+            return model.GestionnaireLivraison.GetRestaurantsSansID();
+        }
+
+        public static void DeleteRestaurant(string id)
+        {
+            model.Restaurant resto = new model.Restaurant() { Id = new ObjectId(id) };
+            resto.Delete();
         }
     }
 }

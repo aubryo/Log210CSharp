@@ -26,7 +26,7 @@
     <br />
     <asp:Label ID="lblDDN" runat="server" Text="Date de naissance : "></asp:Label>
     <asp:TextBox ID="txtDDN" runat="server"></asp:TextBox>
-    <asp:Label ID="lblConfDDN" runat="server" Text=""></asp:Label>
+    <asp:Label ID="lblConfDDN" runat="server" Text=""></asp:Label> &nbsp;YYYY-MM-DD
     <br />
     <asp:Label ID="lblNumeroTel" runat="server" Text="Numéro de téléphone : "></asp:Label>
     <asp:TextBox ID="txtNumeroTel" runat="server"></asp:TextBox>

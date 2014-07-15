@@ -35,7 +35,7 @@ namespace GestionnaireLivraison.model
              */
         }
 
-        public bool IsCourrielUnique(string courriel)
+        public static bool IsCourrielUnique(string courriel)
         {
             /* TODO faire une methode qui retourne vrai si le courriel n'est pas dans la DB
              * 

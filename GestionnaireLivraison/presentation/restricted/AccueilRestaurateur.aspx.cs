@@ -19,7 +19,7 @@ namespace GestionnaireLivraison.presentation
                     model.Restaurateur restaurateur = new model.Restaurateur(new model.Compte() { Id = id.ToObjectId() });
                     restaurateur.Select();
 
-                    lvRestaurant.DataSource = restaurateur.getRestaurants();
+                    lvRestaurant.DataSource = restaurateur.GetRestaurants();
                     lvRestaurant.DataBind();
                 }
             }

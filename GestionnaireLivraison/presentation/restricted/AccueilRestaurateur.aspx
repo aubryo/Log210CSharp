@@ -91,6 +91,7 @@
                                         <span style="">
                                             <asp:HyperLink ID="hlModifierMenu" runat="server" Text='<%# Eval("Nom") %>' NavigateUrl='<%#"~/presentation/restricted/MenuEtPlats.aspx?MId="+Eval("Id")%>'></asp:HyperLink>
                                             <br />
+                                            <br />
                                         </span>
                                     </ItemTemplate>
                                 </asp:ListView>

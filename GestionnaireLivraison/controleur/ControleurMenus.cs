@@ -24,13 +24,26 @@ namespace GestionnaireLivraison.controleur
             }
         }
 
-        public static List<model.Menu> GetMenus(string id)
+        public static List<Menu> GetMenus(string id)
         {
-            model.Restaurant resto = new model.Restaurant() { Id = new ObjectId(id) };
+            Restaurant resto = new Restaurant() { Id = new ObjectId(id) };
             resto.Select();
             return resto.GetMenus();
         }
 
+        public static List<Plat> GetPlats(string mId)
+        {
+            if (mId == null) return new List<Plat>();
 
+            Menu menu = new Menu() { Id = new ObjectId(mId) };
+            menu.Select();
+            return menu.GetPlats();
+        }
+
+        public static void SupprimerPlat(string id)
+        {
+            Plat plat = new Plat() { Id = new ObjectId(id) };
+            plat.Delete();
+        }
     }
 }

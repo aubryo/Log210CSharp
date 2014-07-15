@@ -1,12 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/presentation/Site1.Master" AutoEventWireup="true" CodeBehind="MenuEtPlats.aspx.cs" Inherits="GestionnaireLivraison.presentation.MenuEtPlats" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        /* Cas d'utilisation F5 3a.
-         * Si txtDescription.Text == "" avertire que le menu est sauvegarder sans description
-         */
-
-    </script>
+ 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <asp:Label ID="lblTitre" runat="server" Text="Créer ou modifier un menu"></asp:Label>
@@ -58,6 +53,8 @@
         <asp:TextBox ID="txtPrix" runat="server"></asp:TextBox>
         <br />
         <asp:Button ID="btnAjoutPlat" runat="server" Text="Ajouter le plat" OnClick="btnAjoutPlat_Click" />
+        <br />
+        <asp:Label ID="lblState" runat="server" Text="" ForeColor="Red"></asp:Label>
     </div>
     <div id="sauvegardeMenu">
         <asp:Button ID="btnSaveAndReturn" runat="server" Text="Sauvegarder et retourner à l'accueil" OnClick="btnSaveAndReturn_Click" /><asp:Button ID="SaveAndNewMenu" runat="server" Text="Sauvegarder et créer un nouveau menu" OnClick="SaveAndNewMenu_Click" />

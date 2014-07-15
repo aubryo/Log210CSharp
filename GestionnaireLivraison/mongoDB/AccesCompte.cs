@@ -27,6 +27,24 @@ namespace GestionnaireLivraison.mongoDB
             return coll.FindOne(selectQuery);
         }
 
+        public bool CourrielUnique(string courriel)
+        {
+            var coll = db.GetCollection<Compte>(TableName);
+            var selectQuery = Query<Compte>.EQ(i => i.Courriel, courriel);
+            var compte = new Compte();
+            compte = coll.FindOne(selectQuery);
+            if (compte == null) return true;
+            return false;
+        }
+
+        public bool EntrepreneurExiste()
+        {
+            var coll = db.GetCollection<Entrepreneur>(TableName);
+            var selectQuery = Query<Entrepreneur>.EQ(i => i.TypeCompte, EnumTypeCompte.Entrepreneur);
+            var entrepreneur = coll.Find(selectQuery).ToList<Entrepreneur>();
+            if (entrepreneur.Count == 0) return false;
+            return true;
+        }
 
         public List<Restaurateur> SelectAllRestaurateurs()
         {

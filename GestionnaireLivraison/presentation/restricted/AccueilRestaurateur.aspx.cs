@@ -13,8 +13,28 @@ namespace GestionnaireLivraison.presentation
         {
             if (!IsPostBack)
             {
-            }
+                string id = Request.QueryString["Id"];
+                if (!IsPostBack)
+                {
+                    model.Restaurateur restaurateur = new model.Restaurateur(new model.Compte() { Id = id.ToObjectId() });
+                    restaurateur.Select();
 
+                    lvRestaurant.DataSource = restaurateur.getRestaurants();
+                    lvRestaurant.DataBind();
+                }
+            }
+        }
+
+        protected List<model.Menu> GetMenus(object id)
+        {
+            model.Restaurant resto = new model.Restaurant() { Id = id.ToString().ToObjectId() };
+            resto.Select();
+            return resto.GetMenus();
+        }
+
+        protected void menuTabs_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            vuesEntrepreneur.ActiveViewIndex = Int32.Parse(e.Item.Value);
         }
     }
 }

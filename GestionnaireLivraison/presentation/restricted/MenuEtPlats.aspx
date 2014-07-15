@@ -38,6 +38,11 @@
                     <asp:Button ID="btnDelete" runat="server" Text="Supprimer" CommandArgument='<%# Eval("Id") %>' />
                 </li>
             </SelectedItemTemplate>
+            <ItemSeparatorTemplate>
+                <li>
+                    </ hr>
+                </li>
+            </ItemSeparatorTemplate>
         </asp:ListView>
     </div>
     <div id="newPlat">
@@ -52,9 +57,9 @@
         <asp:Label ID="lblPrix" runat="server" Text="Prix : "></asp:Label>
         <asp:TextBox ID="txtPrix" runat="server"></asp:TextBox>
         <br />
-        <asp:Button ID="btnAjoutPlat" runat="server" Text="Ajouter le plat" />
+        <asp:Button ID="btnAjoutPlat" runat="server" Text="Ajouter le plat" OnClick="btnAjoutPlat_Click" />
     </div>
     <div id="sauvegardeMenu">
-        <asp:Button ID="btnSaveAndReturn" runat="server" Text="Sauvegarder et retourner à l'accueil" /><asp:Button ID="SaveAndNewMenu" runat="server" Text="Sauvegarder et créer un nouveau menu" />
+        <asp:Button ID="btnSaveAndReturn" runat="server" Text="Sauvegarder et retourner à l'accueil" OnClick="btnSaveAndReturn_Click" /><asp:Button ID="SaveAndNewMenu" runat="server" Text="Sauvegarder et créer un nouveau menu" OnClick="SaveAndNewMenu_Click" />
     </div>
 </asp:Content>

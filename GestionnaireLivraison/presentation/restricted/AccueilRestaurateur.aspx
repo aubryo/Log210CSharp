@@ -31,7 +31,7 @@
                         <SelectedItemTemplate>
                             <li>
                                 <asp:Label ID="lblRestaurantNom" runat="server" Text='<%# Eval("Nom") %>' />
-                                <asp:ListView ID="lvMenu" runat="server" DataKeyNames="Id">
+                                <asp:ListView ID="lvMenu" runat="server" DataKeyNames="Id" DataSource='<%# GetMenus(Eval("Id")) %>'>
                                     <LayoutTemplate>
                                         <ul id="itemPlaceholderContainer" runat="server" style="">
                                             <li runat="server" id="itemPlaceholder" />

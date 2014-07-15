@@ -15,8 +15,8 @@ namespace GestionnaireLivraison.presentation
             {
                 lvRestaurant.DataSource = model.GestionnaireLivraison.GetRestaurants();
                 lvRestaurant.DataBind();
-                //lvRestaurateur.DataSource = model.GestionnaireLivraison.GetRestaurateurs();
-                //lvRestaurateur.DataBind();
+                lvRestaurateur.DataSource = model.GestionnaireLivraison.GetRestaurateurs();
+                lvRestaurateur.DataBind();
             }
         }
 

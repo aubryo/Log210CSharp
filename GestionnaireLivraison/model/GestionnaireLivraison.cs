@@ -25,7 +25,7 @@ namespace GestionnaireLivraison.model
         public static List<Restaurateur> GetRestaurateurs()
         {
             AccesCompte accesCompte = new AccesCompte(DataBases.NomDataBase());
-            return accesCompte.SelectRestaurateurs();
+            return accesCompte.SelectAllRestaurateurs();
         }
 
     }

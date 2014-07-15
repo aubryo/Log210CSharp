@@ -28,9 +28,8 @@ namespace GestionnaireLivraison.mongoDB
         }
 
 
-        public List<Restaurateur> SelectRestaurateurs()
+        public List<Restaurateur> SelectAllRestaurateurs()
         {
-
             var coll = db.GetCollection<Restaurateur>(TableName);
             var selectQuery = Query<Restaurateur>.EQ(i => i.TypeCompte, EnumTypeCompte.Restaurateur);
             var restaurateurs = coll.Find(selectQuery).ToList<Restaurateur>();

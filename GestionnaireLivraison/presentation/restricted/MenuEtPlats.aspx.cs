@@ -11,10 +11,70 @@ namespace GestionnaireLivraison.presentation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string rId = Request.QueryString["RId"]; //nouveau menu
+            string mId = Request.QueryString["MId"]; //modification menu
             if (!IsPostBack)
             {
+                if (mId != null)
+                {
+                    model.Menu menu = new model.Menu() { Id = mId.ToObjectId() };
+                    menu.Select();
+
+                    txtNomMenu.Text = menu.Nom;
+
+                    lvPlat.DataSource = menu.GetPlats();
+                    lvPlat.DataBind();
+                }
             }
 
+        }
+
+        protected void btnAjoutPlat_Click(object sender, EventArgs e)
+        {
+            int cnt = lvPlat.Items.Count();
+            var plat = new ListViewDataItem(cnt, cnt);
+            plat.DataItem = new model.Plat(){Id = MongoDB.Bson.ObjectId.Empty ,Nom = txtNomPlat.Text, Prix = Double.Parse(txtPrix.Text), Description = txtDescription.Text};
+            lvPlat.Items.Add(plat);
+        }
+
+        protected void btnSaveAndReturn_Click(object sender, EventArgs e)
+        {
+            var resto = SaveMenu();
+
+            Response.Redirect("~/presentation/restricted/AccueilRestaurateur.aspx?Id=" + resto.RestaurateurID.ToString(), true);
+        }
+
+        protected void SaveAndNewMenu_Click(object sender, EventArgs e)
+        {
+            var resto = SaveMenu();
+            Response.Redirect("~/presentation/restricted/MenuEtPlats.aspx?RId=" + resto.Id, true);
+        }
+
+        private model.Restaurant SaveMenu()
+        {
+            string rId = Request.QueryString["RId"]; //nouveau menu
+            string mId = Request.QueryString["MId"]; //modification menu
+            model.Menu menu = new model.Menu();
+            if (mId != null)
+            {
+                menu.Id = mId.ToObjectId();
+                menu.Select();
+            }else{
+                menu.RestaurantId = rId.ToObjectId();
+            }
+
+            menu.Nom = txtNomMenu.Text;
+            menu.Update();
+
+            foreach (var item in lvPlat.Items)
+            {
+                model.Plat plat = (model.Plat)item.DataItem;
+                plat.Update();
+            }
+
+            model.Restaurant resto = new model.Restaurant() { Id = menu.RestaurantId };
+            resto.Select();
+            return resto;
         }
     }
 }

@@ -27,7 +27,6 @@ namespace GestionnaireLivraison.model
             this.accesCompte = new AccesCompte(DataBases.NomDataBase());
         }
 
-
         #region ICompte Members
 
         public ObjectId Id

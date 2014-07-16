@@ -7,11 +7,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionnaireLivraison.controleur;
 using GestionnaireLivraison.model;
+using GestionnaireLivraison.mongoDB;
 
 namespace GestionnaireLivraison
 {
     public partial class Login : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,6 +23,7 @@ namespace GestionnaireLivraison
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            model.GestionnaireLivraison.SetEntrepreneurFirstTime();
             ICompte compte = ControleurLogin.ValidateUser(txtCourriel.Text, txtMotDePasse.Text);
             if (compte != null)
             {

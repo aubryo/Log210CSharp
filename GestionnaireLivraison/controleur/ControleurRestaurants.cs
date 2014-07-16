@@ -37,17 +37,15 @@ namespace GestionnaireLivraison.controleur
 
         public static List<model.Restaurant> GetRestaurantsAffichable(string id)
         {
-
-            ObjectId objId = new ObjectId();
-
-            model.Restaurateur restaurateur = new model.Restaurateur() { Id = objId };
-
-            //TODO: Ne fonctionne pas lorsqu'il n'y a pas déja de restaurateur. J'ai patché en restournant les restaurateur sans ID
-            //restaurateur.Select(); 
-            //var restos = restaurateur.GetRestaurants();
-            //restos.AddRange(model.GestionnaireLivraison.GetRestaurantsSansID());
-
             var restos = model.GestionnaireLivraison.GetRestaurantsSansID();
+
+            if (!String.IsNullOrEmpty(id))
+            {
+                model.Restaurateur restaurateur = new model.Restaurateur() { Id = new ObjectId(id) };
+                restaurateur.Select();
+                restos.AddRange(restaurateur.GetRestaurants());
+            }
+
             return restos;
         }
 

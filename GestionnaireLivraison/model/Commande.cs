@@ -11,7 +11,7 @@ namespace GestionnaireLivraison.model
     public class Commande : IMongoSavableObject 
     {
         public ObjectId Id { get; set; }
-        public int NoCommande { get; set; }
+        public string NoCommande { get; set; }
         public DateTime DateCreation { get; set; }
         public string Statut { get; set; }   
         public DateTime DateLivraison { get; set; }  
@@ -61,10 +61,7 @@ namespace GestionnaireLivraison.model
         
         public void Update()
         {
-            if (this.NoCommande == 0)
-            {
-                this.NoCommande = accesCommande.NextNoCommande();
-            }
+            if (String.IsNullOrEmpty(this.NoCommande)) this.NoCommande = Guid.NewGuid().ToString();
             accesCommande.Update(this);
         }
 

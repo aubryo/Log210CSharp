@@ -28,11 +28,6 @@ namespace GestionnaireLivraison.model
             return accesCompte.SelectAllRestaurateurs();
         }
 
-        public string NextNoCommande()
-        {
-            return Guid.NewGuid().ToString();
-        }
-
         public static void SetEntrepreneurFirstTime()
         {
             AccesCompte accesCompte = new AccesCompte(DataBases.NomDataBase());

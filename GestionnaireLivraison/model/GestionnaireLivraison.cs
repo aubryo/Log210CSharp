@@ -28,11 +28,13 @@ namespace GestionnaireLivraison.model
             return accesCompte.SelectAllRestaurateurs();
         }
 
+        public string NextNoCommande()
+        {
+            return Guid.NewGuid().ToString();
+        }
+
         public static void SetEntrepreneurFirstTime()
         {
-            /* TODO check compte by type for entrepreneur
-             * if count == 0 add a default entrepreneur             * 
-             */
             AccesCompte accesCompte = new AccesCompte(DataBases.NomDataBase());
             if (!accesCompte.EntrepreneurExiste())
             {

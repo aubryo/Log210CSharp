@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GestionnaireLivraison.controleur;
+using GestionnaireLivraison.model;
 
 namespace GestionnaireLivraison.presentation.restricted
 {
@@ -18,8 +20,16 @@ namespace GestionnaireLivraison.presentation.restricted
                 commande.Select();
 
                 lblNoCommande.Text = commande.NoCommande;
-                hlRetourAccueil.NavigateUrl = "~/presentation/restricted/AccueilClient.aspx.cs?Id=" + commande.ClientId;
             }
+        }
+
+        protected void hlRetourAccueil_Click(object sender, EventArgs e)
+        {
+                model.Commande commande = new model.Commande() { Id = Request.QueryString["Id"].ToObjectId() };
+                commande.Select();
+                var compte = new Compte() { Id = commande.ClientId };
+                compte.Select();
+                Response.Redirect(ControleurLogin.GetAcceuilPage(compte), true);
         }
     }
 }

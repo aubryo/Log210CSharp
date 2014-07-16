@@ -17,7 +17,7 @@
         <div>
             <asp:MultiView ID="vuesEntrepreneur" runat="server" ActiveViewIndex="0">
                 <asp:View ID="tabRestaurant" runat="server">
-                    <asp:Label ID="lblListRestaurants" runat="server" Text="List des restaurants"></asp:Label><br />
+                    <asp:Label ID="lblListRestaurants" runat="server" Text="Liste des restaurants"></asp:Label><br />
                     <asp:ObjectDataSource ID="odsRestaurant" runat="server" DeleteMethod="DeleteRestaurant" SelectMethod="GetRestaurants" TypeName="GestionnaireLivraison.controleur.ControleurRestaurants">
                         <DeleteParameters>
                             <asp:Parameter Name="id" Type="String" />
@@ -78,7 +78,7 @@
                     <asp:HyperLink ID="hlAjoutRestaurant" runat="server" Text="Ajouter un restaurant" NavigateUrl="~/presentation/restricted/Restaurant.aspx"/>
                 </asp:View>
                 <asp:View ID="tabRestaurateur" runat="server">
-                    <asp:Label ID="lblListRestaurateurs" runat="server" Text="List des restaurants"></asp:Label><br />
+                    <asp:Label ID="lblListRestaurateurs" runat="server" Text="Liste des restaurateurs"></asp:Label><br />
                     <asp:ObjectDataSource ID="odsRestaurateur" runat="server" DeleteMethod="DeleteRestaurateur" SelectMethod="GetRestaurateurs" TypeName="GestionnaireLivraison.controleur.ControleurRestaurateurs">
                         <DeleteParameters>
                             <asp:Parameter Name="id" Type="String" />

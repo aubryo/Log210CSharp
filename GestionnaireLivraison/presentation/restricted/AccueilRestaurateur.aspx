@@ -68,7 +68,7 @@
                                 <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
                                 <br />
                                 <br />
-                                List des menus:
+                                Liste des menus:
                                 <br />
                                 <asp:ObjectDataSource ID="odsMenu" runat="server" SelectMethod="GetMenus" TypeName="GestionnaireLivraison.controleur.ControleurMenus">
                                     <SelectParameters>
@@ -84,7 +84,7 @@
                                         </div>
                                     </LayoutTemplate>
                                     <EmptyDataTemplate>
-                                        <span>No data was returned.</span>
+                                        <span>Vous ne possédez aucun menu. Veuillez en ajouter !</span>
                                             <br />
                                     </EmptyDataTemplate>
                                     <ItemTemplate>

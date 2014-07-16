@@ -4,5 +4,5 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <asp:Label ID="Label1" runat="server" Text="Votre numero de commande est : "></asp:Label><asp:Label ID="lblNoCommande" runat="server" Text=""></asp:Label>
     <br />
-    <asp:HyperLink ID="hlRetourAccueil" runat="server" Text="Retour a l'accueil" ></asp:HyperLink>
+    <asp:LinkButton ID="hlRetourAccueil" runat="server" Text="Retour a l'accueil " OnClick="hlRetourAccueil_Click"></asp:LinkButton>
 </asp:Content>

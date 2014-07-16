@@ -59,7 +59,7 @@
                             <br />
                             <asp:ObjectDataSource ID="odsPlats" runat="server" SelectMethod="GetPlats" TypeName="GestionnaireLivraison.controleur.ControleurMenus">
                                 <SelectParameters>
-                                    <asp:ControlParameter ControlID="lvMenu" Name="Id" PropertyName="SelectedValue" Type="String" />
+                                    <asp:ControlParameter ControlID="lvMenu" Name="mId" PropertyName="SelectedValue" Type="String" />
                                 </SelectParameters>
                             </asp:ObjectDataSource>
                             <asp:ListView ID="lvPlat" runat="server" DataSourceID="odsPlats" DataKeyNames="Id" OnItemCommand="lvPlat_ItemCommand">

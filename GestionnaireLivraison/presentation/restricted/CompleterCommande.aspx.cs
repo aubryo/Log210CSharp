@@ -72,7 +72,20 @@ namespace GestionnaireLivraison.presentation
         {
             model.Commande commande = new model.Commande() { Id = Request.QueryString["Id"].ToObjectId() };
             commande.Select();
+
+            model.Compte compte = new model.Compte() { Id = commande.ClientId };
+            compte.Select();
+            model.Adresse adresse = new model.Adresse() { Id = compte.AdresseId };
+            adresse.Select();
+
             string adresseId = lvAdresses.SelectedIndex > -1 && !cbAdresseDefaut.Checked? lvAdresses.SelectedDataKey.Value.ToString(): hfDefaultAddressId.Value;
+
+            if (!compte.AdresseId.ToString().Equals(adresseId))
+            {
+                compte.AdresseId = adresseId.ToObjectId();
+                compte.Update();
+            }
+
             commande.AdresseId = adresseId.ToObjectId();
             DateTime dateLivraison = DateTime.Parse(txtDate.Text + " " + lbHeure.SelectedItem.Text + ":" + lbMinute.SelectedItem.Text);
             commande.DateLivraison = dateLivraison;

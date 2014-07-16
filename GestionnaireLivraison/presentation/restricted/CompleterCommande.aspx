@@ -75,7 +75,7 @@
                     <ItemTemplate>
                         <tr style="">
                             <td>
-                                <asp:LinkButton ID="btnSelection" runat="server" CommandeName="Select" Text="Selectionner"></asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="btnSelection" Text="Selectionner" CommandName="Select" />
                             </td>
                             <td>
                                 <asp:Label ID="NoRueLabel" runat="server" Text='<%# Eval("NoRue") %>' />

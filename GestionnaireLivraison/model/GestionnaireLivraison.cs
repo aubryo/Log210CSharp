@@ -52,6 +52,11 @@ namespace GestionnaireLivraison.model
             return accesCompte.CourrielUnique(courriel);
    
         }
-
+        
+        internal static List<Restaurant> GetRestaurantsAvecRestaurateur()
+        {
+            AccesRestaurant accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
+            return accesRestaurant.SelectRestaurantsAvecRestaurateur();
+        }
     }
 }

@@ -56,6 +56,11 @@ namespace GestionnaireLivraison.controleur
             return restaurateur.GetRestaurants();
         }
 
+        public static List<model.Restaurant> GetRestaurantsCommandable()
+        {
+            return model.GestionnaireLivraison.GetRestaurantsAvecRestaurateur();
+        }
+
         public static void DeleteRestaurant(string id)
         {
             model.Restaurant resto = new model.Restaurant() { Id = new ObjectId(id) };

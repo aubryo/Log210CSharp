@@ -73,6 +73,7 @@ namespace GestionnaireLivraison.presentation
             model.Adresse adresse = new model.Adresse() {CompteId = commande.ClientId, NoRue = txtNoRue.Text, NomRue = txtNomRue.Text, CodePostal = txtCodePostal.Text };
             adresse.Insert();
             lvAdresses.DataBind();
+            txtNoRue.Text = txtNomRue.Text = txtCodePostal.Text = "";
         }
 
         protected void btnTerminer_Click(object sender, EventArgs e)

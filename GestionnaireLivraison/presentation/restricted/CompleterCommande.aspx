@@ -43,7 +43,7 @@
         </LayoutTemplate>
     </asp:ListView>
     <br />
-    <asp:CheckBox ID="cbAdresseDefaut" runat="server" Text="Adresse par défaut" Checked="true" OnCheckedChanged="cbAdresseDefaut_CheckedChanged" />
+    <asp:CheckBox ID="cbAdresseDefaut" runat="server" Text="Adresse par défaut" Checked="true" OnCheckedChanged="cbAdresseDefaut_CheckedChanged" AutoPostBack="true" />
     <div id="adresseSelectionner">
         <asp:MultiView ID="vueAdresses" runat="server" ActiveViewIndex="0">
             <asp:View ID="tabDefault" runat="server">
@@ -130,7 +130,7 @@
                 <asp:Label ID="lblNumeroRueAjout" runat="server" Text="Numéro de rue :"></asp:Label><asp:TextBox ID="txtNoRue" runat="server"></asp:TextBox>
                 <asp:Label ID="lblNomRueAjout" runat="server" Text="Rue : "></asp:Label><asp:TextBox ID="txtNomRue" runat="server"></asp:TextBox>
                 <asp:Label ID="lblCodePostalAjout" runat="server" Text="CP : "></asp:Label><asp:TextBox ID="txtCodePostal" runat="server"></asp:TextBox>
-                <asp:Button ID="btnAddAdresse" runat="server" Text="Button" OnClick="btnAddAdresse_Click" />
+                <asp:Button ID="btnAddAdresse" runat="server" Text="Ajouter l'adresse" OnClick="btnAddAdresse_Click" />
             </asp:View>
         </asp:MultiView>
     </div>

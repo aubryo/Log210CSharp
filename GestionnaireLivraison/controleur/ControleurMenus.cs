@@ -31,11 +31,11 @@ namespace GestionnaireLivraison.controleur
             return resto.GetMenus();
         }
 
-        public static List<Plat> GetPlats(string mId)
+        public static List<Plat> GetPlats(string id)
         {
-            if (mId == null) return new List<Plat>();
+            if (id == null) return new List<Plat>();
 
-            Menu menu = new Menu() { Id = new ObjectId(mId) };
+            Menu menu = new Menu() { Id = new ObjectId(id) };
             menu.Select();
             return menu.GetPlats();
         }

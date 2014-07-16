@@ -7,16 +7,6 @@
     <br />
     <asp:Label ID="lblListRestaurants" runat="server" Text="List des restaurants"></asp:Label><br />
     <asp:ObjectDataSource ID="odsRestaurants" runat="server" SelectMethod="GetRestaurants" TypeName="GestionnaireLivraison.controleur.ControleurRestaurants"></asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsMenus" runat="server" SelectMethod="GetMenus" TypeName="GestionnaireLivraison.controleur.ControleurMenus">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="lvRestaurant" Name="id" PropertyName="SelectedValue" Type="String" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsPlats" runat="server" SelectMethod="GetPlats" TypeName="GestionnaireLivraison.controleur.ControleurMenus">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="lvMenu" Name="mId" PropertyName="SelectedValue" Type="String" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
     <asp:ListView ID="lvRestaurant" runat="server" DataKeyNames="Id" DataSourceID="odsRestaurants">
         <EmptyDataTemplate>
             No data was returned.
@@ -41,6 +31,11 @@
             <li style="">
                 <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
                 <br />
+                <asp:ObjectDataSource ID="odsMenus" runat="server" SelectMethod="GetMenus" TypeName="GestionnaireLivraison.controleur.ControleurMenus">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="lvRestaurant" Name="Id" PropertyName="SelectedValue" Type="String" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
                 <asp:ListView ID="lvMenu" runat="server" DataSourceID="odsMenus" DataKeyNames="Id">
                     <EmptyDataTemplate>
                         <span>No data was returned.</span>
@@ -62,6 +57,11 @@
                         <span style="">
                             <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
                             <br />
+                            <asp:ObjectDataSource ID="odsPlats" runat="server" SelectMethod="GetPlats" TypeName="GestionnaireLivraison.controleur.ControleurMenus">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="lvMenu" Name="Id" PropertyName="SelectedValue" Type="String" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
                             <asp:ListView ID="lvPlat" runat="server" DataSourceID="odsPlats" DataKeyNames="Id" OnItemCommand="lvPlat_ItemCommand">
                                 <EmptyDataTemplate>
                                     <table id="Table1" runat="server" style="">
@@ -73,6 +73,7 @@
                                 <ItemTemplate>
                                     <tr style="">
                                         <td>
+                                            <asp:HiddenField ID="hfId" runat="server" Value='<%# Eval("Id") %>' />
                                             <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
                                         </td>
                                         <td>

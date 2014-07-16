@@ -25,9 +25,11 @@ namespace GestionnaireLivraison.presentation
             if (e.CommandName == "AjouterLigneCommande")
             {
                 ListViewDataItem item = (ListViewDataItem)e.Item;
-                model.Plat plat = (model.Plat)item.DataItem;
-                int qty = Int32.Parse((item.FindControl("txtQty") as TextBox).Text);
-                model.LigneCommande ln = new model.LigneCommande() { PlatId = plat.Id, quantite = qty };
+                string id = (item.FindControl("hfId") as HiddenField).Value;
+                TextBox txtqty = item.FindControl("txtQty") as TextBox;
+                int qty = Int32.Parse(txtqty.Text);
+                txtqty.Text = "";
+                model.LigneCommande ln = new model.LigneCommande() { PlatId = id.ToObjectId(), quantite = qty };
                 ((List<model.LigneCommande>)Session[unsavedLigneCommande]).Add(ln);
             }
         }
@@ -45,7 +47,7 @@ namespace GestionnaireLivraison.presentation
 
             ((List<model.LigneCommande>)Session[unsavedLigneCommande]).Clear();
 
-            Response.Redirect("~/presentation/restricted/Commande.aspx?Id=" + commande.Id.ToString(), true);
+            Response.Redirect("~/presentation/restricted/CompleterCommande.aspx?Id=" + commande.Id.ToString(), true);
         }
     }
 }

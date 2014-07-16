@@ -35,6 +35,7 @@
     <asp:Label ID="lblCourriel" runat="server" Text="Courriel : "></asp:Label>
     <asp:TextBox ID="txtCourriel" runat="server"></asp:TextBox>
     <asp:Label ID="lblConfCourriel" runat="server" Text=""></asp:Label>
+    <asp:CustomValidator ID="valCourrielUnique" runat="server" ErrorMessage="Un compte est déjà associé à ce courriel" ControlToValidate="txtCourriel" ForeColor="Red"></asp:CustomValidator>
     <br />
     <asp:Label ID="lblMotDePasse" runat="server" Text="Mot de passe : "></asp:Label>
     <asp:TextBox ID="txtMotDePasse" runat="server"></asp:TextBox>

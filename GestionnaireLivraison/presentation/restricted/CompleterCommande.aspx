@@ -64,7 +64,7 @@
                         <asp:QueryStringParameter Name="commandeId" QueryStringField="Id" Type="String" />
                     </SelectParameters>
                 </asp:ObjectDataSource>
-                <asp:ListView ID="lvAdresses" runat="server" DataKeyNames="Id" DataSourceID="odsAdresses" OnItemCommand="lvAdresses_ItemCommand">
+                <asp:ListView ID="lvAdresses" runat="server" DataKeyNames="Id" DataSourceID="odsAdresses">
                     <EmptyDataTemplate>
                         <table runat="server" style="">
                             <tr>
@@ -75,7 +75,7 @@
                     <ItemTemplate>
                         <tr style="">
                             <td>
-                                <asp:CheckBox ID="CheckBox1" runat="server" CommandeName="Select" Checked="false"/>
+                                <asp:LinkButton ID="btnSelection" runat="server" CommandeName="Select" Text="Selectionner"></asp:LinkButton>
                             </td>
                             <td>
                                 <asp:Label ID="NoRueLabel" runat="server" Text='<%# Eval("NoRue") %>' />
@@ -112,7 +112,7 @@
                     <SelectedItemTemplate>
                         <tr style="">
                             <td>
-                                <asp:CheckBox ID="CheckBox1" runat="server" CommandeName="Unselect" Checked="true" />
+                                <asp:CheckBox ID="CheckBox1" runat="server" Checked="true" Enabled="false"/>
                             </td>
                             <td>
                                 <asp:Label ID="NoRueLabel" runat="server" Text='<%# Eval("NoRue") %>' />

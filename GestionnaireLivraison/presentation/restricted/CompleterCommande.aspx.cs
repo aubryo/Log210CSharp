@@ -58,14 +58,6 @@ namespace GestionnaireLivraison.presentation
             vueAdresses.ActiveViewIndex = cbAdresseDefaut.Checked ? 0 : 1;
         }
 
-        protected void lvAdresses_ItemCommand(object sender, ListViewCommandEventArgs e)
-        {
-            if (e.CommandName == "Unselect")
-            {
-                lvAdresses.SelectedIndex = -1;
-            }
-        }
-
         protected void btnAddAdresse_Click(object sender, EventArgs e)
         {
             model.Commande commande = new model.Commande() { Id = Request.QueryString["Id"].ToObjectId() };

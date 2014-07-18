@@ -7,8 +7,8 @@
 
 
             $(".btnCreerRestaurant").click(function () {
-                var test = $(".listRestaurateur").attr("selectedIndex");
-                if ($('.listRestaurateur :selected').text() == '') {
+                var test = $(".rbRestaurateur").attr("selectedIndex");
+                if ($('.rbRestaurateur :selected').text() == '') {
                     alert("Attention, vous n'avez assigné aucun restaurateur à votre restaurant.");
                 }
             });
@@ -33,9 +33,12 @@
     <br />
     <asp:Label ID="lblCodePostal" runat="server" Text="Code postal : "></asp:Label>
     <asp:TextBox ID="txtCodePostal" runat="server"></asp:TextBox>
-    <br />    
+    <br />
+    <asp:ObjectDataSource ID="odsRestaurateur" runat="server" SelectMethod="GetRestaurateurs" TypeName="GestionnaireLivraison.controleur.ControleurRestaurateurs"></asp:ObjectDataSource>
     <asp:Label ID="lblRestaurateur" runat="server" Text="Restaurateur : "></asp:Label>
-    <asp:listbox id="lbRestaurateur" CssClass="listRestaurateur" runat="server"></asp:listbox>
+    <asp:RadioButtonList ID="rbRestaurateur" CssClass="rbRestaurateur" runat="server" DataSourceID="odsRestaurateur" DataTextField="Nom" DataValueField="Id" OnDataBound="rbRestaurateur_DataBound" AppendDataBoundItems="true">
+        <asp:ListItem Value="000000000000000000000000" Text="Aucun"></asp:ListItem>
+    </asp:RadioButtonList>
     <br />
     <asp:Label ID="lblDescription" runat="server" Text="Description : "></asp:Label>
     <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>

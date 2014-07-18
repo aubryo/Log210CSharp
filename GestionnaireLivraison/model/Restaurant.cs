@@ -23,7 +23,7 @@ namespace GestionnaireLivraison.model
 
         private AccesRestaurant accesRestaurant;
         private AccesMenu accesMenu;
- 
+
         public Restaurant()
         {
             this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
@@ -32,7 +32,16 @@ namespace GestionnaireLivraison.model
 
         public void Select()
         {
-           Populeur.populer(this, accesRestaurant.Select(this));
+            Restaurant newData = this.accesRestaurant.Select(this);
+            this.Nom = newData.Nom;
+            this.NoTelephone = newData.NoTelephone;
+            this.NoRue = newData.NoRue;
+            this.CodePostal = newData.CodePostal;
+            this.NomRue = newData.NomRue;
+            this.Website = newData.Website;
+            this.Url = newData.Url;
+            this.Description = newData.Description;
+            this.RestaurateurID = newData.RestaurateurID;
         }
 
         public void Insert()
@@ -62,7 +71,7 @@ namespace GestionnaireLivraison.model
                 }
             }
             accesRestaurant.Delete(this);
-            
+
         }
 
     }

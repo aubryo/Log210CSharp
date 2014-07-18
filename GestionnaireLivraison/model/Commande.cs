@@ -8,14 +8,14 @@ using MongoDB.Bson;
 
 namespace GestionnaireLivraison.model
 {
-    public class Commande : IMongoSavableObject 
+    public class Commande : IMongoSavableObject
     {
         public ObjectId Id { get; set; }
         public string NoCommande { get; set; }
         public DateTime DateCreation { get; set; }
-        public string Statut { get; set; }   
-        public DateTime DateLivraison { get; set; }  
-        public ObjectId AdresseId { get; set; } 
+        public string Statut { get; set; }
+        public DateTime DateLivraison { get; set; }
+        public ObjectId AdresseId { get; set; }
         public ObjectId ClientId { get; set; }
         public ObjectId RestaurantId { get; set; }
 
@@ -23,7 +23,7 @@ namespace GestionnaireLivraison.model
         private AccesLigneCommande accesLigneCommande;
         private AccesAdresse accesAdresse;
         private AccesRestaurant accesRestaurant;
-      
+
 
         public Commande()
         {
@@ -35,8 +35,8 @@ namespace GestionnaireLivraison.model
 
         public List<Adresse> GetListClientAdresses()
         {
-            var client = new Client(new Compte() {Id = ClientId });
-           
+            var client = new Client(new Compte() { Id = ClientId });
+
             var adresses = accesAdresse.Select(client);
 
             return adresses;
@@ -49,8 +49,14 @@ namespace GestionnaireLivraison.model
 
         public void Select()
         {
-            
-            Populeur.populer(this, accesCommande.Select(this));
+            Commande newData = this.accesCommande.Select(this);
+            this.NoCommande = newData.NoCommande;
+            this.DateCreation = newData.DateCreation;
+            this.Statut = newData.Statut;
+            this.DateLivraison = newData.DateLivraison;
+            this.AdresseId = newData.AdresseId;
+            this.ClientId = newData.ClientId;
+            this.RestaurantId = newData.RestaurantId;
         }
 
         public void Insert()
@@ -58,7 +64,7 @@ namespace GestionnaireLivraison.model
             accesCommande.Insert(this);
         }
 
-        
+
         public void Update()
         {
             if (String.IsNullOrEmpty(this.NoCommande)) this.NoCommande = Guid.NewGuid().ToString();

@@ -112,6 +112,15 @@ namespace GestionnaireLivraison.presentation {
         protected global::System.Web.UI.WebControls.TextBox txtCodePostal;
         
         /// <summary>
+        /// odsRestaurateur control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsRestaurateur;
+        
+        /// <summary>
         /// lblRestaurateur control.
         /// </summary>
         /// <remarks>
@@ -121,13 +130,13 @@ namespace GestionnaireLivraison.presentation {
         protected global::System.Web.UI.WebControls.Label lblRestaurateur;
         
         /// <summary>
-        /// lbRestaurateur control.
+        /// rbRestaurateur control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbRestaurateur;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbRestaurateur;
         
         /// <summary>
         /// lblDescription control.

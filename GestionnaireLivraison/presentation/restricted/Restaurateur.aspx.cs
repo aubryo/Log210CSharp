@@ -87,50 +87,59 @@ namespace GestionnaireLivraison.presentation
 
         protected void btnCreerCompte_Click(object sender, EventArgs e)
         {
-            model.Restaurateur restaurateur = ControleurRestaurateurs.ajouterRestaurateur();
-            model.Adresse adresse = new model.Adresse();
-            string id = Request.QueryString["Id"];
-            if (id != null)
+            //TODO faire la validation pour le form au complet
+            if (model.GestionnaireLivraison.IsCourrielUnique(txtCourriel.Text))
             {
-                restaurateur.Id = id.ToObjectId();
-                restaurateur.Select();
-                adresse.Id = restaurateur.AdresseId;
-            }
-            restaurateur.Nom = txtNom.Text;
-            restaurateur.Prenom = txtPrenom.Text;
-            restaurateur.DateNaissance = DateTime.Parse(txtDDN.Text);
-            restaurateur.NoTelephone = txtNumeroTel.Text;
-            restaurateur.Courriel = txtCourriel.Text;
-            restaurateur.MotDePasse = txtMotDePasse.Text;
-            restaurateur.Update();
-
-            adresse.CompteId = restaurateur.Id;
-            adresse.NoRue = txtNumeroRue.Text;
-            adresse.NomRue = txtNomRue.Text;
-            adresse.CodePostal = txtCodePostal.Text;
-            adresse.Update();
-
-            restaurateur.AdresseId = adresse.Id;
-            restaurateur.Update();
-
-            foreach (var resto in restaurateur.GetRestaurants())
-            {
-                resto.RestaurateurID = ObjectId.Empty;
-                resto.Update();
-            }
-
-            foreach (ListItem item in cblRestaurants.Items)
-            {
-                if (item.Selected)
+                valCourrielUnique.IsValid = true;
+                model.Restaurateur restaurateur = ControleurRestaurateurs.ajouterRestaurateur();
+                model.Adresse adresse = new model.Adresse();
+                string id = Request.QueryString["Id"];
+                if (id != null)
                 {
-                    model.Restaurant resto = new model.Restaurant() { Id = item.Value.ToObjectId() };
-                    resto.Select();
-                    resto.RestaurateurID = restaurateur.Id;
+                    restaurateur.Id = id.ToObjectId();
+                    restaurateur.Select();
+                    adresse.Id = restaurateur.AdresseId;
+                }
+                restaurateur.Nom = txtNom.Text;
+                restaurateur.Prenom = txtPrenom.Text;
+                restaurateur.DateNaissance = DateTime.Parse(txtDDN.Text);
+                restaurateur.NoTelephone = txtNumeroTel.Text;
+                restaurateur.Courriel = txtCourriel.Text;
+                restaurateur.MotDePasse = txtMotDePasse.Text;
+                restaurateur.Update();
+
+                adresse.CompteId = restaurateur.Id;
+                adresse.NoRue = txtNumeroRue.Text;
+                adresse.NomRue = txtNomRue.Text;
+                adresse.CodePostal = txtCodePostal.Text;
+                adresse.Update();
+
+                restaurateur.AdresseId = adresse.Id;
+                restaurateur.Update();
+
+                foreach (var resto in restaurateur.GetRestaurants())
+                {
+                    resto.RestaurateurID = ObjectId.Empty;
                     resto.Update();
                 }
-            }
 
-            Response.Redirect("~/presentation/restricted/AccueilEntrepreneur.aspx", true);
+                foreach (ListItem item in cblRestaurants.Items)
+                {
+                    if (item.Selected)
+                    {
+                        model.Restaurant resto = new model.Restaurant() { Id = item.Value.ToObjectId() };
+                        resto.Select();
+                        resto.RestaurateurID = restaurateur.Id;
+                        resto.Update();
+                    }
+                }
+
+                Response.Redirect("~/presentation/restricted/AccueilEntrepreneur.aspx", true);
+            }
+            else
+            {
+                valCourrielUnique.IsValid = false;
+            }
         }
 
         protected void cblRestaurants_DataBound(object sender, EventArgs e)

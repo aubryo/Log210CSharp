@@ -6,7 +6,7 @@
     <asp:Label ID="lblTitre" runat="server" Text="Passer une commande"></asp:Label>
     <br />
     <asp:Label ID="lblListRestaurants" runat="server" Text="List des restaurants"></asp:Label><br />
-    <asp:ObjectDataSource ID="odsRestaurants" runat="server" SelectMethod="GetRestaurants" TypeName="GestionnaireLivraison.controleur.ControleurRestaurants"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsRestaurants" runat="server" SelectMethod="GetRestaurantsCommandable" TypeName="GestionnaireLivraison.controleur.ControleurRestaurants"></asp:ObjectDataSource>
     <asp:ListView ID="lvRestaurant" runat="server" DataKeyNames="Id" DataSourceID="odsRestaurants">
         <EmptyDataTemplate>
             No data was returned.

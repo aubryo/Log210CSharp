@@ -84,16 +84,26 @@ namespace GestionnaireLivraison.presentation
 
         protected void btnCreerCompte_Click(object sender, EventArgs e)
         {
-            if (btnCreerCompte.Text.Equals(textbtnCreation) || btnCreerCompte.Text.Equals(textbtnModification))
+            //TODO faire la validation pour le form au complet
+            if (model.GestionnaireLivraison.IsCourrielUnique(txtCourriel.Text))
             {
-                setInfo();
-                etatCreation(false);
+                valCourrielUnique.IsValid = true;
+                if (btnCreerCompte.Text.Equals(textbtnCreation) || btnCreerCompte.Text.Equals(textbtnModification))
+                {
+                    setInfo();
+                    etatCreation(false);
+                }
+                else
+                {
+                    Client client = SaveClient();
+                    Response.Redirect("~/presentation/restricted/AccueilClient.aspx?Id=" + client.Id.ToString(), true);
+                }
             }
             else
             {
-                Client client = SaveClient();
-                Response.Redirect("~/presentation/restricted/AccueilClient.aspx?Id=" + client.Id.ToString(), true);
+                valCourrielUnique.IsValid = false;
             }
+
         }
 
         private void etatCreation(bool isCreating)

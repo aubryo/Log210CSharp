@@ -1,10 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/presentation/Site1.Master" AutoEventWireup="true" CodeBehind="Restaurateur.aspx.cs" Inherits="GestionnaireLivraison.presentation.Restaurateur" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
-        /* Cas d'utilisation F8 2a.
-         * Si cblRestaurants.Checked == null avertire que le Restaurateur est sauvegarder sans restaurant(s)
-         */
 
+        $(document).ready(function () {
+            
+            $(".creerCompte").click(function () {
+                var nbchecked = 0;
+                $("input[type=checkbox]").each(function () {
+                    var sThisVal = (this.checked ? "1" : "0");
+                    if (sThisVal == 1) {
+                        nbchecked++;
+                    }
+                });
+
+                if (nbchecked == 0) {
+                    alert("Attention, vous n'avez assigné aucun restaurant à votre restaurateur.");
+
+                }
+                
+
+            });
+
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
@@ -43,8 +61,8 @@
             <asp:QueryStringParameter Name="id" QueryStringField="Id" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <asp:CheckBoxList ID="cblRestaurants" runat="server" DataValueField="Id" DataTextField="Nom" DataSourceID="odsRestaurant" OnDataBound="cblRestaurants_DataBound"></asp:CheckBoxList>
+    <asp:CheckBoxList CssClass="chkboxRestaurant" ID="cblRestaurants" runat="server" DataValueField="Id" DataTextField="Nom" DataSourceID="odsRestaurant" OnDataBound="cblRestaurants_DataBound"></asp:CheckBoxList>
     <br />
-    <asp:Button ID="btnCreerCompte" runat="server" Text="Créer compte" OnClick="btnCreerCompte_Click" />
+    <asp:Button ID="btnCreerCompte" CssClass="creerCompte" runat="server" Text="Créer compte" OnClick="btnCreerCompte_Click" />
     <asp:HiddenField ID="hfSelectedResto" runat="server" />
 </asp:Content>

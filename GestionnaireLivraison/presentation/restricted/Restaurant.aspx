@@ -1,10 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/presentation/Site1.Master" AutoEventWireup="true" CodeBehind="Restaurant.aspx.cs" Inherits="GestionnaireLivraison.presentation.Restaurant" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
-        /* Cas d'utilisation F1 3a.
-         * Si lbRestaurateur.selected == -1 avertire que le restaurant est sauvegarder sans restaurateur
-         */
 
+        $(document).ready(function () {
+
+
+            $(".btnCreerRestaurant").click(function () {
+                var test = $(".listRestaurateur").attr("selectedIndex");
+                if ($('.listRestaurateur :selected').text() == '') {
+                    alert("Attention, vous n'avez assigné aucun restaurateur à votre restaurant.");
+                }
+            });
+
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
@@ -26,7 +35,7 @@
     <asp:TextBox ID="txtCodePostal" runat="server"></asp:TextBox>
     <br />    
     <asp:Label ID="lblRestaurateur" runat="server" Text="Restaurateur : "></asp:Label>
-    <asp:listbox id="lbRestaurateur" runat="server"></asp:listbox>
+    <asp:listbox id="lbRestaurateur" CssClass="listRestaurateur" runat="server"></asp:listbox>
     <br />
     <asp:Label ID="lblDescription" runat="server" Text="Description : "></asp:Label>
     <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
@@ -37,5 +46,5 @@
     <asp:Label ID="lblUrlBanniere" runat="server" Text="Url Banniere : "></asp:Label>
     <asp:TextBox ID="txtUrlBanniere" runat="server"></asp:TextBox>
     <br />
-    <asp:Button ID="btnSauvegarder" runat="server" Text="Sauvegarder" OnClick="btnSauvegarder_Click"/>
+    <asp:Button ID="btnSauvegarder" runat="server" Text="Sauvegarder" CssClass="btnCreerRestaurant" OnClick="btnSauvegarder_Click"/>
 </asp:Content>

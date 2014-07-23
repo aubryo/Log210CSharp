@@ -13,7 +13,19 @@ namespace GestionnaireLivraison.model
         public ObjectId Id { get; set; }
         public string NoCommande { get; set; }
         public DateTime DateCreation { get; set; }
-        public string Statut { get; set; }
+        public string _Statut;
+        public string Statut
+        {
+            get
+            {
+                return _Statut;
+            }
+            set
+            {
+                _Statut = value;
+                AdviseClient();
+            }
+        }
         public DateTime DateLivraison { get; set; }
         public ObjectId AdresseId { get; set; }
         public ObjectId ClientId { get; set; }
@@ -67,7 +79,12 @@ namespace GestionnaireLivraison.model
 
         public void Update()
         {
-            if (String.IsNullOrEmpty(this.NoCommande)) this.NoCommande = Guid.NewGuid().ToString();
+            if (String.IsNullOrEmpty(this.NoCommande))
+            {
+                this.NoCommande = Guid.NewGuid().ToString();
+                this.Statut = EnumCommandeStatut.Passee.ToString();
+            }
+
             accesCommande.Update(this);
         }
 
@@ -84,6 +101,16 @@ namespace GestionnaireLivraison.model
             accesCommande.Delete(this);
 
 
+        }
+
+        private void AdviseClient()
+        {
+            if (!this.ClientId.Equals(ObjectId.Empty))
+            {
+                Client client = new Client(new Compte() { Id = this.ClientId });
+                client.Select();
+                StatutChangeEmail.Advise(client, this);
+            }
         }
 
     }

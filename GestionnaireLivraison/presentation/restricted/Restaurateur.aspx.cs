@@ -73,7 +73,7 @@ namespace GestionnaireLivraison.presentation
             txtNumeroRue.Text = adresse.NoRue;
             txtNomRue.Text = adresse.NomRue;
             txtCodePostal.Text = adresse.CodePostal;
-            txtDDN.Text = restaurateur.DateNaissance.ToShortDateString();
+            txtDDN.Text = restaurateur.DateNaissance.ToString("yyyy-MM-dd");
             txtNumeroTel.Text = restaurateur.NoTelephone;
             txtCourriel.Text = restaurateur.Courriel;
             txtMotDePasse.Text = restaurateur.MotDePasse;

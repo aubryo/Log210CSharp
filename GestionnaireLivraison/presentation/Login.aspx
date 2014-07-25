@@ -15,7 +15,7 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*"  ForeColor="Red" ControlToValidate="txtMotDePasse"></asp:RequiredFieldValidator>
         <br />
         <asp:Button ID="btnLogin" CssClass="btn btn-primary" runat="server" Text="Login" OnClick="btnLogin_Click" />
-            <asp:CustomValidator ID="CustomValidator1"  runat="server"  ErrorMessage="Le compte et/ou le mot de passe sont invalides" ControlToValidate="txtCourriel" ForeColor="Red"></asp:CustomValidator> 
+            <asp:CustomValidator ID="valCourrielLogin"  runat="server"  ErrorMessage="Le compte et/ou le mot de passe sont invalides" ControlToValidate="txtCourriel" ForeColor="Red"></asp:CustomValidator> 
         <asp:HyperLink ID="hlCreerCompte" runat="server" Text="Créer nouveau compte" NavigateUrl="~/presentation/Client.aspx"></asp:HyperLink>
         </div>
     </div>

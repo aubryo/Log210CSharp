@@ -7,19 +7,20 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div style="background-color:aliceblue">
-            <asp:Label ID="lblTitre" runat="server" Text="Gestionnaire de livraison"></asp:Label>
-            <asp:Label ID="lblAuthentifier" runat="server" Text=""></asp:Label>
-            <asp:LinkButton ID="btnDeconnection" runat="server" Text="Se déconnecter" OnClick="btnDeconnection_Click"></asp:LinkButton>
-        </div>
-    <div>
-        <asp:ContentPlaceHolder ID="cphMain" runat="server">
+        <form id="form1" runat="server">
+            <div class="navbar navbar-default navbar-fixed-top">
+                <asp:Label ID="lblTitre" runat="server" Text="Gestionnaire de livraison"></asp:Label>
+                <asp:Label ID="lblAuthentifier" runat="server" Text=""></asp:Label>
+                <asp:LinkButton ID="btnDeconnection" runat="server" Text="Se déconnecter" OnClick="btnDeconnection_Click"></asp:LinkButton>
+            </div>
+        <div style="margin-top:80px;">
+            <asp:ContentPlaceHolder ID="cphMain" runat="server">
         
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
+            </asp:ContentPlaceHolder>
+        </div>
+        </form>
 </body>
 </html>

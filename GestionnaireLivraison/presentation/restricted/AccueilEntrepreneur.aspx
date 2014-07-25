@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
-    <div>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div>
             <asp:Label ID="lblTitre" runat="server" Text="Gestionnaire de livraison"></asp:Label>
             <br />
@@ -69,13 +71,13 @@
                                 Description:
                                 <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
                                 <br />
-                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Supprimer" />
-                                <asp:HyperLink ID="hlUpdate" runat="server" Text="Modifier" NavigateUrl='<%#"~/presentation/restricted/Restaurant.aspx?Id="+Eval("Id")%>'></asp:HyperLink>
+                                <asp:LinkButton ID="DeleteButton" CssClass="btn btn-danger" runat="server" CommandName="Delete"><span class="glyphicon glyphicon-remove"></span>&nbsp;Supprimer</asp:LinkButton>
+                                <asp:HyperLink ID="hlUpdate" runat="server" CssClass="btn btn-primary" NavigateUrl='<%#"~/presentation/restricted/Restaurant.aspx?Id="+Eval("Id")%>'><span class="glyphicon glyphicon-pencil"></span>&nbsp;Modifier</asp:HyperLink>
                             </li>
                         </SelectedItemTemplate>
                     </asp:ListView>
                     <br />
-                    <asp:HyperLink ID="hlAjoutRestaurant" runat="server" Text="Ajouter un restaurant" NavigateUrl="~/presentation/restricted/Restaurant.aspx"/>
+                    <asp:HyperLink ID="lbAjoutRestaurant" runat="server" CssClass="btn btn-success" NavigateUrl="~/presentation/restricted/Restaurant.aspx"><span class="glyphicon glyphicon-plus"></span>&nbsp;Ajouter un Restaurant</asp:HyperLink>
                 </asp:View>
                 <asp:View ID="tabRestaurateur" runat="server">
                     <asp:Label ID="lblListRestaurateurs" runat="server" Text="Liste des restaurateurs"></asp:Label><br />
@@ -123,15 +125,17 @@
                                 Courriel:
                                 <asp:Label ID="CourrielLabel" runat="server" Text='<%# Eval("Courriel") %>' />
                                 <br />
-                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Supprimer" />
-                                <asp:HyperLink ID="hlUpdate" runat="server" Text="Modifier" NavigateUrl='<%#"~/presentation/restricted/Restaurateur.aspx?Id="+Eval("Id")%>'></asp:HyperLink>
+                                <asp:LinkButton ID="DeleteButton" CssClass="btn btn-danger" runat="server" CommandName="Delete"><span class="glyphicon glyphicon-remove"></span>&nbsp;Supprimer</asp:LinkButton>
+                                <asp:HyperLink ID="hlUpdate" CssClass="btn btn-primary"  runat="server" NavigateUrl='<%#"~/presentation/restricted/Restaurateur.aspx?Id="+Eval("Id")%>'><span class="glyphicon glyphicon-pencil"></span>&nbsp;Modifier</asp:HyperLink>
                             </li>
                         </SelectedItemTemplate>
                     </asp:ListView>
                     <br />
-                    <asp:HyperLink ID="hlAjoutRestaurateur" runat="server" Text="Ajouter un restaurateur" NavigateUrl="~/presentation/restricted/Restaurateur.aspx"/>
+                    <asp:HyperLink ID="hlAjoutRestaurateur" runat="server" CssClass="btn btn-success" NavigateUrl="~/presentation/restricted/Restaurateur.aspx"><span class="glyphicon glyphicon-plus"></span>&nbsp;Ajouter un Restaurateur</asp:HyperLink>
                 </asp:View>
             </asp:MultiView>
         </div>
     </div>
+</div>
+</div>
 </asp:Content>

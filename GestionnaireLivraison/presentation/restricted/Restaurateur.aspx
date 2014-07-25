@@ -51,7 +51,7 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Format invalide (ex: H2J3C4)" ControlToValidate="txtCodePostal" ForeColor="Red"  ValidationExpression="^[a-zA-Z]{1}[0-9]{1}[a-zA-Z]{1}(\-| |){1}[0-9]{1}[a-zA-Z]{1}[0-9]{1}$"></asp:RegularExpressionValidator>
             <br />
             <asp:Label ID="lblDDN" runat="server" Text="Date de naissance : "></asp:Label>
-            <asp:TextBox ID="txtDDN" CssClass="form-control" runat="server"></asp:TextBox> &nbsp;YYYY-MM-DD
+            <asp:TextBox ID="txtDDN" CssClass="form-control" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="*"  ForeColor="Red" ControlToValidate="txtDDN"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Format invalide" ForeColor="Red"  ControlToValidate="txtDDN" ValidationExpression="^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"></asp:RegularExpressionValidator>
             <br />

@@ -50,19 +50,19 @@
                                 Nom:
                                 <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
                                 <br />
-                                NoTelephone:
+                                No. Telephone:
                                 <asp:Label ID="NoTelephoneLabel" runat="server" Text='<%# Eval("NoTelephone") %>' />
                                 <br />
-                                NoRue:
+                                No. Rue:
                                 <asp:Label ID="NoRueLabel" runat="server" Text='<%# Eval("NoRue") %>' />
                                 <br />
-                                CodePostal:
+                                Code Postal:
                                 <asp:Label ID="CodePostalLabel" runat="server" Text='<%# Eval("CodePostal") %>' />
                                 <br />
-                                NomRue:
+                                Nom de la Rue:
                                 <asp:Label ID="NomRueLabel" runat="server" Text='<%# Eval("NomRue") %>' />
                                 <br />
-                                Website:
+                                Site Web:
                                 <asp:Label ID="WebsiteLabel" runat="server" Text='<%# Eval("Website") %>' />
                                 <br />
                                 Url:
@@ -95,7 +95,7 @@
                             </div>
                         </LayoutTemplate>
                         <EmptyDataTemplate>
-                            No data was returned.
+                            Aucun restaurateur.
                         </EmptyDataTemplate>
                         <ItemSeparatorTemplate>
                             <br />
@@ -113,10 +113,10 @@
                                 Prenom:
                                 <asp:Label ID="PrenomLabel" runat="server" Text='<%# Eval("Prenom") %>' />
                                 <br />
-                                DateNaissance:
+                                Date de Naissance:
                                 <asp:Label ID="DateNaissanceLabel" runat="server" Text='<%# Eval("DateNaissance") %>' />
                                 <br />
-                                NoTelephone:
+                                No. Telephone:
                                 <asp:Label ID="NoTelephoneLabel" runat="server" Text='<%# Eval("NoTelephone") %>' />
                                 <br />
                                 AdresseId:

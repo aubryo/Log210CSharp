@@ -15,10 +15,6 @@ namespace GestionnaireLivraison.presentation
             string id = Request.QueryString["Id"];
             if (!IsPostBack)
             {
-                lbRestaurateur.DataSource = model.GestionnaireLivraison.GetRestaurateurs();
-                lbRestaurateur.DataValueField = "Id";
-                lbRestaurateur.DataTextField = "Nom";
-                lbRestaurateur.DataBind();
                 if (id != null)
                 {
                     model.Restaurant resto = new model.Restaurant() { Id = id.ToObjectId() };
@@ -39,10 +35,6 @@ namespace GestionnaireLivraison.presentation
             txtSiteWeb.Text = resto.Website;
             txtUrlBanniere.Text = resto.Url;
 
-            if (!resto.RestaurateurID.Equals(ObjectId.Empty))
-            {
-                lbRestaurateur.Items.FindByValue(resto.RestaurateurID.ToString()).Selected = true;
-            }
         }
 
         protected void btnSauvegarder_Click(object sender, EventArgs e)
@@ -64,9 +56,22 @@ namespace GestionnaireLivraison.presentation
             resto.Website = txtSiteWeb.Text;
             resto.Url = txtUrlBanniere.Text;
 
+            resto.RestaurateurID = rbRestaurateur.SelectedValue.ToObjectId();
+
             resto.Update();
 
             Response.Redirect("~/presentation/restricted/AccueilEntrepreneur.aspx", true);
+        }
+
+        protected void rbRestaurateur_DataBound(object sender, EventArgs e)
+        {
+            string id = Request.QueryString["Id"];
+            if (id != null)
+            {
+                model.Restaurant resto = new model.Restaurant() { Id = id.ToObjectId() };
+                resto.Select();
+                rbRestaurateur.Items.FindByValue(resto.RestaurateurID.ToString()).Selected = true;
+            }
         }
     }
 }

@@ -317,10 +317,10 @@
     <Compile Include="model\LigneCommande.cs" />
     <Compile Include="model\Menu.cs" />
     <Compile Include="model\Plat.cs" />
-    <Compile Include="model\Populeur.cs" />
     <Compile Include="model\Restaurant.cs" />
     <Compile Include="model\Restaurateur.cs" />
     <Compile Include="model\EnumTypeCompte.cs" />
+    <Compile Include="model\StatutChangeEmail.cs" />
     <Compile Include="mongoDB\Acces.cs" />
     <Compile Include="mongoDB\AccesAdresse.cs" />
     <Compile Include="mongoDB\AccesCommande.cs" />

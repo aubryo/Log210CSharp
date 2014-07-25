@@ -37,6 +37,7 @@ namespace GestionnaireLivraison.controleur
         public static void DeleteRestaurateur(string id)
         {
             model.Restaurateur resto = new model.Restaurateur(new Compte() { Id = new ObjectId(id) });
+            resto.Select();
             resto.Delete();
         }
     }

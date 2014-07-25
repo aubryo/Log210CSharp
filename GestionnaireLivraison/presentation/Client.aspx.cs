@@ -46,7 +46,7 @@ namespace GestionnaireLivraison.presentation
             txtNumeroRue.Text = adresse.NoRue;
             txtNomRue.Text = adresse.NomRue;
             txtCodePostal.Text = adresse.CodePostal;
-            txtDDN.Text = client.DateNaissance.ToShortDateString();
+            txtDDN.Text = client.DateNaissance.ToString("yyyy-MM-dd");
             txtNumeroTel.Text = client.NoTelephone;
             txtCourriel.Text = client.Courriel;
             txtMotDePasse.Text = client.MotDePasse;

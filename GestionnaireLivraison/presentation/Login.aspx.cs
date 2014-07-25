@@ -27,6 +27,7 @@ namespace GestionnaireLivraison
             ICompte compte = ControleurLogin.ValidateUser(txtCourriel.Text, txtMotDePasse.Text);
             if (compte != null)
             {
+                valCourrielLogin.IsValid = true;
                 FormsAuthenticationTicket tkt = new FormsAuthenticationTicket(1, compte.Id.ToString(), DateTime.Now, DateTime.Now.AddMinutes(30), true, compte.TypeCompte.ToString());
                 string cookiestr = FormsAuthentication.Encrypt(tkt);
                 HttpCookie ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
@@ -35,6 +36,10 @@ namespace GestionnaireLivraison
                 Response.Cookies.Add(ck);
                 Response.Redirect(ControleurLogin.GetAcceuilPage(compte), true);
             }
+            else {
+                valCourrielLogin.IsValid = false;
+            }
         }
+        
     }
 }

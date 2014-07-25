@@ -32,7 +32,7 @@ namespace GestionnaireLivraison.presentation
             lblClientNumeroRue.Text = adresse.NoRue;
             lblClientNomRue.Text = adresse.NomRue;
             lblClientCodePostal.Text = adresse.CodePostal;
-            lblClientDDN.Text = client.DateNaissance.ToShortDateString();
+            lblClientDDN.Text = client.DateNaissance.ToString("yyyy-MM-dd");
             lblClientNumeroTel.Text = client.NoTelephone;
             lblClientCourriel.Text = client.Courriel;
         }

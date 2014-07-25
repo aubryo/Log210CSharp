@@ -40,7 +40,10 @@ namespace GestionnaireLivraison.presentation
                 if (txtDescription.Text == "")
                 {
                     lblState.Text = "Aucune description!";
-                    lblState.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    lblState.Text = "";
                 }
                 if (Request.QueryString["MId"] == null)
                 {

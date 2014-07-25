@@ -25,8 +25,9 @@ namespace GestionnaireLivraison.model
 
         public void Select()
         {
-            
-            Populeur.populer(this, accesMenu.Select(this));
+            Menu newData = this.accesMenu.Select(this);
+            this.Nom = newData.Nom;
+            this.RestaurantId = newData.RestaurantId;
         }
 
         

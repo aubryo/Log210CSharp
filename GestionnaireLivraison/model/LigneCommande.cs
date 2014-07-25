@@ -25,7 +25,10 @@ namespace GestionnaireLivraison.model
 
         public void Select()
         {
-          Populeur.populer(this, accesLigneCommande.Select(this));
+            LigneCommande newData = accesLigneCommande.Select(this);
+            this.CommandeId = newData.CommandeId;
+            this.PlatId = newData.PlatId;
+            this.quantite = newData.quantite;
         }
 
         public void Insert()

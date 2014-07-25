@@ -7,8 +7,8 @@
 
 
             $(".btnCreerRestaurant").click(function () {
-                var test = $(".listRestaurateur").attr("selectedIndex");
-                if ($('.listRestaurateur :selected').text() == '') {
+                var test = $(".rbRestaurateur").attr("selectedIndex");
+                if ($('.rbRestaurateur :selected').text() == '') {
                     alert("Attention, vous n'avez assigné aucun restaurateur à votre restaurant.");
                 }
             });
@@ -21,21 +21,31 @@
     <br />
     <asp:Label ID="lblNom" runat="server" Text="Nom : "></asp:Label>
     <asp:TextBox ID="txtNom" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="validEmptyNom" runat="server" ErrorMessage="*"  ForeColor="Red" ControlToValidate="txtNom"></asp:RequiredFieldValidator>
     <br />
     <asp:Label ID="lblNumeroTel" runat="server" Text="Numéro de téléphone : "></asp:Label>
     <asp:TextBox ID="txtNumeroTel" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*"  ForeColor="Red" ControlToValidate="txtNumeroTel"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Format invalide (ex: 514-123-3456)" ForeColor="Red"  ControlToValidate="txtNumeroTel" ValidationExpression="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"></asp:RegularExpressionValidator>    
     <br />
     <asp:Label ID="lblNumeroRue" runat="server" Text="Numéro de rue : "></asp:Label>
     <asp:TextBox ID="txtNumeroRue" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="validEmptyNumeroRue" runat="server" ErrorMessage="*"  ForeColor="Red" ControlToValidate="txtNumeroRue"></asp:RequiredFieldValidator>
     <br />
     <asp:Label ID="lblNomRue" runat="server" Text="Rue : "></asp:Label>
     <asp:TextBox ID="txtNomRue" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="validEmptyNomRue" runat="server" ErrorMessage="*"  ForeColor="Red" ControlToValidate="txtNomRue"></asp:RequiredFieldValidator>
     <br />
     <asp:Label ID="lblCodePostal" runat="server" Text="Code postal : "></asp:Label>
     <asp:TextBox ID="txtCodePostal" runat="server"></asp:TextBox>
-    <br />    
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*"  ForeColor="Red" ControlToValidate="txtCodePostal"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="validationCodePostal" runat="server" ErrorMessage="Format invalide (ex: H2J3C4)" ControlToValidate="txtCodePostal" ForeColor="Red"  ValidationExpression="^[a-zA-Z]{1}[0-9]{1}[a-zA-Z]{1}(\-| |){1}[0-9]{1}[a-zA-Z]{1}[0-9]{1}$"></asp:RegularExpressionValidator>   
+    <br />
+    <asp:ObjectDataSource ID="odsRestaurateur" runat="server" SelectMethod="GetRestaurateurs" TypeName="GestionnaireLivraison.controleur.ControleurRestaurateurs"></asp:ObjectDataSource>
     <asp:Label ID="lblRestaurateur" runat="server" Text="Restaurateur : "></asp:Label>
-    <asp:listbox id="lbRestaurateur" CssClass="listRestaurateur" runat="server"></asp:listbox>
+    <asp:RadioButtonList ID="rbRestaurateur" CssClass="rbRestaurateur" runat="server" DataSourceID="odsRestaurateur" DataTextField="Nom" DataValueField="Id" OnDataBound="rbRestaurateur_DataBound" AppendDataBoundItems="true">
+        <asp:ListItem Value="000000000000000000000000" Text="Aucun"></asp:ListItem>
+    </asp:RadioButtonList>
     <br />
     <asp:Label ID="lblDescription" runat="server" Text="Description : "></asp:Label>
     <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>

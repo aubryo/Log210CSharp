@@ -31,10 +31,13 @@ namespace GestionnaireLivraison.model
         public void Select()
         {
             Adresse newData = this.accesAdresse.Select(this);
-            this.NoRue = newData.NoRue;
-            this.NomRue = newData.NomRue;
-            this.CodePostal = newData.CodePostal;
-            this.CompteId = newData.CompteId;
+            if (newData != null)
+            {
+                this.NoRue = newData.NoRue;
+                this.NomRue = newData.NomRue;
+                this.CodePostal = newData.CodePostal;
+                this.CompteId = newData.CompteId;
+            }
         }
 
         public void Insert()

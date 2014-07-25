@@ -12,7 +12,7 @@ namespace GestionnaireLivraison.controleur
         {
             var compte = new Compte() { Courriel = courriel };
             compte.Select();
-            if (compte.MotDePasse.Equals(motDePasse))
+            if (motDePasse.Equals(compte.MotDePasse))
                 return compte;
             else
                 return null;

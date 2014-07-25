@@ -26,10 +26,13 @@ namespace GestionnaireLivraison.model
         public void Select()
         {
             Plat newData = this.accesPlat.Select(this);
-            this.Nom = newData.Nom;
-            this.Description = newData.Description;
-            this.Prix = newData.Prix;
-            this.MenuId = newData.MenuId;
+            if (newData != null)
+            {
+                this.Nom = newData.Nom;
+                this.Description = newData.Description;
+                this.Prix = newData.Prix;
+                this.MenuId = newData.MenuId;
+            }
         }
 
         public void Insert()

@@ -36,15 +36,18 @@ namespace GestionnaireLivraison.model
         public void Select()
         {
             var newdata = accesCompte.Select(this);
-            this.Id = newdata.Id;
-            this.Nom = newdata.Nom;
-            this.Prenom = newdata.Prenom;
-            this.DateNaissance = newdata.DateNaissance;
-            this.NoTelephone = newdata.NoTelephone;
-            this.AdresseId = newdata.AdresseId;
-            this.Courriel = newdata.Courriel;
-            this.MotDePasse = newdata.MotDePasse;
-            this.TypeCompte = newdata.TypeCompte;
+            if (newdata != null)
+            {
+                this.Id = newdata.Id;
+                this.Nom = newdata.Nom;
+                this.Prenom = newdata.Prenom;
+                this.DateNaissance = newdata.DateNaissance;
+                this.NoTelephone = newdata.NoTelephone;
+                this.AdresseId = newdata.AdresseId;
+                this.Courriel = newdata.Courriel;
+                this.MotDePasse = newdata.MotDePasse;
+                this.TypeCompte = newdata.TypeCompte;
+            }
 
             //Populeur.populer(this, accesCompte.Select(this));
         }

@@ -62,13 +62,16 @@ namespace GestionnaireLivraison.model
         public void Select()
         {
             Commande newData = this.accesCommande.Select(this);
-            this.NoCommande = newData.NoCommande;
-            this.DateCreation = newData.DateCreation;
-            this.Statut = newData.Statut;
-            this.DateLivraison = newData.DateLivraison;
-            this.AdresseId = newData.AdresseId;
-            this.ClientId = newData.ClientId;
-            this.RestaurantId = newData.RestaurantId;
+            if (newData != null)
+            {
+                this.NoCommande = newData.NoCommande;
+                this.DateCreation = newData.DateCreation;
+                this.Statut = newData.Statut;
+                this.DateLivraison = newData.DateLivraison;
+                this.AdresseId = newData.AdresseId;
+                this.ClientId = newData.ClientId;
+                this.RestaurantId = newData.RestaurantId;
+            }
         }
 
         public void Insert()

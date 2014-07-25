@@ -33,15 +33,18 @@ namespace GestionnaireLivraison.model
         public void Select()
         {
             Restaurant newData = this.accesRestaurant.Select(this);
-            this.Nom = newData.Nom;
-            this.NoTelephone = newData.NoTelephone;
-            this.NoRue = newData.NoRue;
-            this.CodePostal = newData.CodePostal;
-            this.NomRue = newData.NomRue;
-            this.Website = newData.Website;
-            this.Url = newData.Url;
-            this.Description = newData.Description;
-            this.RestaurateurID = newData.RestaurateurID;
+            if (newData != null)
+            {
+                this.Nom = newData.Nom;
+                this.NoTelephone = newData.NoTelephone;
+                this.NoRue = newData.NoRue;
+                this.CodePostal = newData.CodePostal;
+                this.NomRue = newData.NomRue;
+                this.Website = newData.Website;
+                this.Url = newData.Url;
+                this.Description = newData.Description;
+                this.RestaurateurID = newData.RestaurateurID;
+            }
         }
 
         public void Insert()

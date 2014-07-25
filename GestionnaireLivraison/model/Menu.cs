@@ -26,8 +26,11 @@ namespace GestionnaireLivraison.model
         public void Select()
         {
             Menu newData = this.accesMenu.Select(this);
-            this.Nom = newData.Nom;
-            this.RestaurantId = newData.RestaurantId;
+            if (newData != null)
+            {
+                this.Nom = newData.Nom;
+                this.RestaurantId = newData.RestaurantId;
+            }
         }
 
         

@@ -23,7 +23,7 @@ namespace GestionnaireLivraison.mongoDB
 
             var coll = db.GetCollection<Commande>(TableName);
             var commandes = (from commande in coll.AsQueryable<Commande>()
-                              where commande.RestaurantId == restaurant.Id && !(commande.NoCommande == null || commande.NoCommande.Equals(""))
+                              where commande.RestaurantId == restaurant.Id && !(commande.NoCommande == null || commande.NoCommande.Equals("")) && commande.Statut != EnumCommandeStatut.Acceptee.ToString()
                               select commande).ToList<Commande>();
 
             return commandes;

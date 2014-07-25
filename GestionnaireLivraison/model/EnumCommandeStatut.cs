@@ -7,9 +7,9 @@ namespace GestionnaireLivraison.model
 {
     public enum EnumCommandeStatut
     {
-        EnPreparation,
-        Passee,
-        Prete,
-        Acceptee
+        EnPreparation = 0,
+        Passee = 1,
+        Prete = 2,
+        Acceptee = 3
     }
 }

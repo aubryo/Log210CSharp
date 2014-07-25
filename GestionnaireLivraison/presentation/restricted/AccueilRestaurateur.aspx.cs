@@ -27,5 +27,10 @@ namespace GestionnaireLivraison.presentation
         {
             vuesEntrepreneur.ActiveViewIndex = Int32.Parse(e.Item.Value);
         }
+
+        protected void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

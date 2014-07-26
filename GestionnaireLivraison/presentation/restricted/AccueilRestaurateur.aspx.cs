@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GestionnaireLivraison.model;
 
 namespace GestionnaireLivraison.presentation
 {
@@ -30,7 +31,25 @@ namespace GestionnaireLivraison.presentation
 
         protected void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-            
+            RadioButton radio = (RadioButton)sender;
+            if (radio.Checked)
+            {
+                model.Commande commande = new model.Commande() {Id = radio.GroupName.ToObjectId() };
+                commande.Select();
+                switch (radio.ID)
+                {
+                    case "radPassee":
+                        commande.Statut = EnumCommandeStatut.Passee.ToString();
+                        break;
+                    case "radEnPreparation":
+                        commande.Statut = EnumCommandeStatut.EnPreparation.ToString();
+                        break;
+                    case "radPrete":
+                        commande.Statut = EnumCommandeStatut.Prete.ToString();
+                        break;
+                }
+                commande.Update();
+            }
         }
     }
 }

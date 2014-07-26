@@ -146,13 +146,13 @@
                                                 <asp:Label ID="DateCreationLabel" runat="server" Text='<%# Eval("DateCreation") %>' />
                                             </td>
                                             <td>
-                                                <asp:RadioButton ID="radPassee" runat="server" Checked='<%# (int)Eval("Statut") == 1 %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
+                                                <asp:RadioButton ID="radPassee" runat="server" Checked='<%# String.Equals(Eval("Statut"), "Passee") %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
                                             </td>
                                             <td>
-                                                <asp:RadioButton ID="radEnPreparation" runat="server" Checked='<%# (int)Eval("Statut") == 0 %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
+                                                <asp:RadioButton ID="radEnPreparation" runat="server" Checked='<%# String.Equals(Eval("Statut"), "EnPreparation") %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
                                             </td>
                                             <td>
-                                                <asp:RadioButton ID="radPrete" runat="server" Checked='<%# (int)Eval("Statut") == 2 %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
+                                                <asp:RadioButton ID="radPrete" runat="server" Checked='<%# String.Equals(Eval("Statut"), "Prete") %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
                                             </td>
                                         </tr>
                                     </ItemTemplate>
@@ -187,13 +187,13 @@
                                                 <asp:Label ID="DateCreationLabel" runat="server" Text='<%# Eval("DateCreation") %>' />
                                             </td>
                                             <td>
-                                                <asp:RadioButton ID="radPassee" runat="server" Checked='<%# (int)Eval("Statut") == 1 %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
+                                                <asp:RadioButton ID="radPassee" runat="server" Checked='<%# String.Equals(Eval("Statut"), "Passee") %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
                                             </td>
                                             <td>
-                                                <asp:RadioButton ID="radEnPreparation" runat="server" Checked='<%# (int)Eval("Statut") == 0 %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
+                                                <asp:RadioButton ID="radEnPreparation" runat="server" Checked='<%# String.Equals(Eval("Statut"), "EnPreparation") %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
                                             </td>
                                             <td>
-                                                <asp:RadioButton ID="radPrete" runat="server" Checked='<%# (int)Eval("Statut") == 2 %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
+                                                <asp:RadioButton ID="radPrete" runat="server" Checked='<%# String.Equals(Eval("Statut"), "Prete") %>' AutoPostBack="true" OnCheckedChanged="radioButton_CheckedChanged" GroupName='<%# Eval("Id") %>' />
                                             </td>
                                         </tr>
                                         <tr>

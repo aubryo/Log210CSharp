@@ -36,18 +36,22 @@ namespace GestionnaireLivraison.presentation
 
         protected void btnPoursuivre_Click(object sender, EventArgs e)
         {
-            model.Commande commande = new model.Commande() { ClientId = Request.QueryString["Id"].ToObjectId(), DateCreation = DateTime.Now };
-            commande.Insert();
-
-            foreach (model.LigneCommande ln in (List<model.LigneCommande>)Session[unsavedLigneCommande])
+            if (lvRestaurant.SelectedIndex != -1 && ((List<model.LigneCommande>)Session[unsavedLigneCommande]).Count != 0)
             {
-                ln.CommandeId = commande.Id;
-                ln.Insert();
+                model.Commande commande = new model.Commande() { ClientId = Request.QueryString["Id"].ToObjectId(), DateCreation = DateTime.Now };
+                commande.RestaurantId = lvRestaurant.SelectedDataKey.Value.ToString().ToObjectId();
+                commande.Insert();
+
+                foreach (model.LigneCommande ln in (List<model.LigneCommande>)Session[unsavedLigneCommande])
+                {
+                    ln.CommandeId = commande.Id;
+                    ln.Insert();
+                }
+
+                ((List<model.LigneCommande>)Session[unsavedLigneCommande]).Clear();
+
+                Response.Redirect("~/presentation/restricted/CompleterCommande.aspx?Id=" + commande.Id.ToString(), true);
             }
-
-            ((List<model.LigneCommande>)Session[unsavedLigneCommande]).Clear();
-
-            Response.Redirect("~/presentation/restricted/CompleterCommande.aspx?Id=" + commande.Id.ToString(), true);
         }
     }
 }

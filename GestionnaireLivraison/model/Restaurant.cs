@@ -23,11 +23,13 @@ namespace GestionnaireLivraison.model
 
         private AccesRestaurant accesRestaurant;
         private AccesMenu accesMenu;
+        private AccesCommande accesCommande;
 
         public Restaurant()
         {
             this.accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
             this.accesMenu = new AccesMenu(DataBases.NomDataBase());
+            this.accesCommande = new AccesCommande(DataBases.NomDataBase());
         }
 
         public void Select()
@@ -75,6 +77,11 @@ namespace GestionnaireLivraison.model
             }
             accesRestaurant.Delete(this);
 
+        }
+
+        public List<Commande> GetCommandes()
+        {
+            return accesCommande.Select(this);
         }
 
     }

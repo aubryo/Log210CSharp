@@ -56,5 +56,12 @@ namespace GestionnaireLivraison.controleur
             commande.Update();
             return commande;
         }
+
+        public static List<Commande> GetCommandes(string restaurantId)
+        {
+            Restaurant resto = new Restaurant() { Id = new ObjectId(restaurantId) };
+            resto.Select();
+            return resto.GetCommandes();
+        }
     }
 }

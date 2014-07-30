@@ -46,6 +46,15 @@ namespace GestionnaireLivraison.mongoDB
             return true;
         }
 
+        public bool LivreurExiste()
+        {
+            var coll = db.GetCollection<Livreur>(TableName);
+            var selectQuery = Query<Livreur>.EQ(i => i.TypeCompte, EnumTypeCompte.Livreur);
+            var livreur = coll.Find(selectQuery).ToList<Livreur>();
+            if (livreur.Count == 0) return false;
+            return true;
+        }
+
         public List<Restaurateur> SelectAllRestaurateurs()
         {
             var coll = db.GetCollection<Restaurateur>(TableName);

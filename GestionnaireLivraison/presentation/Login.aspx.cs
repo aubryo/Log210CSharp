@@ -24,6 +24,7 @@ namespace GestionnaireLivraison
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             model.GestionnaireLivraison.SetEntrepreneurFirstTime();
+            model.GestionnaireLivraison.SetLivreurFirstTime();
             ICompte compte = ControleurLogin.ValidateUser(txtCourriel.Text, txtMotDePasse.Text);
             if (compte != null)
             {

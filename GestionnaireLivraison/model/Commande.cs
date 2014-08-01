@@ -28,6 +28,7 @@ namespace GestionnaireLivraison.model
         }
         public DateTime DateLivraison { get; set; }
         public ObjectId AdresseId { get; set; }
+        public ObjectId LivreurId { get; set; }
         public ObjectId ClientId { get; set; }
         public ObjectId RestaurantId { get; set; }
 
@@ -69,6 +70,7 @@ namespace GestionnaireLivraison.model
                 this.Statut = newData.Statut;
                 this.DateLivraison = newData.DateLivraison;
                 this.AdresseId = newData.AdresseId;
+                this.LivreurId = newData.LivreurId;
                 this.ClientId = newData.ClientId;
                 this.RestaurantId = newData.RestaurantId;
             }

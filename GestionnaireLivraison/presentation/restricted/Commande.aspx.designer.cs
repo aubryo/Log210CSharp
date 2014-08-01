@@ -13,24 +13,6 @@ namespace GestionnaireLivraison.presentation {
     public partial class Commande {
         
         /// <summary>
-        /// lblTitre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitre;
-        
-        /// <summary>
-        /// lblListRestaurants control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblListRestaurants;
-        
-        /// <summary>
         /// odsRestaurants control.
         /// </summary>
         /// <remarks>
@@ -47,14 +29,5 @@ namespace GestionnaireLivraison.presentation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvRestaurant;
-        
-        /// <summary>
-        /// btnPoursuivre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPoursuivre;
     }
 }

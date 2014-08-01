@@ -15,16 +15,17 @@ namespace GestionnaireLivraison.presentation
         private string textbtnCreation = "Créer compte";
         private string textbtnModification = "Modifier compte";
         private string textbtnConfirmation = "Accepter le(s) changement(s)";
+        private string clientID = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string id = Request.QueryString["Id"];
-            isNouveauCompte = id == null;
+            clientID = Request.QueryString["Id"];
+            isNouveauCompte = clientID == null;
             if (!IsPostBack)
             {
                 if (!isNouveauCompte)
                 {
-                    Client client = new Client(new Compte() { Id = id.ToObjectId() });
+                    Client client = new Client(new Compte() { Id = clientID.ToObjectId() });
                     client.Select();
                     SetClientData(client);
                     etatModification();
@@ -84,10 +85,8 @@ namespace GestionnaireLivraison.presentation
 
         protected void btnCreerCompte_Click(object sender, EventArgs e)
         {
-            //TODO faire la validation pour le form au complet
-            if (model.GestionnaireLivraison.IsCourrielUnique(txtCourriel.Text))
-            {
-                valCourrielUnique.IsValid = true;
+                //TODO faire la validation pour le form au complet
+                //Pas important de valider le courriel s'il est unique, car il est impossible de le modifier
                 if (btnCreerCompte.Text.Equals(textbtnCreation) || btnCreerCompte.Text.Equals(textbtnModification))
                 {
                     setInfo();
@@ -98,11 +97,6 @@ namespace GestionnaireLivraison.presentation
                     Client client = SaveClient();
                     Response.Redirect("~/presentation/restricted/AccueilClient.aspx?Id=" + client.Id.ToString(), true);
                 }
-            }
-            else
-            {
-                valCourrielUnique.IsValid = false;
-            }
 
         }
 
@@ -174,6 +168,11 @@ namespace GestionnaireLivraison.presentation
             lblConfNumeroTel.Text = txtNumeroTel.Text;
             lblConfCourriel.Text = txtCourriel.Text;
             lblConfMotDePasse.Text = txtMotDePasse.Text;
+        }
+
+        protected void lnkRetour_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/presentation/restricted/AccueilClient.aspx?Id=" + clientID);
         }
     }
 }

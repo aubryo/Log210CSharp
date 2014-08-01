@@ -346,15 +346,6 @@ namespace GestionnaireLivraison.presentation {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator7;
         
         /// <summary>
-        /// valCourrielUnique control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valCourrielUnique;
-        
-        /// <summary>
         /// lblMotDePasse control.
         /// </summary>
         /// <remarks>
@@ -398,5 +389,14 @@ namespace GestionnaireLivraison.presentation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreerCompte;
+        
+        /// <summary>
+        /// lnkRetour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkRetour;
     }
 }

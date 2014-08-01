@@ -27,6 +27,8 @@ namespace GestionnaireLivraison.presentation
             Adresse adresse = new Adresse() { Id = client.AdresseId };
             adresse.Select();
 
+            lblBonjourNom.Text = client.Nom;
+            lblBonjourPrenom.Text = client.Prenom;
             lblClientNom.Text = client.Nom;
             lblClientPrenom.Text = client.Prenom;
             lblClientNumeroRue.Text = adresse.NoRue;
@@ -37,12 +39,12 @@ namespace GestionnaireLivraison.presentation
             lblClientCourriel.Text = client.Courriel;
         }
 
-        protected void btnCommander_Click(object sender, EventArgs e)
+        protected void lnkCommander_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/presentation/restricted/Commande.aspx?Id=" + Request.QueryString["Id"], true);
         }
 
-        protected void btnModifier_Click(object sender, EventArgs e)
+        protected void lnkModifier_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/presentation/Client.aspx?Id=" + Request.QueryString["Id"], true);
         }

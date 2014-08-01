@@ -49,22 +49,22 @@ namespace GestionnaireLivraison.presentation {
         protected global::System.Web.UI.WebControls.Label lblFaire;
         
         /// <summary>
-        /// btnCommander control.
+        /// lnkCommander control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCommander;
+        protected global::System.Web.UI.WebControls.LinkButton lnkCommander;
         
         /// <summary>
-        /// btnModifier control.
+        /// lnkModifier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModifier;
+        protected global::System.Web.UI.WebControls.LinkButton lnkModifier;
         
         /// <summary>
         /// lblNom control.

@@ -38,6 +38,15 @@ namespace GestionnaireLivraison.controleur
             return commande.GetListClientAdresses();
         }
 
+        public static Adresse GetAdresse(string Id)
+        {
+            Commande commande = new Commande() { Id = new ObjectId(Id) };
+            commande.Select();
+            Adresse adress = new Adresse() { Id = commande.AdresseId };
+            adress.Select();
+            return adress;
+        }
+
         public static List<LigneCommande> GetLigneCommandes(string commandeId)
         {
             Commande commande = new Commande() { Id = new ObjectId(commandeId) };
@@ -62,6 +71,16 @@ namespace GestionnaireLivraison.controleur
             Restaurant resto = new Restaurant() { Id = new ObjectId(restaurantId) };
             resto.Select();
             return resto.GetCommandes();
+        }
+
+        public static List<Commande> GetCommandesPrete()
+        {
+            return model.GestionnaireLivraison.GetCommandePrete();
+        }
+
+        public static List<Commande> GetCommandesAcceptee()
+        {
+            return model.GestionnaireLivraison.GetCommandeAcceptee();
         }
     }
 }

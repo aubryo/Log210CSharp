@@ -6,6 +6,7 @@ using GestionnaireLivraison.model;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using MongoDB.Driver.Builders;
+using MongoDB.Bson;
 
 namespace GestionnaireLivraison.mongoDB
 {
@@ -26,6 +27,25 @@ namespace GestionnaireLivraison.mongoDB
                               where commande.RestaurantId == restaurant.Id && commande.NoCommande != null && !commande.NoCommande.Equals("") && commande.Statut != EnumCommandeStatut.Acceptee.ToString()
                               select commande).ToList<Commande>();
 
+            return commandes;
+        }
+
+        public List<Commande> SelectCommandePrete()
+        {
+            var coll = db.GetCollection<Commande>(TableName);
+            var commandes = (from commande in coll.AsQueryable<Commande>()
+                             where commande.NoCommande != null && !commande.NoCommande.Equals("") && commande.Statut == EnumCommandeStatut.Prete.ToString()
+                             select commande).ToList<Commande>();
+
+            return commandes;
+        }
+
+        public List<Commande> SelectCommandeAcceptee()
+        {
+            var coll = db.GetCollection<Commande>(TableName);
+            var commandes = (from commande in coll.AsQueryable<Commande>()
+                             where commande.NoCommande != null && !commande.NoCommande.Equals("") && commande.Statut == EnumCommandeStatut.Acceptee.ToString()
+                             select commande).ToList<Commande>();
             return commandes;
         }
 

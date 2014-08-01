@@ -29,7 +29,7 @@ namespace GestionnaireLivraison.presentation
 
         }
 
-        protected void btnAjoutPlat_Click(object sender, EventArgs e)
+        protected void lnkAjoutPlat_Click(object sender, EventArgs e)
         {
             if (txtNomPlat.Text == "" || txtPrix.Text == "")
             {

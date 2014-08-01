@@ -3,7 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
-    <div>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div>
         <div>
             <asp:Label ID="lblTitre" runat="server" Text="Gestionnaire de livraison"></asp:Label>
             <br />
@@ -34,7 +37,7 @@
                             </div>
                         </LayoutTemplate>
                         <EmptyDataTemplate>
-                            No data was returned.
+                            Aucun restaurant.
                         </EmptyDataTemplate>
                         <ItemSeparatorTemplate>
                             <br />
@@ -49,16 +52,16 @@
                             <li style="">Nom:
                                 <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
                                 <br />
-                                NoTelephone:
+                                Numéro de téléphone:
                                 <asp:Label ID="NoTelephoneLabel" runat="server" Text='<%# Eval("NoTelephone") %>' />
                                 <br />
-                                NoRue:
+                                Numéro de la Rue:
                                 <asp:Label ID="NoRueLabel" runat="server" Text='<%# Eval("NoRue") %>' />
                                 <br />
-                                CodePostal:
+                                Code Postal:
                                 <asp:Label ID="CodePostalLabel" runat="server" Text='<%# Eval("CodePostal") %>' />
                                 <br />
-                                NomRue:
+                                Nom de la Rue:
                                 <asp:Label ID="NomRueLabel" runat="server" Text='<%# Eval("NomRue") %>' />
                                 <br />
                                 Website:
@@ -133,7 +136,7 @@
                                     <EmptyDataTemplate>
                                         <table id="Table1" runat="server" style="">
                                             <tr>
-                                                <td>No data was returned.</td>
+                                                <td>Aucune commande pour le moment.</td>
                                             </tr>
                                         </table>
                                     </EmptyDataTemplate>
@@ -206,7 +209,7 @@
                                                 <EmptyDataTemplate>
                                                     <table id="Table1" runat="server" style="">
                                                         <tr>
-                                                            <td>No data was returned.</td>
+                                                            <td>Aucun article dans votre commande pour le moment.</td>
                                                         </tr>
                                                     </table>
                                                 </EmptyDataTemplate>
@@ -258,4 +261,7 @@
             </asp:MultiView>
         </div>
     </div>
+    </div>
+</div>
+</div>
 </asp:Content>

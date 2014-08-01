@@ -34,7 +34,7 @@ namespace GestionnaireLivraison.presentation
             }
         }
 
-        protected void btnPoursuivre_Click(object sender, EventArgs e)
+        protected void lnkPoursuivre_Click(object sender, EventArgs e)
         {
             if (lvRestaurant.SelectedIndex != -1 && ((List<model.LigneCommande>)Session[unsavedLigneCommande]).Count != 0)
             {

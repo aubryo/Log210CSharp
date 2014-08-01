@@ -50,14 +50,14 @@
         <asp:Label ID="lblConfCourriel" runat="server" Text=""></asp:Label>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="*"  ForeColor="Red" ControlToValidate="txtCourriel"></asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="Format invalide (ex: exemple@exemple.com)" ForeColor="Red"  ControlToValidate="txtCourriel" ValidationExpression="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"></asp:RegularExpressionValidator>
-        <asp:CustomValidator ID="valCourrielUnique" runat="server" ErrorMessage="Un compte est déjà associé à ce courriel" ControlToValidate="txtCourriel" ForeColor="Red"></asp:CustomValidator>
         <br />
         <asp:Label ID="lblMotDePasse" runat="server" Text="Mot de passe : "></asp:Label>
-        <asp:TextBox ID="txtMotDePasse" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtMotDePasse" CssClass="form-control" runat="server"></asp:TextBox>
         <asp:Label ID="lblConfMotDePasse" runat="server" Text=""></asp:Label>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="*"  ForeColor="Red" ControlToValidate="txtMotDePasse"></asp:RequiredFieldValidator>
         <br />
-        <asp:Button ID="btnCreerCompte" CssClass="btn btn-primary" runat="server" Text="Créer compte" OnClick="btnCreerCompte_Click" />
+        <asp:Button ID="btnCreerCompte" CssClass="btn btn-success" runat="server" Text="Créer compte" OnClick="btnCreerCompte_Click" />
+        <asp:LinkButton ID="lnkRetour" CssClass="btn btn-primary" runat="server" OnClick="lnkRetour_Click"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Retour</asp:LinkButton>
     </div>
 </div>
 </div>

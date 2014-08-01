@@ -3,17 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
-    <div>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
         <asp:label id="lblBonjour" runat="server" text="Bonjour "></asp:label>
-        <asp:label id="lblBonjourPrenom" runat="server" text="empty"></asp:label>
-        &nbsp;<asp:label id="lblBonjourNom" runat="server" text="empty"></asp:label>
+        <asp:label id="lblBonjourPrenom" runat="server" text=""></asp:label>
+        <asp:label id="lblBonjourNom" runat="server" text=""></asp:label>
         <br />
-        <asp:label id="lblFaire" runat="server" text="Que voulez-vous faire?"></asp:label>
         <br />
-        <asp:button id="btnCommander" runat="server" text="Passer une commande" OnClick="btnCommander_Click" />
-        <asp:button id="btnModifier" runat="server" text="Modifier mon profil" OnClick="btnModifier_Click" />
-
+        <strong><asp:label id="lblFaire" runat="server" text="Que voulez-vous faire?"></asp:label></strong>
+        <br />
+        <asp:LinkButton ID="lnkCommander" CssClass="btn btn-success" runat="server" OnClick="lnkCommander_Click"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;Passer une commande</asp:LinkButton>
+        <asp:LinkButton ID="lnkModifier" CssClass="btn btn-primary" runat="server" OnClick="lnkModifier_Click"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Modifier mon profil</asp:LinkButton>
+        <br />
         <div id="ClientInfo">
+            <h4>Vos informations</h4>
+            <hr />
         <asp:label id="lblNom" runat="server" text="Nom : "></asp:label>
         <asp:label id="lblClientNom" runat="server"></asp:label>
         <br />
@@ -37,7 +42,8 @@
         <br />
         <asp:label id="lblCourriel" runat="server" text="Courriel : "></asp:label>
         <asp:label id="lblClientCourriel" runat="server"></asp:label>
-        </div>
-
     </div>
+</div>
+</div>
+</div>
 </asp:Content>

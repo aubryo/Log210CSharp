@@ -13,6 +13,15 @@ namespace GestionnaireLivraison.presentation {
     public partial class AccueilLivreur {
         
         /// <summary>
+        /// hiddenLivreurID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenLivreurID;
+        
+        /// <summary>
         /// lblPrenom control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,41 @@ namespace GestionnaireLivraison.presentation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCodePostal;
+        
+        /// <summary>
+        /// odsCommande control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsCommande;
+        
+        /// <summary>
+        /// lvCommandes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvCommandes;
+        
+        /// <summary>
+        /// odsCommandeCarnet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsCommandeCarnet;
+        
+        /// <summary>
+        /// lvCommandesAcceptee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvCommandesAcceptee;
     }
 }

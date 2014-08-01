@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Globalization;
 using GestionnaireLivraison.mongoDB;
+using MongoDB.Bson;
 
 namespace GestionnaireLivraison.model
 {
@@ -20,6 +21,18 @@ namespace GestionnaireLivraison.model
         {
             AccesRestaurant accesRestaurant = new AccesRestaurant(DataBases.NomDataBase());
             return accesRestaurant.SelectSansRestaurateurID();
+        }
+
+        public static List<Commande> GetCommandePrete()
+        {
+            AccesCommande accesCommande = new AccesCommande(DataBases.NomDataBase());
+            return accesCommande.SelectCommandePrete();
+        }
+
+        public static List<Commande> GetCommandeAcceptee()
+        {
+            AccesCommande accesCommande = new AccesCommande(DataBases.NomDataBase());
+            return accesCommande.SelectCommandeAcceptee();
         }
 
         public static List<Restaurateur> GetRestaurateurs()

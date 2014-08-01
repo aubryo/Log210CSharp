@@ -3,13 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
-    <asp:Label ID="lblTitre" runat="server" Text="Passer une commande"></asp:Label>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <h1>Passer une commande</h1>
+        <hr />
     <br />
-    <asp:Label ID="lblListRestaurants" runat="server" Text="List des restaurants"></asp:Label><br />
+
+        <h3>Liste des restaurants</h3>
+        <br />
     <asp:ObjectDataSource ID="odsRestaurants" runat="server" SelectMethod="GetRestaurantsCommandable" TypeName="GestionnaireLivraison.controleur.ControleurRestaurants"></asp:ObjectDataSource>
     <asp:ListView ID="lvRestaurant" runat="server" DataKeyNames="Id" DataSourceID="odsRestaurants">
         <EmptyDataTemplate>
-            No data was returned.
+            Aucun restaurant.
         </EmptyDataTemplate>
         <ItemSeparatorTemplate>
             <br />
@@ -26,6 +32,7 @@
             </ul>
             <div style="">
             </div>
+            <asp:LinkButton ID="lnkPoursuivre" CssClass="btn btn-success" runat="server" OnClick="lnkPoursuivre_Click"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;Poursuivre ma commande</asp:LinkButton>
         </LayoutTemplate>
         <SelectedItemTemplate>
             <li style="">
@@ -38,7 +45,7 @@
                 </asp:ObjectDataSource>
                 <asp:ListView ID="lvMenu" runat="server" DataSourceID="odsMenus" DataKeyNames="Id">
                     <EmptyDataTemplate>
-                        <span>No data was returned.</span>
+                        <span>Aucun menu disponible pour le moment.</span>
                     </EmptyDataTemplate>
                     <ItemTemplate>
                         <span style="">
@@ -66,7 +73,7 @@
                                 <EmptyDataTemplate>
                                     <table id="Table1" runat="server" style="">
                                         <tr>
-                                            <td>No data was returned.</td>
+                                            <td>Aucun plat pour le moment.</td>
                                         </tr>
                                     </table>
                                 </EmptyDataTemplate>
@@ -120,5 +127,8 @@
         </SelectedItemTemplate>
     </asp:ListView>
     <br />
-    <asp:Button ID="btnPoursuivre" runat="server" Text="Poursuivre" OnClick="btnPoursuivre_Click" />
+    </div>
+</div>
+</div>
+
 </asp:Content>
